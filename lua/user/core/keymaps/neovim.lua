@@ -12,6 +12,7 @@ gmap("n", "<C-j>", "<C-w>j", "Navigate to lower window")
 gmap("n", "<C-k>", "<C-w>k", "Navigate to upper window")
 
 -- Split windows
+gmap("n", "<C-\\>", "<C-w>v", "Split window vertically")
 gmap("n", "<leader>sv", "<C-w>v", "Split window vertically")
 gmap("n", "<leader>sh", "<C-w>s", "Split window horizontally")
 gmap("n", "<leader>sm", "<cmd> MaximizerToggle <cr>", "Maximize window")
