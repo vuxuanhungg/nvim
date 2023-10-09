@@ -92,11 +92,15 @@ return {
         lineFoldingOnly = true,
       }
 
+      local on_attach = assign_keymaps
+
       local servers = {
         lua_ls = {
-          Lua = {
-            diagnostics = { globals = { "vim" } },
-            workspace = { checkThirdParty = false },
+          settings = {
+            Lua = {
+              diagnostics = { globals = { "vim" } },
+              workspace = { checkThirdParty = false },
+            },
           },
         },
         html = {},
@@ -104,23 +108,23 @@ return {
         emmet_language_server = {},
         tailwindcss = {},
         jsonls = {
-          json = {
-            schemas = require("schemastore").json.schemas(),
-            validate = { enable = true },
+          settings = {
+            json = {
+              schemas = require("schemastore").json.schemas(),
+              validate = { enable = true },
+            },
           },
         },
         pyright = {},
-        ruff_lsp = {},
+        ruff_lsp = {
+          on_attach = function(client, bufnr)
+            on_attach(client, bufnr)
+
+            -- Disable hover in favor of Pyright
+            client.server_capabilities.hoverProvider = false
+          end,
+        },
       }
-
-      local on_attach = function(client, bufnr)
-        assign_keymaps(client, bufnr)
-
-        if client.name == "ruff_lsp" then
-          -- Disable hover in favor of Pyright
-          client.server_capabilities.hoverProvider = false
-        end
-      end
 
       local mason_lspconfig = require("mason-lspconfig")
 
@@ -130,9 +134,8 @@ return {
           function(server_name)
             require("lspconfig")[server_name].setup({
               capabilities = capabilities,
-              on_attach = on_attach,
-              settings = servers[server_name],
-              filetypes = (servers[server_name] or {}).filetypes,
+              on_attach = (servers[server_name].on_attach or on_attach),
+              settings = servers[server_name].settings or {},
             })
           end,
         },
