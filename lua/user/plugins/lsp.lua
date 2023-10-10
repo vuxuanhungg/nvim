@@ -30,13 +30,13 @@ return {
       priority = 1000,
       autocmd = { enabled = true },
     },
-    event = "VeryLazy",
+    event = "LspAttach",
   },
   {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async" },
     config = require("user.plugins.configs.ufo").config,
-    lazy = false, -- too buggy to lazy load
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     -- LSP progress UI
