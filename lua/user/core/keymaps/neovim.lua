@@ -101,7 +101,7 @@ gmap("n", "<leader>xf", trouble.document_diagnostics, "Current file diagnostics"
 -- Fugitive
 local toggle_fugitive = function()
   if not utils.is_git_repo() then
-    utils.notify("File does not belong to a Git repository", vim.log.levels.ERROR)
+    utils.notify("File does not belong to a Git repository", vim.log.levels.ERROR, { title = "vim-futigive" })
     return
   end
 

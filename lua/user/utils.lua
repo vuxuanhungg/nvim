@@ -14,11 +14,12 @@ M.map = function(bufnr)
   end
 end
 
----@param msg string The notification body
----@param type? number The type of the notification (:help vim.log.levels)
-M.notify = function(msg, type)
+---@param msg string Notification body
+---@param type? number Notification type (:help vim.log.levels)
+---@param opts? table Optional params
+M.notify = function(msg, type, opts)
   vim.schedule(function()
-    vim.notify(msg, type)
+    vim.notify(msg, type, opts)
   end)
 end
 
@@ -40,7 +41,7 @@ M.system_open = function(path)
     cmd = { "open" }
   end
   if not cmd then
-    M.notify("Available system opening tool not found!", vim.log.levels.ERROR)
+    M.notify("Available system opening tool not found", vim.log.levels.ERROR)
   end
   vim.fn.jobstart(vim.fn.extend(cmd, { path or vim.fn.expand("<cfile>") }), { detach = true })
 end
