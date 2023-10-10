@@ -46,7 +46,7 @@ return {
       "famiu/bufdelete.nvim",
     },
     opts = require("user.plugins.configs.bufferline").opts,
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     -- Status line
@@ -68,7 +68,7 @@ return {
   {
     -- Auto set indenting-related options
     "tpope/vim-sleuth",
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     -- Highlight word under cursor
@@ -107,7 +107,7 @@ return {
         tailwind = true,
       },
     },
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     -- Search & replace
@@ -147,6 +147,6 @@ return {
     -- Lock buffer to a window
     "stevearc/stickybuf.nvim",
     opts = {},
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
   },
 }

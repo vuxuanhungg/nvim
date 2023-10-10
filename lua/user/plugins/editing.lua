@@ -8,13 +8,13 @@ return {
     "kylechui/nvim-surround",
     version = "*",
     opts = {},
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
     cond = vim.g.vscode,
   },
   {
     "windwp/nvim-autopairs",
     opts = {},
-    event = "VeryLazy",
+    event = "InsertEnter",
   },
   { "szw/vim-maximizer", cmd = "MaximizerToggle" },
   {
@@ -29,7 +29,7 @@ return {
         pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
       }
     end,
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     "hrsh7th/nvim-cmp",
