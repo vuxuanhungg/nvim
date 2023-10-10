@@ -76,7 +76,11 @@ return {
         end
       end
 
-      ensure_install()
+      if Registry.refresh then
+        Registry.refresh(vim.schedule_wrap(ensure_install))
+      else
+        ensure_install()
+      end
     end
 
     default_setup()
