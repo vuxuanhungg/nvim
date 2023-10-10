@@ -95,7 +95,7 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     opts = {},
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     -- Color highlighter
