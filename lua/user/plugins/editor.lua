@@ -51,7 +51,7 @@ return {
   {
     -- Status line
     "nvim-lualine/lualine.nvim",
-    opts = require("user.plugins.configs.lualine").opts,
+    config = require("user.plugins.configs.lualine").config,
     event = "VeryLazy",
   },
   {
