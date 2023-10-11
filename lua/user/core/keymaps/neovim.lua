@@ -71,20 +71,7 @@ gmap("n", "<C-/>", "<cmd> lua require('Comment.api').toggle.linewise.current() <
 gmap("v", "<C-/>", "<esc><cmd> lua require('Comment.api').toggle.linewise(vim.fn.visualmode()) <cr>", "Toggle comment")
 
 -- Search panel
-local spectre = {
-  toggle = function()
-    require("spectre").toggle()
-  end,
-  search_curr_word = function()
-    require("spectre").open_visual({ select_word = true })
-  end,
-  search_curr_file = function()
-    require("spectre").open_file_search({ select_word = true })
-  end,
-}
-gmap("n", "<leader>S", spectre.toggle, "Toggle Spectre")
-gmap("n", "<leader>sw", spectre.search_curr_word, "Search current word")
-gmap("n", "<leader>sf", spectre.search_curr_file, "Search on current file")
+gmap("n", "<leader>S", "<cmd> Spectre <cr>", "Toggle Spectre")
 
 -- Trouble
 local trouble = {
