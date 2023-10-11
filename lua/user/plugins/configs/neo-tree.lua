@@ -77,12 +77,6 @@ return {
         hide_by_name = { ".git" },
       },
     },
-    source_selector = {
-      sources = {
-        { source = "filesystem" },
-        { source = "buffers" },
-      },
-    },
     event_handlers = {
       ---------- Equalize Window Sizes on Neo-tree Open and Close ----------
       {
