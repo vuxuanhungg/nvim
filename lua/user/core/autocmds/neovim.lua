@@ -61,12 +61,12 @@ autocmd("FileType", {
 })
 
 autocmd("BufWinEnter", {
-  desc = "Make q close help, notify",
+  desc = "Make q close help, notify, fugitive",
   group = augroup("q_close_windows", { clear = true }),
   callback = function(args)
     local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
 
-    if vim.tbl_contains({ "help", "notify" }, buftype) and vim.fn.maparg("q", "n") == "" then
+    if vim.tbl_contains({ "help", "nofile", "nowrite" }, buftype) and vim.fn.maparg("q", "n") == "" then
       vim.keymap.set("n", "q", "<cmd> close <cr>", {
         desc = "Close window",
         buffer = args.buf,
