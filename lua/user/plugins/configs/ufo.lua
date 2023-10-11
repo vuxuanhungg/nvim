@@ -67,6 +67,9 @@ return {
         return ftMap[filetype] or provider_selector(bufnr, filetype, buftype)
       end,
       fold_virt_text_handler = handler,
+      preview = {
+        win_config = { border = "single" },
+      },
     })
   end,
 }
