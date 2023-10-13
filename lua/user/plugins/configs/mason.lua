@@ -20,6 +20,7 @@ return {
         "stylua",
         "prettierd",
         "eslint_d",
+        "black",
       }
 
       local Registry = require("mason-registry")
