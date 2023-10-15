@@ -158,8 +158,9 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   },
   {
+    -- Preview markdown in browser
     "iamcco/markdown-preview.nvim",
-    build = "cd app && npm install",
+    build = "cd app && yarn",
     ft = "markdown",
   },
 }
