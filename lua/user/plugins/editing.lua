@@ -52,11 +52,4 @@ return {
     config = require("user.plugins.configs.which-key").config,
     event = "VeryLazy",
   },
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = require("user.plugins.configs.todo-comments").opts,
-    cmd = { "TodoTrouble", "TodoTelescope" },
-    event = { "BufReadPost", "BufNewFile" },
-  },
 }

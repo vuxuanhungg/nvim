@@ -110,9 +110,12 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   },
   {
-    -- Search & replace
-    "nvim-pack/nvim-spectre",
-    cmd = "Spectre",
+    -- Highlight todos
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = require("user.plugins.configs.todo-comments").opts,
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     "lewis6991/gitsigns.nvim",
@@ -137,6 +140,11 @@ return {
       "Gedit",
     },
     ft = { "fugitive" },
+  },
+  {
+    -- Search & replace
+    "nvim-pack/nvim-spectre",
+    cmd = "Spectre",
   },
   {
     -- Welcome screen
