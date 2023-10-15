@@ -2,7 +2,7 @@
 local use_nls = false
 
 return {
-  -- LSP core stuffs
+  ---------- LSP core stuffs ----------
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -48,7 +48,7 @@ return {
     event = "LspAttach",
   },
 
-  -- Linters, formatters and code actions
+  ---------- Linters, formatters and code actions ----------
   {
     "nvimtools/none-ls.nvim",
     opts = require("user.plugins.configs.null-ls").opts,

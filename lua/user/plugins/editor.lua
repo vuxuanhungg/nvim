@@ -1,4 +1,5 @@
 return {
+  ---------- Global utilities ----------
   {
     -- File explorer
     "nvim-neo-tree/neo-tree.nvim",
@@ -55,16 +56,12 @@ return {
     event = "VeryLazy",
   },
   {
-    -- Symbols outline
-    "stevearc/aerial.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-      "onsails/lspkind.nvim",
-    },
-    config = require("user.plugins.configs.aerial").config,
-    cmd = "AerialToggle",
+    -- Search & replace
+    "nvim-pack/nvim-spectre",
+    cmd = "Spectre",
   },
+
+  ---------- Buffer-scope utilities ----------
   {
     -- Auto set indenting-related options
     "tpope/vim-sleuth",
@@ -98,6 +95,17 @@ return {
     event = { "BufReadPost", "BufNewFile" },
   },
   {
+    -- Symbols outline
+    "stevearc/aerial.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+      "onsails/lspkind.nvim",
+    },
+    config = require("user.plugins.configs.aerial").config,
+    cmd = "AerialToggle",
+  },
+  {
     -- Color highlighter
     "NvChad/nvim-colorizer.lua",
     opts = {
@@ -117,6 +125,8 @@ return {
     cmd = { "TodoTrouble", "TodoTelescope" },
     event = { "BufReadPost", "BufNewFile" },
   },
+
+  ---------- Git ----------
   {
     "lewis6991/gitsigns.nvim",
     opts = require("user.plugins.configs.gitsigns").opts,
@@ -141,26 +151,23 @@ return {
     },
     ft = { "fugitive" },
   },
-  {
-    -- Search & replace
-    "nvim-pack/nvim-spectre",
-    cmd = "Spectre",
-  },
+
+  ---------- Other features (nice to have) ----------
   {
     -- Welcome screen
     "goolord/alpha-nvim",
     config = require("user.plugins.configs.alpha").config,
   },
   {
-    -- Lock buffer to a window
-    "stevearc/stickybuf.nvim",
-    opts = {},
-    event = { "BufReadPost", "BufNewFile" },
-  },
-  {
     -- Preview markdown in browser
     "iamcco/markdown-preview.nvim",
     build = "cd app && yarn",
     ft = "markdown",
+  },
+  {
+    -- HACK: Prevent opening files in a mini window (help, aerial, fugitive, etc.)
+    "stevearc/stickybuf.nvim",
+    opts = {},
+    event = { "BufReadPost", "BufNewFile" },
   },
 }
