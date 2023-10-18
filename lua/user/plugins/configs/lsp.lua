@@ -103,6 +103,7 @@ return {
             },
           },
         },
+        bashls = {},
         html = {},
         cssls = {},
         emmet_language_server = {},

@@ -2,6 +2,7 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
+      sh = { "shfmt" },
       python = { "black" },
       html = { { "prettierd", "prettier" } },
       css = { { "prettierd", "prettier" } },

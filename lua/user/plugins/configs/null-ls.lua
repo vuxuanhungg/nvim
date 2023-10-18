@@ -3,10 +3,13 @@ return {
     local nls = require("null-ls")
     local formatting = nls.builtins.formatting
     local diagnostics = nls.builtins.diagnostics
+    local code_actions = nls.builtins.code_actions
 
     return {
       sources = {
         formatting.stylua,
+        formatting.shfmt,
+        code_actions.shellcheck,
         formatting.prettierd,
         diagnostics.eslint_d,
         formatting.black,

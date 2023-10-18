@@ -18,6 +18,8 @@ return {
     local extra_setup = function()
       local ensure_installed = {
         "stylua",
+        "shfmt",
+        "shellcheck",
         "prettierd",
         "eslint_d",
         "black",
