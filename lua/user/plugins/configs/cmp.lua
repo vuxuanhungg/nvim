@@ -62,5 +62,16 @@ return {
         format = require("lspkind").cmp_format({ mode = "symbol" }),
       },
     })
+
+    ---------- cmdline ----------
+    cmp.setup.cmdline("/", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = { { name = "buffer" } },
+    })
+
+    cmp.setup.cmdline(":", {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = { { name = "path" }, { name = "cmdline" } },
+    })
   end,
 }
