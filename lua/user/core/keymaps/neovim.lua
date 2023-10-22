@@ -2,6 +2,7 @@ local utils = require("user.utils")
 local gmap = utils.map()
 
 gmap("n", "<leader>w", ":w <cr>", "Save buffer")
+gmap("n", "<leader>W", ":noautocmd w <cr>", "Save buffer without formatting")
 gmap("n", "<leader>L", "<cmd> Lazy <cr>", "Lazy")
 gmap("n", "<leader>M", "<cmd> Mason <cr>", "Mason")
 
@@ -19,11 +20,6 @@ gmap("n", "<leader>sm", "<cmd> MaximizerToggle <cr>", "Maximize window")
 gmap("n", "<leader>se", "<C-w>=", "Split window equally")
 
 -- VSCode-like shortcuts
-gmap("i", "<C-s>", function()
-  vim.cmd.write()
-  vim.cmd.startinsert()
-end, "Save buffer")
-gmap("n", "<C-s>", ":w <cr>", "Save buffer")
 gmap("i", "<C-a>", "<esc> ggVG", "Select all")
 
 -- Line editing

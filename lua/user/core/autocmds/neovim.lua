@@ -13,28 +13,6 @@ autocmd("UIEnter", {
   end,
 })
 
-autocmd("BufWinEnter", {
-  desc = "Save buffer without formatting",
-  group = augroup("noautocmd_save", { clear = true }),
-  callback = function(args)
-    local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
-
-    -- Exclude Telescope, Rename, etc.
-    if not vim.tbl_contains({ "prompt" }, buftype) then
-      local save_without_formatting = function()
-        vim.cmd("noautocmd write")
-      end
-
-      vim.keymap.set(
-        "i",
-        "<C-k>s",
-        save_without_formatting,
-        { desc = "Save buffer without formatting", buffer = args.buf, silent = true, nowait = true }
-      )
-    end
-  end,
-})
-
 autocmd("FileType", {
   desc = "Don't list Fugitive as buffer",
   group = augroup("unlist_buffers", { clear = true }),
