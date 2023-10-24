@@ -36,7 +36,7 @@ return {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async" },
     config = require("user.plugins.configs.ufo").config,
-    event = { "BufReadPost", "BufNewFile" },
+    event = "LspAttach",
   },
   {
     -- LSP progress UI
