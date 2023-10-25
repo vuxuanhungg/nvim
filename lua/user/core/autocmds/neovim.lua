@@ -31,6 +31,15 @@ autocmd("FileType", {
   end,
 })
 
+autocmd("FileType", {
+  desc = "Prevent indenting when pressing colon in Python files",
+  group = augroup("python_no_indent_on_colon_press", { clear = true }),
+  pattern = "python",
+  callback = function()
+    vim.opt_local.indentkeys:remove({ "<:>" })
+  end,
+})
+
 autocmd("BufWinEnter", {
   desc = "Make q close help, notify, fugitive",
   group = augroup("q_close_windows", { clear = true }),
