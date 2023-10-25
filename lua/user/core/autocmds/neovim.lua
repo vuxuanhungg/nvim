@@ -40,6 +40,15 @@ autocmd("FileType", {
   end,
 })
 
+autocmd("FileType", {
+  desc = "Don't insert comment leader after pressing o/O",
+  group = augroup("no_insert_comment_leader", { clear = true }),
+  pattern = { "lua", "javascript", "typescript" },
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "o" })
+  end,
+})
+
 autocmd("BufWinEnter", {
   desc = "Make q close help, notify, fugitive",
   group = augroup("q_close_windows", { clear = true }),
