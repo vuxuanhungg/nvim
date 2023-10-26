@@ -36,12 +36,7 @@ return {
   {
     -- Notifications
     "rcarriga/nvim-notify",
-    opts = {
-      stages = "static",
-      timeout = 3000,
-    },
-    init = function()
-      vim.notify = require("notify")
-    end,
+    opts = require("user.plugins.configs.notify").opts,
+    init = require("user.plugins.configs.notify").init,
   },
 }
