@@ -59,9 +59,6 @@ return {
         },
       })
 
-      -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      --   border = "single",
-      -- })
       -- HACK: Remove 'No information available' notification when multiple language servers are active
       vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
         config = config or {}
@@ -99,7 +96,7 @@ return {
         lineFoldingOnly = true,
       }
 
-      local on_attach = assign_keymaps
+      local common_on_attach = assign_keymaps
 
       local servers = {
         lua_ls = {
@@ -133,7 +130,7 @@ return {
             },
           },
           on_attach = function(client, bufnr)
-            on_attach(client, bufnr)
+            common_on_attach(client, bufnr)
 
             -- Disable hover in favor of Pyright
             client.server_capabilities.hoverProvider = false
@@ -169,15 +166,13 @@ return {
         },
       }
 
-      local mason_lspconfig = require("mason-lspconfig")
-
-      mason_lspconfig.setup({
+      require("mason-lspconfig").setup({
         ensure_installed = vim.tbl_keys(servers),
         handlers = {
           function(server_name)
             require("lspconfig")[server_name].setup({
               capabilities = capabilities,
-              on_attach = (servers[server_name].on_attach or on_attach),
+              on_attach = servers[server_name].on_attach or common_on_attach,
               settings = servers[server_name].settings or {},
               init_options = servers[server_name].init_options or {},
             })
