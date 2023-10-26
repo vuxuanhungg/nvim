@@ -81,6 +81,13 @@ return {
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
         border = "single",
       })
+
+      -- HACK: Remove 'Unsupported command' notification when multiple language servers are active
+      vim.lsp.handlers["workspace/executeCommand"] = function(err)
+        if err and err.message == "Unsupported command" then
+          return
+        end
+      end
     end
 
     local setup_servers = function()
@@ -118,11 +125,46 @@ return {
         },
         pyright = {},
         ruff_lsp = {
+          init_options = {
+            settings = {
+              -- Don't hook these two into code actions
+              organizeImports = false,
+              fixAll = false,
+            },
+          },
           on_attach = function(client, bufnr)
             on_attach(client, bufnr)
 
             -- Disable hover in favor of Pyright
             client.server_capabilities.hoverProvider = false
+
+            ---------- Create user commands ----------
+            local organize_imports = function()
+              vim.lsp.buf.execute_command({
+                command = "ruff.applyOrganizeImports",
+                arguments = {
+                  { uri = vim.uri_from_bufnr(0) },
+                },
+              })
+            end
+
+            local auto_fix = function()
+              vim.lsp.buf.execute_command({
+                command = "ruff.applyAutofix",
+                arguments = {
+                  { uri = vim.uri_from_bufnr(0) },
+                },
+              })
+            end
+
+            vim.api.nvim_create_user_command(
+              "RuffOrganizeImports",
+              organize_imports,
+              { desc = "Ruff: Organize Imports" }
+            )
+            vim.api.nvim_create_user_command("RuffAutoFix", auto_fix, { desc = "Ruff: Fix all auto-fixable problems" })
+
+            vim.keymap.set("n", "<A-O>", organize_imports, { desc = "Organize imports", buffer = bufnr })
           end,
         },
       }
@@ -137,6 +179,7 @@ return {
               capabilities = capabilities,
               on_attach = (servers[server_name].on_attach or on_attach),
               settings = servers[server_name].settings or {},
+              init_options = servers[server_name].init_options or {},
             })
           end,
         },
