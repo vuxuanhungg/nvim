@@ -5,7 +5,7 @@ return {
   },
 
   init = function()
-    local silent_messages = { "No information available", "Unsupported command" }
+    local silent_messages = { "No information available" }
 
     vim.notify = function(msg, ...)
       for _, silent in ipairs(silent_messages) do

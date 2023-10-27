@@ -117,20 +117,22 @@ return {
             client.server_capabilities.hoverProvider = false
 
             ---------- Create user commands ----------
+            local ruff_lsp_client = require("lspconfig.util").get_active_client_by_name(bufnr, "ruff_lsp")
+
             local organize_imports = function()
-              vim.lsp.buf.execute_command({
+              ruff_lsp_client.request("workspace/executeCommand", {
                 command = "ruff.applyOrganizeImports",
                 arguments = {
-                  { uri = vim.uri_from_bufnr(0) },
+                  { uri = vim.uri_from_bufnr(bufnr) },
                 },
               })
             end
 
             local auto_fix = function()
-              vim.lsp.buf.execute_command({
+              ruff_lsp_client.request("workspace/executeCommand", {
                 command = "ruff.applyAutofix",
                 arguments = {
-                  { uri = vim.uri_from_bufnr(0) },
+                  { uri = vim.uri_from_bufnr(bufnr) },
                 },
               })
             end
