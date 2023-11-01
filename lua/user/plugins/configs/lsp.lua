@@ -151,6 +151,7 @@ return {
             vim.keymap.set("n", "<A-O>", organize_imports, { desc = "Organize imports", buffer = bufnr })
           end,
         },
+        clangd = {},
       }
 
       require("mason-lspconfig").setup({
