@@ -18,6 +18,7 @@ opt.wrap = true -- word wrap
 opt.breakindent = true
 opt.linebreak = true
 opt.shortmess:append({ I = true, s = true }) -- disable startup & search messages
+opt.fillchars = opt.fillchars + "eob: " -- hide tilde "~" on empty lines
 
 -- Behaviors
 opt.mouse = "a"
