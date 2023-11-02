@@ -43,7 +43,7 @@ autocmd("FileType", {
 autocmd("FileType", {
   desc = "Don't insert comment leader after pressing o/O",
   group = augroup("no_insert_comment_leader", { clear = true }),
-  pattern = { "lua", "javascript", "typescript" },
+  pattern = { "c", "lua", "javascript", "typescript" },
   callback = function()
     vim.opt_local.formatoptions:remove({ "o" })
   end,
