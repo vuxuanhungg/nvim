@@ -134,22 +134,9 @@ return {
   },
   {
     "tpope/vim-fugitive",
-    cmd = {
-      "G",
-      "Git",
-      "Gdiffsplit",
-      "Gread",
-      "Gwrite",
-      "Ggrep",
-      "GMove",
-      "GDelete",
-      "GBrowse",
-      "GRemove",
-      "GRename",
-      "Glgrep",
-      "Gedit",
-    },
-    ft = { "fugitive" },
+    config = require("user.plugins.configs.fugitive").config,
+    cmd = require("user.plugins.configs.fugitive").cmd,
+    ft = "fugitive",
   },
 
   ---------- Other features (nice to have) ----------
