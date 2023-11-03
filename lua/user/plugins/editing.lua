@@ -46,7 +46,7 @@ return {
       "onsails/lspkind.nvim",
     },
     config = require("user.plugins.configs.cmp").config,
-    event = "InsertEnter",
+    event = { "InsertEnter", "CmdlineEnter" },
   },
   {
     "folke/which-key.nvim",
