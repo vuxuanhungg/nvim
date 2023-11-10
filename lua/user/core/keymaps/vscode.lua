@@ -15,17 +15,6 @@ local workbench = {
     vim.fn.VSCodeNotify("workbench.action.evenEditorWidths")
   end,
 
-  -- Buffer
-  prev_buffer = function()
-    vim.fn.VSCodeNotify("workbench.action.previousEditor")
-  end,
-  next_buffer = function()
-    vim.fn.VSCodeNotify("workbench.action.nextEditor")
-  end,
-  close_buffer = function()
-    vim.fn.VSCodeNotify("workbench.action.closeActiveEditor")
-  end,
-
   -- Telescope
   find_file = function()
     vim.fn.VSCodeNotify("workbench.action.quickOpen")
@@ -88,11 +77,6 @@ gmap("n", "<leader>sv", workbench.split_vertically, "Split window vertically")
 gmap("n", "<leader>sh", workbench.split_horizontally, "Split window horizontally")
 gmap("n", "<leader>sm", workbench.maximize_window, "Maximize window")
 gmap("n", "<leader>se", workbench.split_equally, "Split window equally")
-
--- Buffer
-gmap("n", "H", workbench.prev_buffer, "Prev buffer")
-gmap("n", "L", workbench.next_buffer, "Next buffer")
-gmap("n", "Q", workbench.close_buffer, "Close buffer")
 
 -- Telescope
 gmap("n", "<leader>ff", workbench.find_file, "Find file")
