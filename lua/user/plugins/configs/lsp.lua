@@ -152,6 +152,7 @@ return {
           end,
         },
         clangd = {},
+        prismals = {},
       }
 
       require("mason-lspconfig").setup({

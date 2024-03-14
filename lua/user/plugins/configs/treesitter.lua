@@ -13,6 +13,7 @@ return {
         "markdown",
         "markdown_inline",
         "python",
+        "prisma",
       },
       auto_install = false,
       highlight = { enable = true },
