@@ -29,7 +29,7 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<CR>"] = cmp.mapping.confirm({
           behavior = cmp.ConfirmBehavior.Replace,
-          select = false,
+          select = true,
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
