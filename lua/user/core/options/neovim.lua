@@ -8,13 +8,16 @@ g.loaded_netrwPlugin = 1
 -- Appearance
 opt.termguicolors = true
 opt.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time
-opt.showmode = false -- hide command line unless needed
+opt.showmode = false -- hide mode (relevant if cmdheight > 0)
 opt.cmdheight = 0 -- hide command line unless needed
 opt.laststatus = 3 -- only show status line on the focused window
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
-opt.wrap = true -- word wrap
+opt.wrap = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
 opt.breakindent = true
 opt.linebreak = true
 opt.shortmess:append({ I = true, s = true }) -- disable startup & search messages
