@@ -81,7 +81,13 @@ return {
         lineFoldingOnly = true,
       }
 
-      local common_on_attach = assign_keymaps
+      local common_on_attach = function(client, bufnr)
+        assign_keymaps(client, bufnr)
+
+        if client.server_capabilities["documentSymbolProvider"] and client.name ~= "volar" then
+          require("nvim-navic").attach(client, bufnr)
+        end
+      end
 
       local servers = {
         lua_ls = {
@@ -153,6 +159,7 @@ return {
         },
         clangd = {},
         prismals = {},
+        volar = {},
       }
 
       require("mason-lspconfig").setup({
@@ -171,7 +178,14 @@ return {
 
       require("typescript-tools").setup({
         capabilities = capabilities,
-        on_attach = function(_, bufnr)
+        on_attach = function(client, bufnr)
+          require("nvim-navic").attach(client, bufnr)
+
+          -- HACK: Temporary fix for semantic tokens issue in .vue files
+          client.server_capabilities.semanticTokensProvider = false
+
+          -- NOTE: Below commands do not work in .vue files
+          -- until after opening a JS/TS file
           local map = vim.keymap.set
           map("n", "<A-O>", "<cmd> TSToolsOrganizeImports <cr>", { desc = "Organize imports", buffer = bufnr })
           map(
@@ -181,6 +195,18 @@ return {
             { desc = "Add missing imports", buffer = bufnr }
           )
         end,
+        settings = {
+          tsserver_plugins = {
+            "@vue/typescript-plugin",
+          },
+        },
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+          "vue",
+        },
       })
     end
 
