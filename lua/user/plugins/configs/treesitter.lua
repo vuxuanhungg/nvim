@@ -11,6 +11,7 @@ return {
         "typescript",
         "tsx",
         "vue",
+        "pug",
         "markdown",
         "markdown_inline",
         "python",
