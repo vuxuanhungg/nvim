@@ -159,7 +159,12 @@ return {
         },
         clangd = {},
         prismals = {},
-        volar = {},
+        volar = {
+          on_attach = function()
+            -- let vtsls handle instead
+          end,
+        },
+        vtsls = {},
       }
 
       require("mason-lspconfig").setup({
@@ -176,36 +181,45 @@ return {
         },
       })
 
-      require("typescript-tools").setup({
+      -- WARN: Duplicate setup of vtsls
+      require("lspconfig").vtsls.setup({
         capabilities = capabilities,
         on_attach = function(client, bufnr)
-          require("nvim-navic").attach(client, bufnr)
+          common_on_attach(client, bufnr)
 
-          -- HACK: Temporary fix for semantic tokens issue in .vue files
-          client.server_capabilities.semanticTokensProvider = false
+          local actions = {
+            rename_file = function()
+              require("vtsls").commands.rename_file()
+            end,
+            organize_imports = function()
+              require("vtsls").commands.organize_imports()
+            end,
+            add_missing_imports = function()
+              require("vtsls").commands.add_missing_imports()
+            end,
+          }
 
-          -- NOTE: Below commands do not work in .vue files
-          -- until after opening a JS/TS file
           local map = vim.keymap.set
-          map("n", "<A-O>", "<cmd> TSToolsOrganizeImports <cr>", { desc = "Organize imports", buffer = bufnr })
-          map(
-            "n",
-            "<leader>ai",
-            "<cmd> TSToolsAddMissingImports <cr>",
-            { desc = "Add missing imports", buffer = bufnr }
-          )
+          map("n", "<leader>rf", actions.rename_file, { desc = "Rename file", buffer = bufnr })
+          map("n", "<A-O>", actions.organize_imports, { desc = "Organize imports", buffer = bufnr })
+          map("n", "<leader>ai", actions.add_missing_imports, { desc = "Add missing imports", buffer = bufnr })
         end,
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         settings = {
-          tsserver_plugins = {
-            "@vue/typescript-plugin",
+          vtsls = {
+            tsserver = {
+              globalPlugins = {
+                {
+                  name = "@vue/typescript-plugin",
+                  location = require("mason-registry").get_package("vue-language-server"):get_install_path()
+                    .. "/node_modules/@vue/language-server",
+                  languages = { "vue" },
+                  configNamespace = "typescript",
+                  enableForWorkspaceTypeScriptVersions = true,
+                },
+              },
+            },
           },
-        },
-        filetypes = {
-          "javascript",
-          "javascriptreact",
-          "typescript",
-          "typescriptreact",
-          "vue",
         },
       })
     end
