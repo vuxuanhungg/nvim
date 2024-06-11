@@ -70,16 +70,7 @@ gmap("v", "<C-/>", "<esc><cmd> lua require('Comment.api').toggle.linewise(vim.fn
 gmap("n", "<leader>S", "<cmd> Spectre <cr>", "Toggle Spectre")
 
 -- Trouble
-local trouble = {
-  workspace_diagnostics = function()
-    require("trouble").toggle("workspace_diagnostics")
-  end,
-  document_diagnostics = function()
-    require("trouble").toggle("document_diagnostics")
-  end,
-}
-gmap("n", "<leader>xw", trouble.workspace_diagnostics, "Workspace diagnostics")
-gmap("n", "<leader>xf", trouble.document_diagnostics, "Current file diagnostics")
+gmap("n", "<leader>x", "<cmd> Trouble <cr>", "Open Trouble")
 
 -- Fugitive
 local toggle_fugitive = function()
