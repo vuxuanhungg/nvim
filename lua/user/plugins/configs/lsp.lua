@@ -90,138 +90,44 @@ return {
       end
 
       local servers = {
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = { globals = { "vim" } },
-              workspace = { checkThirdParty = false },
-            },
-          },
-        },
-        bashls = {},
-        html = {},
-        cssls = {},
-        emmet_language_server = {},
-        tailwindcss = {},
-        jsonls = {
-          settings = {
-            json = {
-              schemas = require("schemastore").json.schemas(),
-              validate = { enable = true },
-            },
-          },
-        },
-        pyright = {},
-        ruff_lsp = {
-          init_options = {
-            settings = {
-              -- Don't hook these two into code actions
-              organizeImports = false,
-              fixAll = false,
-            },
-          },
-          on_attach = function(client, bufnr)
-            common_on_attach(client, bufnr)
-
-            -- Disable hover in favor of Pyright
-            client.server_capabilities.hoverProvider = false
-
-            ---------- Create user commands ----------
-            local ruff_lsp_client = require("lspconfig.util").get_active_client_by_name(bufnr, "ruff_lsp")
-
-            local organize_imports = function()
-              ruff_lsp_client.request("workspace/executeCommand", {
-                command = "ruff.applyOrganizeImports",
-                arguments = {
-                  { uri = vim.uri_from_bufnr(bufnr) },
-                },
-              })
-            end
-
-            local auto_fix = function()
-              ruff_lsp_client.request("workspace/executeCommand", {
-                command = "ruff.applyAutofix",
-                arguments = {
-                  { uri = vim.uri_from_bufnr(bufnr) },
-                },
-              })
-            end
-
-            vim.api.nvim_create_user_command(
-              "RuffOrganizeImports",
-              organize_imports,
-              { desc = "Ruff: Organize Imports" }
-            )
-            vim.api.nvim_create_user_command("RuffAutoFix", auto_fix, { desc = "Ruff: Fix all auto-fixable problems" })
-
-            vim.keymap.set("n", "<A-O>", organize_imports, { desc = "Organize imports", buffer = bufnr })
-          end,
-        },
-        clangd = {},
-        prismals = {},
-        volar = {
-          on_attach = function(client)
-            -- let vtsls handle instead
-            client.server_capabilities.definitionProvider = false
-            client.server_capabilities.implementationProvider = false
-            client.server_capabilities.referencesProvider = false
-          end,
-        },
-        vtsls = {},
+        "lua_ls",
+        "bashls",
+        "html",
+        "cssls",
+        "emmet_language_server",
+        "tailwindcss",
+        "jsonls",
+        "vtsls",
+        "volar",
+        "prismals",
+        "pyright",
+        "ruff_lsp",
+        "clangd",
       }
 
       require("mason-lspconfig").setup({
-        ensure_installed = vim.tbl_keys(servers),
+        ensure_installed = servers,
         handlers = {
           function(server_name)
             require("lspconfig")[server_name].setup({
               capabilities = capabilities,
-              on_attach = servers[server_name].on_attach or common_on_attach,
-              settings = servers[server_name].settings or {},
-              init_options = servers[server_name].init_options or {},
+              on_attach = common_on_attach,
             })
           end,
+          ["lua_ls"] = function()
+            require("user.plugins.configs.servers.luals").setup(capabilities, common_on_attach)
+          end,
+          ["jsonls"] = function()
+            require("user.plugins.configs.servers.jsonls").setup(capabilities, common_on_attach)
+          end,
           ["vtsls"] = function()
-            require("lspconfig").vtsls.setup({
-              capabilities = capabilities,
-              on_attach = function(client, bufnr)
-                common_on_attach(client, bufnr)
-
-                local actions = {
-                  rename_file = function()
-                    require("vtsls").commands.rename_file()
-                  end,
-                  organize_imports = function()
-                    require("vtsls").commands.organize_imports()
-                  end,
-                  add_missing_imports = function()
-                    require("vtsls").commands.add_missing_imports()
-                  end,
-                }
-
-                local map = vim.keymap.set
-                map("n", "<leader>rf", actions.rename_file, { desc = "Rename file", buffer = bufnr })
-                map("n", "<A-O>", actions.organize_imports, { desc = "Organize imports", buffer = bufnr })
-                map("n", "<leader>ai", actions.add_missing_imports, { desc = "Add missing imports", buffer = bufnr })
-              end,
-              filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-              settings = {
-                vtsls = {
-                  tsserver = {
-                    globalPlugins = {
-                      {
-                        name = "@vue/typescript-plugin",
-                        location = require("mason-registry").get_package("vue-language-server"):get_install_path()
-                          .. "/node_modules/@vue/language-server",
-                        languages = { "vue" },
-                        configNamespace = "typescript",
-                        enableForWorkspaceTypeScriptVersions = true,
-                      },
-                    },
-                  },
-                },
-              },
-            })
+            require("user.plugins.configs.servers.vtsls").setup(capabilities, common_on_attach)
+          end,
+          ["volar"] = function()
+            require("user.plugins.configs.servers.volar").setup(capabilities)
+          end,
+          ["ruff_lsp"] = function()
+            require("user.plugins.configs.servers.ruff-lsp").setup(capabilities, common_on_attach)
           end,
         },
       })
