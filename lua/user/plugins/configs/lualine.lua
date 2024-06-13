@@ -26,7 +26,7 @@ return {
     lualine.setup({
       options = {
         component_separators = "",
-        section_separators = "",
+        section_separators = { left = "", right = "" },
         disabled_filetypes = { "alpha" },
       },
       sections = {
