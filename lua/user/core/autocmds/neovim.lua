@@ -65,3 +65,21 @@ autocmd("BufWinEnter", {
     end
   end,
 })
+
+autocmd("VimEnter", {
+  desc = "Set kitty spacing for neovim",
+  group = augroup("nvim_set_kitty_spacing", { clear = true }),
+  command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 margin=0",
+})
+
+autocmd("VimLeavePre", {
+  desc = "Reset kitty spacing on quit",
+  group = augroup("reset_kitty_spacing", { clear = true }),
+  callback = function()
+    os.execute("kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default")
+
+    -- HACK: Avoid uv_close: Assertion '!uv__is_closing(handle)' failed
+    -- References: https://github.com/neovim/neovim/issues/21856#issuecomment-1514723887
+    vim.cmd("sleep 10m")
+  end,
+})
