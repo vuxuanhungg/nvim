@@ -51,4 +51,15 @@ M.is_git_repo = function()
   return not not (vim.uv or vim.loop).fs_stat(path)
 end
 
+--- Allow switching between plugins without remove the unused in `lazy-lock.json`
+---@param condition boolean
+---@param events? table
+M.should_plugin_load = function(condition, events)
+  if condition then
+    return events or { "VimEnter" }
+  else
+    return {}
+  end
+end
+
 return M

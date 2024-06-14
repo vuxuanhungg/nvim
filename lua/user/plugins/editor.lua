@@ -47,7 +47,21 @@ return {
       "famiu/bufdelete.nvim",
     },
     opts = require("user.plugins.configs.bufferline").opts,
-    event = { "BufReadPost", "BufNewFile" },
+    event = function()
+      return require("user.utils").should_plugin_load(
+        Settings.buffers_management == "traditional",
+        { "BufReadPost", "BufNewFile" }
+      )
+    end,
+  },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = require("user.plugins.configs.harpoon").config,
+    event = function()
+      return require("user.utils").should_plugin_load(Settings.buffers_management == "harpoon")
+    end,
   },
   {
     -- Status line

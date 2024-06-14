@@ -56,11 +56,14 @@ gmap("n", "<leader>fn", function()
 end, "Notification history")
 
 -- Buffer
-gmap("n", "L", "<cmd> BufferLineCycleNext <cr>", "Next buffer")
-gmap("n", "H", "<cmd> BufferLineCyclePrev <cr>", "Prev buffer ")
-gmap("n", "Q", "<cmd> Bdelete <cr>", "Close buffer")
 gmap("n", "<C-i>", "<C-i>", "Keep Ctrl+I functionality when press Tab")
-gmap("n", "<tab>", ":e # <cr>", "Recent buffer")
+
+if Settings.buffers_management == "traditional" then
+  gmap("n", "L", "<cmd> BufferLineCycleNext <cr>", "Next buffer")
+  gmap("n", "H", "<cmd> BufferLineCyclePrev <cr>", "Prev buffer ")
+  gmap("n", "Q", "<cmd> Bdelete <cr>", "Close buffer")
+  gmap("n", "<tab>", ":e # <cr>", "Recent buffer")
+end
 
 -- Comment
 gmap("n", "<C-/>", "<cmd> lua require('Comment.api').toggle.linewise.current() <cr>", "Toggle comment")

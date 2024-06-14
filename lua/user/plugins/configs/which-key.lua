@@ -5,12 +5,16 @@ return {
       window = { border = "single" },
       layout = { align = "center" },
     })
-    wk.register({
+    local opts = {
       ["<leader>f"] = { name = "Finder", _ = "which_key_ignore" },
       ["<leader>r"] = { name = "Rename", _ = "which_key_ignore" },
       ["<leader>s"] = { name = "Split", _ = "which_key_ignore" },
       ["<leader>u"] = { name = "Toggle", _ = "which_key_ignore" },
       ["<leader>h"] = { name = "Git Hunk", _ = "which_key_ignore" },
-    })
+    }
+    if Settings.buffers_management == "harpoon" then
+      opts["<leader>b"] = { name = "Harpoon", _ = "which_key_ignore" }
+    end
+    wk.register(opts)
   end,
 }
