@@ -1,3 +1,4 @@
+require("user.settings")
 require("user.core.options.shared")
 require("user.core.keymaps.shared")
 require("user.core.autocmds.shared")
