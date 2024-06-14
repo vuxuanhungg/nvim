@@ -33,6 +33,11 @@ return {
           n = { q = actions.close },
         },
       },
+      pickers = {
+        oldfiles = {
+          only_cwd = true,
+        },
+      },
     })
 
     telescope.load_extension("fzf")
