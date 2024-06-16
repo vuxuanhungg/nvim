@@ -23,6 +23,8 @@ return {
       end
     end
 
+    local harpoon2 = { sections = { lualine_a = { "filetype" } }, filetypes = { "harpoon" } }
+
     lualine.setup({
       options = {
         component_separators = "",
@@ -36,7 +38,7 @@ return {
             symbols = {
               alternate_file = "# ",
             },
-            cond = function ()
+            cond = function()
               return Settings.buffers_management == "harpoon"
             end,
           },
@@ -46,7 +48,7 @@ return {
           { macro_record, type = "lua_expr" },
         },
       },
-      extensions = { "neo-tree", "trouble", "fugitive" },
+      extensions = { "lazy", "mason", "neo-tree", "trouble", "fugitive", "aerial", harpoon2 },
     })
 
     ---------- Refresh lualine correctly ----------
