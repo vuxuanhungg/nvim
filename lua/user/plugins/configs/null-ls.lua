@@ -2,16 +2,23 @@ return {
   opts = function()
     local nls = require("null-ls")
     local formatting = nls.builtins.formatting
-    local diagnostics = nls.builtins.diagnostics
-    local code_actions = nls.builtins.code_actions
 
     return {
       sources = {
+        -- lua
         formatting.stylua,
+
+        -- bash
         formatting.shfmt,
-        code_actions.shellcheck,
+        require("none-ls-shellcheck.diagnostics"),
+        require("none-ls-shellcheck.code_actions"),
+
+        -- node
         formatting.prettierd,
-        diagnostics.eslint_d,
+        require("none-ls.diagnostics.eslint_d"),
+        require("none-ls.code_actions.eslint_d"),
+
+        -- python
         formatting.black,
       },
       on_attach = function(client, bufnr)

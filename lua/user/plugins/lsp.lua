@@ -1,6 +1,3 @@
---- Toggle between null-ls and alternatives
-local use_nls = false
-
 return {
   ---------- LSP core stuffs ----------
   {
@@ -55,20 +52,28 @@ return {
   ---------- Linters, formatters and code actions ----------
   {
     "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvimtools/none-ls-extras.nvim",
+      "gbprod/none-ls-shellcheck.nvim",
+    },
     opts = require("user.plugins.configs.null-ls").opts,
-    event = { "BufReadPre", "BufNewFile" },
-    cond = use_nls,
+    event = function()
+      return require("user.utils").should_plugin_load(Settings.use_nls, { "BufReadPre", "BufNewFile" })
+    end,
   },
   {
     "stevearc/conform.nvim",
     opts = require("user.plugins.configs.conform").opts,
-    event = { "BufReadPost", "BufNewFile" },
-    cond = not use_nls,
+    event = function()
+      return require("user.utils").should_plugin_load(not Settings.use_nls, { "BufReadPost", "BufNewFile" })
+    end,
   },
   {
     "mfussenegger/nvim-lint",
     config = require("user.plugins.configs.nvim-lint").config,
-    event = { "BufReadPre", "BufNewFile" },
-    cond = not use_nls,
+    event = function()
+      return require("user.utils").should_plugin_load(not Settings.use_nls, { "BufReadPre", "BufNewFile" })
+    end,
   },
 }
