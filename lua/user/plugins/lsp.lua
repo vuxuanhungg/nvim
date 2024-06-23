@@ -42,10 +42,8 @@ return {
   {
     -- LSP progress UI
     "j-hui/fidget.nvim",
-    tag = "legacy",
-    opts = {
-      text = { spinner = "dots" },
-    },
+    tag = "v1.4.5",
+    opts = {},
     event = "LspAttach",
   },
 
