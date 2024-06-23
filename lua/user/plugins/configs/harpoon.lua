@@ -22,20 +22,10 @@ return {
     gmap("n", "<leader>ba", mark_file, "Mark buffer")
     gmap("n", "<tab>", toggle_menu, "Show harpoon list")
 
-    gmap("n", "<leader>b1", function()
-      navigate_to_buffer(1)
-    end, "Navigate to buffer 1")
-
-    gmap("n", "<leader>b2", function()
-      navigate_to_buffer(2)
-    end, "Navigate to buffer 2")
-
-    gmap("n", "<leader>b3", function()
-      navigate_to_buffer(3)
-    end, "Navigate to buffer 3")
-
-    gmap("n", "<leader>b4", function()
-      navigate_to_buffer(4)
-    end, "Navigate to buffer 4")
+    for i = 1, 5 do
+      gmap("n", "<leader>b" .. i, function()
+        navigate_to_buffer(i)
+      end, "Navigate to buffer " .. i)
+    end
   end,
 }
