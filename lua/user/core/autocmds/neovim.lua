@@ -14,6 +14,14 @@ autocmd("UIEnter", {
 })
 
 autocmd("FileType", {
+  pattern = { "neo-tree" },
+  callback = function()
+    require("ufo").detach()
+    vim.opt_local.foldenable = false
+  end,
+})
+
+autocmd("FileType", {
   desc = "Don't list Fugitive as buffer",
   group = augroup("unlist_buffers", { clear = true }),
   pattern = "fugitive",
