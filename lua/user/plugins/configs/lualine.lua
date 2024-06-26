@@ -32,17 +32,6 @@ return {
         disabled_filetypes = { "alpha" },
       },
       sections = {
-        lualine_a = {
-          {
-            "buffers",
-            symbols = {
-              alternate_file = "# ",
-            },
-            cond = function()
-              return Settings.buffers_management == "harpoon"
-            end,
-          },
-        },
         lualine_c = {
           { search_count, type = "lua_expr" },
           { macro_record, type = "lua_expr" },

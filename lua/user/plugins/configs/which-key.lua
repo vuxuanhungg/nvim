@@ -11,10 +11,8 @@ return {
       ["<leader>s"] = { name = "Split", _ = "which_key_ignore" },
       ["<leader>u"] = { name = "Toggle", _ = "which_key_ignore" },
       ["<leader>h"] = { name = "Git Hunk", _ = "which_key_ignore" },
+      ["<leader>b"] = { name = "Harpoon", _ = "which_key_ignore" },
     }
-    if Settings.buffers_management == "harpoon" then
-      opts["<leader>b"] = { name = "Harpoon", _ = "which_key_ignore" }
-    end
     wk.register(opts)
   end,
 }

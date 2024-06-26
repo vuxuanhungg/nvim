@@ -20,7 +20,8 @@ return {
       { "nvim-lua/plenary.nvim" },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+        build =
+        "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
       },
     },
     config = require("user.plugins.configs.telescope").config,
@@ -47,21 +48,13 @@ return {
       "famiu/bufdelete.nvim",
     },
     opts = require("user.plugins.configs.bufferline").opts,
-    event = function()
-      return require("user.utils").should_plugin_load(
-        Settings.buffers_management == "traditional",
-        { "BufReadPost", "BufNewFile" }
-      )
-    end,
+    event = { "BufReadPost", "BufNewFile" },
   },
   {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = require("user.plugins.configs.harpoon").config,
-    event = function()
-      return require("user.utils").should_plugin_load(Settings.buffers_management == "harpoon")
-    end,
   },
   {
     -- Status line
