@@ -42,7 +42,7 @@ return {
   {
     -- LSP progress UI
     "j-hui/fidget.nvim",
-    tag = "v1.4.5",
+    tag = "v1.4.4",
     opts = {},
     event = "LspAttach",
   },
