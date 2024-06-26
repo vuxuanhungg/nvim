@@ -4,6 +4,12 @@ return {
       local bmap = require("user.utils").map(bufnr)
 
       local actions = {
+        peekOrHover = function()
+          local winid = require("ufo").peekFoldedLinesUnderCursor()
+          if not winid then
+            vim.lsp.buf.hover()
+          end
+        end,
         go_to_definitions = function()
           require("trouble").toggle("lsp_definitions")
         end,
@@ -13,26 +19,29 @@ return {
         go_to_implementations = function()
           require("trouble").toggle("lsp_implementations")
         end,
+        format_buffer = function()
+          vim.lsp.buf.format({ async = true })
+        end,
       }
 
-      local peekOrHover = function()
-        local winid = require("ufo").peekFoldedLinesUnderCursor()
-        if not winid then
-          vim.lsp.buf.hover()
-        end
-      end
-
-      bmap("n", "K", peekOrHover, "Hover symbol")
+      bmap("n", "K", actions.peekOrHover, "Hover symbol")
+      bmap("n", "gd", actions.go_to_definitions, "Go to definitions")
+      bmap("n", "gr", actions.go_to_references, "Go to references")
+      bmap("n", "gl", vim.diagnostic.open_float, "Line diagnostic")
       bmap("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
       bmap("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
-      bmap("n", "gl", vim.diagnostic.open_float, "Line diagnostic")
-      bmap("n", "gd", actions.go_to_definitions, "Go to definitions")
-      bmap("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
-      bmap("n", "gr", actions.go_to_references, "Go to references")
-      bmap("n", "gI", actions.go_to_implementations, "Go to implementations")
+
       bmap("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
       bmap("n", "<F2>", vim.lsp.buf.rename, "Rename symbol")
+
+      bmap("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
       bmap("n", "<C-.>", vim.lsp.buf.code_action, "Code action")
+
+      bmap("n", "<leader>gf", actions.format_buffer, "Format buffer")
+
+      -- Lesser known
+      bmap("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+      bmap("n", "gI", actions.go_to_implementations, "Go to implementations")
     end
 
     local tweak_ui = function()
