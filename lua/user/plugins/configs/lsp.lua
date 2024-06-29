@@ -148,5 +148,9 @@ return {
 
     tweak_ui()
     setup_servers()
+
+    require("user.utils").filter_diagnostics({
+      "Oops! Something went wrong!", -- eslint error if no config file found
+    })
   end,
 }

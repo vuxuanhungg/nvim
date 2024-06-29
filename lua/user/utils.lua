@@ -62,4 +62,22 @@ M.should_plugin_load = function(condition, events)
   end
 end
 
+--- Filter out diagnostic messages we do not want to see
+---@param messages string[]
+M.filter_diagnostics = function(messages)
+  local filter = function(diagnostics)
+    return vim.tbl_filter(function(diagnostic)
+      for _, message in pairs(messages) do
+        return not string.find(diagnostic.message, message)
+      end
+    end, diagnostics)
+  end
+
+  local old_set = vim.diagnostic.set
+
+  vim.diagnostic.set = function(namespace, bufnr, diagnostics, opts)
+    old_set(namespace, bufnr, filter(diagnostics), opts)
+  end
+end
+
 return M
