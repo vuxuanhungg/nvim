@@ -107,6 +107,7 @@ return {
         "tailwindcss",
         "jsonls",
         "vtsls",
+        "eslint",
         "volar",
         "prismals",
         "pyright",
