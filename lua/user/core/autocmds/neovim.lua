@@ -3,7 +3,7 @@ local augroup = vim.api.nvim_create_augroup
 
 autocmd("UIEnter", {
   desc = "Open Neo-tree on startup with directory",
-  group = augroup("open_neotree", { clear = true }),
+  group = augroup("neotree_open", { clear = true }),
   nested = true,
   callback = function()
     local stats = (vim.uv or vim.loop).fs_stat(vim.api.nvim_buf_get_name(0))
@@ -23,7 +23,7 @@ autocmd("FileType", {
 
 autocmd("FileType", {
   desc = "Don't list Fugitive as buffer",
-  group = augroup("unlist_buffers", { clear = true }),
+  group = augroup("buffers_unlist", { clear = true }),
   pattern = "fugitive",
   callback = function()
     vim.opt_local.buflisted = false
