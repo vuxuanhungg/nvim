@@ -53,7 +53,7 @@ end
 
 --- Allow switching between plugins without remove the unused in `lazy-lock.json`
 ---@param condition boolean
----@param events? table
+---@param events? string[]
 M.should_plugin_load = function(condition, events)
   if condition then
     return events or { "VimEnter" }
