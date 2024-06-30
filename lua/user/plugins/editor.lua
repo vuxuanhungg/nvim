@@ -20,12 +20,27 @@ return {
       { "nvim-lua/plenary.nvim" },
       {
         "nvim-telescope/telescope-fzf-native.nvim",
-        build =
-        "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
       },
     },
     config = require("user.plugins.configs.telescope").config,
     cmd = "Telescope",
+    event = function()
+      return require("user.utils").should_plugin_load(not Settings.use_fzf)
+    end,
+  },
+  {
+    "ibhagwan/fzf-lua",
+    dependencies = {
+      { "junegunn/fzf", build = "./install --bin" },
+      "nvim-tree/nvim-web-devicons",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = require("user.plugins.configs.fzf").config,
+    cmd = "FzfLua",
+    event = function()
+      return require("user.utils").should_plugin_load(Settings.use_fzf)
+    end,
   },
   {
     -- Syntax highlighting
