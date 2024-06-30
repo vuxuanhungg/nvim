@@ -2,14 +2,13 @@ return {
   -- Colorscheme
   {
     "Mofiqul/vscode.nvim",
+    lazy = Settings.colorscheme ~= "vscode",
     priority = 1000,
-    config = function()
-      vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" })
-    end,
   },
   {
     "catppuccin/nvim",
     name = "catppuccin",
+    lazy = Settings.colorscheme ~= "catppuccin",
     priority = 1000,
   },
   {
