@@ -111,7 +111,6 @@ return {
         "prismals",
         "pyright",
         "ruff_lsp",
-        "clangd",
       }
 
       require("mason-lspconfig").setup({
