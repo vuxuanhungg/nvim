@@ -48,11 +48,7 @@ if Settings.use_fzf then
   gmap("n", "<leader>fC", "<cmd> FzfLua colorschemes <cr>", "Find colorscheme")
   gmap("n", "<leader>fk", "<cmd> FzfLua keymaps <cr>", "Find keymap")
   gmap("n", "<leader>fr", "<cmd> FzfLua resume <cr>", "Resume last search")
-  gmap("n", "<leader>ft", function()
-    require("fzf-lua").grep({ search = "TODO|HACK|PERF|NOTE|FIX|TEST", no_esc = true })
-  end, "Find todo")
   gmap("n", "<leader>fs", "<cmd> FzfLua lsp_document_symbols <cr>", "Find symbol")
-  gmap("n", "<leader>fn", "<cmd> Notifications <cr>", "Notification history")
 else
   gmap("n", "<C-p>", "<cmd> Telescope find_files <cr>", "Find file")
   gmap("n", "<leader>ff", "<cmd> Telescope find_files <cr>", "Find file")
@@ -64,14 +60,15 @@ else
   gmap("n", "<leader>fC", "<cmd> Telescope colorscheme <cr>", "Find colorscheme")
   gmap("n", "<leader>fk", "<cmd> Telescope keymaps <cr>", "Find keymap")
   gmap("n", "<leader>fr", "<cmd> Telescope resume <cr>", "Resume last search")
-  gmap("n", "<leader>ft", "<cmd> TodoTelescope <cr>", "Find todo")
   gmap("n", "<leader>fs", function()
     require("telescope").extensions.aerial.aerial()
   end, "Find symbol")
-  gmap("n", "<leader>fn", function()
-    require("telescope").load_extension("notify").notify()
-  end, "Notification history")
 end
+
+gmap("n", "<leader>ft", "<cmd> TodoTelescope <cr>", "Find todo")
+gmap("n", "<leader>fn", function()
+  require("telescope").load_extension("notify").notify()
+end, "Notification history")
 
 -- Buffer
 gmap("n", "<C-i>", "<C-i>", "Keep Ctrl+I functionality when press Tab")
