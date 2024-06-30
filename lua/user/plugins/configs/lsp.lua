@@ -78,7 +78,6 @@ return {
 
       -- Set border for :LspInfo
       require("lspconfig.ui.windows").default_options.border = "single"
-      vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "FloatBorder" })
     end
 
     local setup_servers = function()
