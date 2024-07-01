@@ -12,6 +12,14 @@ return {
       },
       files = {
         git_icons = false,
+        fzf_opts = {
+          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
+        },
+      },
+      grep = {
+        fzf_opts = {
+          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-grep-history",
+        },
       },
       lsp = {
         symbols = {
@@ -21,6 +29,14 @@ return {
       hls = {
         border = "FloatBorder",
         preview_border = "FloatBorder",
+      },
+      keymap = {
+        fzf = {
+          ["ctrl-n"] = "down",
+          ["ctrl-p"] = "up",
+          ["ctrl-j"] = "next-history",
+          ["ctrl-k"] = "previous-history",
+        },
       },
     })
   end,
