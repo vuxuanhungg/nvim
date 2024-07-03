@@ -9,7 +9,6 @@ return {
         cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate" },
       },
       { "williamboman/mason-lspconfig.nvim" },
-      -- { "pmizio/typescript-tools.nvim" },
       { "yioneko/nvim-vtsls" },
       { "b0o/SchemaStore.nvim" },
     },
