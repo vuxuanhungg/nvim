@@ -1,18 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
-autocmd("UIEnter", {
-  desc = "Open Neo-tree on startup with directory",
-  group = augroup("neotree_open", { clear = true }),
-  nested = true,
-  callback = function()
-    local stats = (vim.uv or vim.loop).fs_stat(vim.api.nvim_buf_get_name(0))
-    if stats and stats.type == "directory" then
-      vim.api.nvim_command("Neotree show dir=%:p:h")
-    end
-  end,
-})
-
 autocmd("FileType", {
   pattern = { "neo-tree" },
   callback = function()
