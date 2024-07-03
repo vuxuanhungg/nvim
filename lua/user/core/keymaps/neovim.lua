@@ -35,7 +35,7 @@ gmap("v", "<A-J>", "yPgv", "Copy block down")
 gmap("v", "<A-K>", "y'>pgv", "Copy block up")
 
 -- File explorer
-gmap("n", "<leader>e", "<cmd> Neotree toggle filesystem reveal_force_cwd <cr>", "Toggle Explorer")
+gmap("n", "<leader>e", "<cmd> Neotree toggle filesystem <cr>", "Toggle Explorer")
 
 -- Fuzzy finder
 if Settings.use_fzf then
