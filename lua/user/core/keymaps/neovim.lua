@@ -80,7 +80,6 @@ gmap("n", "]b", "<cmd> BufferLineCycleNext <cr>", "Next buffer")
 gmap("n", "H", "<cmd> BufferLineCyclePrev <cr>", "Prev buffer ")
 gmap("n", "L", "<cmd> BufferLineCycleNext <cr>", "Next buffer")
 gmap("n", "Q", "<cmd> Bdelete <cr>", "Close buffer")
-gmap("n", "<tab>", ":e # <cr>", "Recent buffer")
 
 -- Comment
 gmap("n", "<C-/>", "<cmd> lua require('Comment.api').toggle.linewise.current() <cr>", "Toggle comment")
