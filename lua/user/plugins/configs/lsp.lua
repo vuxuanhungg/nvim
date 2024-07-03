@@ -102,6 +102,7 @@ return {
         "bashls",
         "html",
         "cssls",
+        "somesass_ls",
         "emmet_language_server",
         "tailwindcss",
         "jsonls",
@@ -124,6 +125,9 @@ return {
           end,
           ["lua_ls"] = function()
             require("user.plugins.configs.servers.luals").setup(capabilities, common_on_attach)
+          end,
+          ["cssls"] = function()
+            require("user.plugins.configs.servers.cssls").setup(capabilities, common_on_attach)
           end,
           ["tailwindcss"] = function()
             require("user.plugins.configs.servers.tailwindcss").setup(capabilities, common_on_attach)
