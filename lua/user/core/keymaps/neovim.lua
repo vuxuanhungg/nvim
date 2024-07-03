@@ -52,6 +52,7 @@ if Settings.use_fzf then
   gmap("n", "<leader>ft", function()
     require("todo-comments.fzf").todo()
   end, "Find todo")
+  gmap("n", "<leader>fn", "<cmd> Notifications <cr>", "Notification history")
 else
   gmap("n", "<C-p>", "<cmd> Telescope find_files <cr>", "Find file")
   gmap("n", "<leader>ff", "<cmd> Telescope find_files <cr>", "Find file")
@@ -67,11 +68,10 @@ else
     require("telescope").extensions.aerial.aerial()
   end, "Find symbol")
   gmap("n", "<leader>ft", "<cmd> TodoTelescope <cr>", "Find todo")
+  gmap("n", "<leader>fn", function()
+    require("telescope").load_extension("notify").notify()
+  end, "Notification history")
 end
-
-gmap("n", "<leader>fn", function()
-  require("telescope").load_extension("notify").notify()
-end, "Notification history")
 
 -- Buffer
 gmap("n", "<C-i>", "<C-i>", "Keep Ctrl+I functionality when press Tab")
