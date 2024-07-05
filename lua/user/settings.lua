@@ -1,6 +1,6 @@
 Settings = {
-  ---@type "vscode" | "catppuccin"
-  colorscheme = "catppuccin",
+  ---@type "vscode" | "catppuccin" | "tokyonight"
+  colorscheme = "tokyonight",
 
   --- Whether to use `none-ls` or `conform` + `nvim-lint`
   ---@type boolean

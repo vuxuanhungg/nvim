@@ -12,6 +12,14 @@ return {
     priority = 1000,
   },
   {
+    "folke/tokyonight.nvim",
+    lazy = Settings.colorscheme ~= "tokyonight",
+    priority = 1000,
+    opts = {
+      style = "night",
+    },
+  },
+  {
     "nvim-tree/nvim-web-devicons",
     config = require("user.plugins.configs.devicons").config,
     lazy = true,
