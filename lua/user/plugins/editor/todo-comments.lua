@@ -12,7 +12,7 @@ return {
       TEST = { icon = "󰙨" },
     },
   },
-  cmd = { "TodoTrouble", "TodoTelescope" },
+  cmd = "TodoTelescope",
   event = { "BufReadPost", "BufNewFile" },
   keys = {
     {
