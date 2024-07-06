@@ -77,6 +77,8 @@ return {
     { "<leader>fS", "<cmd> Telescope lsp_workspace_symbols <cr>", desc = "Workspace symbols" },
     { "<leader>fx", "<cmd> Telescope diagnostics bufnr=0 <cr>", desc = "Document diagnostics" },
     { "<leader>fX", "<cmd> Telescope diagnostics <cr>", desc = "Workspace diagnostics" },
+    { "<leader>fgs", "<cmd> Telescope git_status <cr>", desc = "Git status" },
+    { "<leader>fgc", "<cmd> Telescope git_commits <cr>", desc = "Git commits" },
   },
   enabled = not Settings.use_fzf,
 }
