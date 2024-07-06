@@ -6,7 +6,8 @@ return {
       {
         "williamboman/mason.nvim",
         config = require("user.plugins.configs.mason").config,
-        cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate" },
+        cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+        keys = { { "<leader>M", "<cmd> Mason <cr>", desc = "Mason" } },
       },
       { "williamboman/mason-lspconfig.nvim" },
       { "yioneko/nvim-vtsls" },
@@ -20,9 +21,9 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       focus = true,
-      use_diagnostic_signs = true,
     },
-    cmd = { "TroubleToggle", "Trouble" },
+    cmd = "Trouble",
+    keys = { { "<leader>x", "<cmd> Trouble <cr>", desc = "Trouble" } },
   },
   {
     "kosayoda/nvim-lightbulb",

@@ -19,8 +19,9 @@ return {
       harpoon:list():select(index)
     end
 
-    gmap("n", "<leader>ba", mark_file, "Mark buffer")
+    gmap("n", "<C-i>", "<C-i>", "Keep Ctrl+i functionality when press Tab")
     gmap("n", "<tab>", toggle_menu, "Show harpoon list")
+    gmap("n", "<leader>ba", mark_file, "Mark buffer")
 
     for i = 1, 5 do
       gmap("n", "<leader>b" .. i, function()

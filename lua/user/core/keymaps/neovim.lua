@@ -3,8 +3,6 @@ local gmap = utils.map()
 
 gmap("n", "<leader>w", ":w <cr>", "Save buffer")
 gmap("n", "<leader>W", ":noautocmd w <cr>", "Save buffer without formatting")
-gmap("n", "<leader>L", "<cmd> Lazy <cr>", "Lazy")
-gmap("n", "<leader>M", "<cmd> Mason <cr>", "Mason")
 
 -- Navigate windows
 gmap("n", "<C-h>", "<C-w>h", "Navigate to left window")
@@ -16,7 +14,6 @@ gmap("n", "<C-k>", "<C-w>k", "Navigate to upper window")
 gmap("n", "<C-\\>", "<C-w>v", "Split window vertically")
 gmap("n", "<leader>sv", "<C-w>v", "Split window vertically")
 gmap("n", "<leader>sh", "<C-w>s", "Split window horizontally")
-gmap("n", "<leader>sm", "<cmd> MaximizerToggle <cr>", "Maximize window")
 gmap("n", "<leader>se", "<C-w>=", "Split window equally")
 
 -- VSCode-like shortcuts
@@ -34,87 +31,6 @@ gmap("v", "<A-k>", ":m '<-2<cr>gv-gv", "Move block up")
 gmap("v", "<A-J>", "yPgv", "Copy block down")
 gmap("v", "<A-K>", "y'>pgv", "Copy block up")
 
--- File explorer
-gmap("n", "<leader>e", "<cmd> Neotree toggle filesystem <cr>", "Toggle Explorer")
-
--- Fuzzy finder
-if Settings.use_fzf then
-  gmap("n", "<C-p>", "<cmd> FzfLua files <cr>", "Find file")
-  gmap("n", "<leader>ff", "<cmd> FzfLua files <cr>", "Find file")
-  gmap("n", "<leader>fo", "<cmd> FzfLua oldfiles <cr>", "Open recent")
-  gmap("n", "<leader>fw", "<cmd> FzfLua live_grep <cr>", "Find word")
-  gmap("n", "<leader>fb", "<cmd> FzfLua buffers <cr>", "Switch buffer")
-  gmap("n", "<leader>fc", "<cmd> FzfLua commands <cr>", "Find command")
-  gmap("n", "<leader>fC", "<cmd> FzfLua colorschemes <cr>", "Find colorscheme")
-  gmap("n", "<leader>fk", "<cmd> FzfLua keymaps <cr>", "Find keymap")
-  gmap("n", "<leader>fr", "<cmd> FzfLua resume <cr>", "Resume last search")
-  gmap("n", "<leader>fs", "<cmd> FzfLua lsp_document_symbols <cr>", "Find symbol")
-  gmap("n", "<leader>ft", function()
-    require("todo-comments.fzf").todo()
-  end, "Find todo")
-  gmap("n", "<leader>fn", "<cmd> Notifications <cr>", "Notification history")
-else
-  gmap("n", "<C-p>", "<cmd> Telescope find_files <cr>", "Find file")
-  gmap("n", "<leader>ff", "<cmd> Telescope find_files <cr>", "Find file")
-  gmap("n", "<leader>fF", "<cmd> Telescope find_files no_ignore=true hidden=true <cr>", "Find file (all)")
-  gmap("n", "<leader>fo", "<cmd> Telescope oldfiles <cr>", "Open recent")
-  gmap("n", "<leader>fw", "<cmd> Telescope live_grep <cr>", "Find word")
-  gmap("n", "<leader>fb", "<cmd> Telescope buffers <cr>", "Switch buffer")
-  gmap("n", "<leader>fc", "<cmd> Telescope commands <cr>", "Find command")
-  gmap("n", "<leader>fC", "<cmd> Telescope colorscheme <cr>", "Find colorscheme")
-  gmap("n", "<leader>fk", "<cmd> Telescope keymaps <cr>", "Find keymap")
-  gmap("n", "<leader>fr", "<cmd> Telescope resume <cr>", "Resume last search")
-  gmap("n", "<leader>fs", function()
-    require("telescope").extensions.aerial.aerial()
-  end, "Find symbol")
-  gmap("n", "<leader>ft", "<cmd> TodoTelescope <cr>", "Find todo")
-  gmap("n", "<leader>fn", function()
-    require("telescope").load_extension("notify").notify()
-  end, "Notification history")
-end
-
--- Buffer
-gmap("n", "<C-i>", "<C-i>", "Keep Ctrl+I functionality when press Tab")
-gmap("n", "[b", "<cmd> BufferLineCyclePrev <cr>", "Prev buffer ")
-gmap("n", "]b", "<cmd> BufferLineCycleNext <cr>", "Next buffer")
-gmap("n", "H", "<cmd> BufferLineCyclePrev <cr>", "Prev buffer ")
-gmap("n", "L", "<cmd> BufferLineCycleNext <cr>", "Next buffer")
-gmap("n", "Q", "<cmd> Bdelete <cr>", "Close buffer")
-
--- Comment
-gmap("n", "<C-/>", "<cmd> lua require('Comment.api').toggle.linewise.current() <cr>", "Toggle comment")
-gmap("v", "<C-/>", "<esc><cmd> lua require('Comment.api').toggle.linewise(vim.fn.visualmode()) <cr>", "Toggle comment")
-
--- Search panel
-gmap("n", "<leader>S", "<cmd> Spectre <cr>", "Toggle Spectre")
-
--- Trouble
-gmap("n", "<leader>x", "<cmd> Trouble <cr>", "Open Trouble")
-
--- Fugitive
-local toggle_fugitive = function()
-  if not utils.is_git_repo() then
-    utils.notify("File does not belong to a Git repository", vim.log.levels.ERROR, { title = "vim-futigive" })
-    return
-  end
-
-  local winids = vim.api.nvim_list_wins()
-  for _, id in pairs(winids) do
-    local status = pcall(vim.api.nvim_win_get_var, id, "fugitive_status")
-    if status then
-      vim.api.nvim_win_close(id, false)
-      return
-    end
-  end
-  vim.cmd.Git()
-end
-gmap("n", "<leader>g", toggle_fugitive, "Toggle Fugitive")
-
--- Notification
-gmap("n", "<leader>un", function()
-  require("notify").dismiss({ silent = true, pending = true })
-end, "Dismiss all notifications")
-
 -- Misc
 gmap("n", "<leader>uc", function()
   vim.api.nvim_set_option("cmdheight", 1 - vim.api.nvim_get_option("cmdheight"))
@@ -123,5 +39,3 @@ end, "Toggle cmdline")
 gmap("n", "<leader>uw", function()
   vim.cmd.set("wrap!")
 end, "Toggle wrap")
-
-gmap("n", "<leader>uo", "<cmd> AerialToggle <cr>", "Symbols outline")

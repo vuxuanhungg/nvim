@@ -11,6 +11,7 @@ return {
     },
     opts = require("user.plugins.configs.neo-tree").opts,
     cmd = "Neotree",
+    keys = { { "<leader>e", "<cmd> Neotree toggle <cr>", desc = "NeoTree" } },
   },
   {
     -- Fuzzy finder
@@ -21,26 +22,50 @@ return {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
         build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+        enabled = not Settings.use_fzf,
       },
     },
     config = require("user.plugins.configs.telescope").config,
     cmd = "Telescope",
-    event = function()
-      return require("user.utils").should_plugin_load(not Settings.use_fzf)
-    end,
+    keys = {
+      { "<C-p>", "<cmd> Telescope find_files <cr>", desc = "Find files" },
+      { "<leader>ff", "<cmd> Telescope find_files <cr>", desc = "Find files" },
+      { "<leader>fF", "<cmd> Telescope find_files no_ignore=true hidden=true <cr>", desc = "Find files (all)" },
+      { "<leader>fo", "<cmd> Telescope oldfiles <cr>", desc = "Recent files" },
+      { "<leader>fw", "<cmd> Telescope live_grep <cr>", desc = "Find words" },
+      { "<leader>fb", "<cmd> Telescope buffers <cr>", desc = "Find buffers" },
+      { "<leader>fc", "<cmd> Telescope commands <cr>", desc = "Find commands" },
+      { "<leader>fC", "<cmd> Telescope colorscheme <cr>", desc = "Find colorschemes" },
+      { "<leader>fk", "<cmd> Telescope keymaps <cr>", desc = "Find keymaps" },
+      { "<leader>fr", "<cmd> Telescope resume <cr>", desc = "Resume last search" },
+      { "<leader>fs", "<cmd> Telescope lsp_document_symbols <cr>", desc = "Document symbols" },
+      { "<leader>fS", "<cmd> Telescope lsp_workspace_symbols <cr>", desc = "Workspace symbols" },
+    },
+    enabled = not Settings.use_fzf,
   },
   {
     "ibhagwan/fzf-lua",
     dependencies = {
-      { "junegunn/fzf", build = "./install --bin" },
+      { "junegunn/fzf", build = "./install --bin", enabled = Settings.use_fzf },
       "nvim-tree/nvim-web-devicons",
       "nvim-treesitter/nvim-treesitter",
     },
     config = require("user.plugins.configs.fzf").config,
     cmd = "FzfLua",
-    event = function()
-      return require("user.utils").should_plugin_load(Settings.use_fzf)
-    end,
+    keys = {
+      { "<C-p>", "<cmd> FzfLua files <cr>", desc = "Find files" },
+      { "<leader>ff", "<cmd> FzfLua files <cr>", desc = "Find files" },
+      { "<leader>fo", "<cmd> FzfLua oldfiles <cr>", desc = "Recent files" },
+      { "<leader>fw", "<cmd> FzfLua live_grep <cr>", desc = "Find words" },
+      { "<leader>fb", "<cmd> FzfLua buffers <cr>", desc = "Find buffers" },
+      { "<leader>fc", "<cmd> FzfLua commands <cr>", desc = "Find commands" },
+      { "<leader>fC", "<cmd> FzfLua colorschemes <cr>", desc = "Find colorschemes" },
+      { "<leader>fk", "<cmd> FzfLua keymaps <cr>", desc = "Find keymaps" },
+      { "<leader>fr", "<cmd> FzfLua resume <cr>", desc = "Resume last search" },
+      { "<leader>fs", "<cmd> FzfLua lsp_document_symbols <cr>", desc = "Document symbols" },
+      { "<leader>fS", "<cmd> FzfLua lsp_workspace_symbols <cr>", desc = "Workspace symbols" },
+    },
+    enabled = Settings.use_fzf,
   },
   {
     -- Syntax highlighting
@@ -64,6 +89,11 @@ return {
     },
     opts = require("user.plugins.configs.bufferline").opts,
     event = { "BufReadPost", "BufNewFile" },
+    keys = {
+      { "H", "<cmd> BufferLineCyclePrev <cr>", desc = "Prev buffer " },
+      { "L", "<cmd> BufferLineCycleNext <cr>", desc = "Next buffer" },
+      { "Q", "<cmd> Bdelete <cr>", desc = "Close buffer" },
+    },
   },
   {
     "ThePrimeagen/harpoon",
@@ -81,6 +111,7 @@ return {
     -- Search & replace
     "nvim-pack/nvim-spectre",
     cmd = "Spectre",
+    keys = { { "<leader>S", "<cmd> Spectre <cr>", desc = "Spectre" } },
   },
 
   ---------- Buffer-scope utilities ----------
@@ -130,6 +161,7 @@ return {
     },
     config = require("user.plugins.configs.aerial").config,
     cmd = "AerialToggle",
+    keys = { { "<leader>uo", "<cmd> AerialToggle <cr>", desc = "Symbols outline" } },
   },
   {
     -- Color highlighter
@@ -150,6 +182,15 @@ return {
     opts = require("user.plugins.configs.todo-comments").opts,
     cmd = { "TodoTrouble", "TodoTelescope" },
     event = { "BufReadPost", "BufNewFile" },
+    keys = {
+      {
+        "<leader>ft",
+        Settings.use_fzf and function()
+          require("todo-comments.fzf").todo()
+        end or "<cmd> TodoTelescope <cr>",
+        desc = "Find todos",
+      },
+    },
   },
 
   ---------- Git ----------
@@ -162,7 +203,7 @@ return {
     "tpope/vim-fugitive",
     config = require("user.plugins.configs.fugitive").config,
     cmd = require("user.plugins.configs.fugitive").cmd,
-    ft = "fugitive",
+    keys = require('user.plugins.configs.fugitive').keys,
   },
 
   ---------- Other features (nice to have) ----------

@@ -19,3 +19,5 @@ require("lazy").setup("user.plugins", {
   install = { colorscheme = { Settings.colorscheme } },
   ui = { border = "single" },
 })
+
+require("user.utils").map()("n", "<leader>L", "<cmd> Lazy <cr>", "Lazy")

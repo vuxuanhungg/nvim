@@ -54,5 +54,6 @@ return {
     "rcarriga/nvim-notify",
     opts = require("user.plugins.configs.notify").opts,
     init = require("user.plugins.configs.notify").init,
+    keys = require("user.plugins.configs.notify").keys,
   },
 }

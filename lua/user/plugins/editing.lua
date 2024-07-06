@@ -16,7 +16,11 @@ return {
     opts = {},
     event = "InsertEnter",
   },
-  { "szw/vim-maximizer", cmd = "MaximizerToggle" },
+  {
+    "szw/vim-maximizer",
+    cmd = "MaximizerToggle",
+    keys = { { "<leader>sm", "<cmd> MaximizerToggle <cr>", desc = "Maximize window" } },
+  },
   {
     "numToStr/Comment.nvim",
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
@@ -29,7 +33,15 @@ return {
         pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
       }
     end,
-    event = { "BufReadPost", "BufNewFile" },
+    keys = {
+      { "<C-/>", "<cmd> lua require('Comment.api').toggle.linewise.current() <cr>", desc = "Toggle comment" },
+      {
+        "<C-/>",
+        "<esc><cmd> lua require('Comment.api').toggle.linewise(vim.fn.visualmode()) <cr>",
+        mode = "v",
+        desc = "Toggle comment",
+      },
+    },
   },
   {
     "hrsh7th/nvim-cmp",
