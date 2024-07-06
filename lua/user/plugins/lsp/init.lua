@@ -12,7 +12,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = { focus = true },
     cmd = "Trouble",
-    keys = { { "<leader>x", "<cmd> Trouble <cr>", desc = "Trouble" } },
+    keys = { { "<leader>x", "<cmd> Trouble diagnostics toggle <cr>", desc = "Trouble" } },
   },
   {
     -- Show lightbulb where code actions are available

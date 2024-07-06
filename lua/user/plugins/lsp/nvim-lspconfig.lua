@@ -17,23 +17,14 @@ return {
             vim.lsp.buf.hover()
           end
         end,
-        go_to_definitions = function()
-          require("trouble").toggle("lsp_definitions")
-        end,
-        go_to_references = function()
-          require("trouble").toggle("lsp_references")
-        end,
-        go_to_implementations = function()
-          require("trouble").toggle("lsp_implementations")
-        end,
         format_buffer = function()
           vim.lsp.buf.format({ async = true })
         end,
       }
 
       bmap("n", "K", actions.peekOrHover, "Hover symbol")
-      bmap("n", "gd", actions.go_to_definitions, "Go to definitions")
-      bmap("n", "gr", actions.go_to_references, "Go to references")
+      bmap("n", "gd", vim.lsp.buf.definition, "Go to definitions")
+      bmap("n", "gr", vim.lsp.buf.references, "Go to references")
       bmap("n", "gl", vim.diagnostic.open_float, "Line diagnostic")
       bmap("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
       bmap("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
@@ -48,7 +39,7 @@ return {
 
       -- Lesser known
       bmap("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
-      bmap("n", "gI", actions.go_to_implementations, "Go to implementations")
+      bmap("n", "gI", vim.lsp.buf.implementations, "Go to implementations")
     end
 
     local tweak_ui = function()
