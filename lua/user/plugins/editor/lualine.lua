@@ -63,7 +63,7 @@ return {
       options = {
         component_separators = "",
         section_separators = { left = "", right = "" },
-        disabled_filetypes = { "help", "alpha", "neo-tree", "fugitive" },
+        disabled_filetypes = { "help", "alpha", "neo-tree", "fugitive", "gitcommit" },
       },
       sections = {
         lualine_c = {
