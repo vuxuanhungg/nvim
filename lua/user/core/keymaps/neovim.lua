@@ -16,9 +16,6 @@ gmap("n", "<leader>sv", "<C-w>v", "Split window vertically")
 gmap("n", "<leader>sh", "<C-w>s", "Split window horizontally")
 gmap("n", "<leader>se", "<C-w>=", "Split window equally")
 
--- VSCode-like shortcuts
-gmap("i", "<C-a>", "<esc> ggVG", "Select all")
-
 -- Line editing
 gmap("n", "<A-j>", ":m .+1<cr>==", "Move line down")
 gmap("n", "<A-k>", ":m .-2<cr>==", "Move line up")
