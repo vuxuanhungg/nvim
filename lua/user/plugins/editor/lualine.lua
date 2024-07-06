@@ -3,6 +3,41 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "famiu/bufdelete.nvim",
+    {
+      "SmiteshP/nvim-navic",
+      opts = {
+        click = true,
+        -- TODO: Extract icons to separate file
+        icons = {
+          File = " ",
+          Module = " ",
+          Namespace = " ",
+          Package = " ",
+          Class = " ",
+          Method = " ",
+          Property = " ",
+          Field = " ",
+          Constructor = " ",
+          Enum = " ",
+          Interface = " ",
+          Function = " ",
+          Variable = " ",
+          Constant = " ",
+          String = " ",
+          Number = " ",
+          Boolean = " ",
+          Array = " ",
+          Object = " ",
+          Key = " ",
+          Null = " ",
+          EnumMember = " ",
+          Struct = " ",
+          Event = " ",
+          Operator = " ",
+          TypeParameter = " ",
+        },
+      },
+    },
   },
   config = function()
     local lualine = require("lualine")
@@ -39,6 +74,14 @@ return {
               alternate_file = "",
             },
             section_separators = { left = "", right = "" },
+          },
+        },
+      },
+      winbar = {
+        lualine_a = {
+          {
+            "navic",
+            color = "lualine_a_inactive",
           },
         },
       },
