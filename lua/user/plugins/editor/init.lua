@@ -11,9 +11,8 @@ return {
   -- Syntax highlighter
   { import = "user.plugins.editor.treesitter" },
 
-  -- Buffer & status line
+  -- Buffer & statusline
   { import = "user.plugins.editor.harpoon" },
-  { import = "user.plugins.editor.bufferline" },
   { import = "user.plugins.editor.lualine" },
 
   -- Keymaps helper

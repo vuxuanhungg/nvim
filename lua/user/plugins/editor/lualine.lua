@@ -1,5 +1,9 @@
 return {
   "nvim-lualine/lualine.nvim",
+  dependencies = {
+    "nvim-tree/nvim-web-devicons",
+    "famiu/bufdelete.nvim",
+  },
   config = function()
     local lualine = require("lualine")
 
@@ -24,6 +28,18 @@ return {
         lualine_c = {
           { "searchcount" },
           { macro_record, type = "lua_expr" },
+        },
+      },
+      tabline = {
+        lualine_a = {
+          {
+            "buffers",
+            padding = 2,
+            symbols = {
+              alternate_file = "",
+            },
+            section_separators = { left = "", right = "" },
+          },
         },
       },
       extensions = { "lazy", "mason", "neo-tree", "trouble", "fugitive", "aerial", harpoon2 },
@@ -52,4 +68,9 @@ return {
     })
   end,
   event = "VeryLazy",
+  keys = {
+    { "H", "<cmd> bprevious <cr>", desc = "Prev buffer " },
+    { "L", "<cmd> bnext <cr>", desc = "Next buffer" },
+    { "Q", "<cmd> Bdelete <cr>", desc = "Close buffer" },
+  },
 }
