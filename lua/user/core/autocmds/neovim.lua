@@ -12,24 +12,6 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
-  desc = "Don't list Fugitive as buffer",
-  group = augroup("buffers_unlist", { clear = true }),
-  pattern = "fugitive",
-  callback = function()
-    vim.opt_local.buflisted = false
-  end,
-})
-
-autocmd("FileType", {
-  desc = "Don't show cursorline on Mason",
-  group = augroup("mason_hide_cursorline", { clear = true }),
-  pattern = "mason",
-  callback = function()
-    vim.opt_local.cursorline = false
-  end,
-})
-
-autocmd("FileType", {
   desc = "Prevent indenting when pressing colon in Python files",
   group = augroup("python_no_indent_on_colon_press", { clear = true }),
   pattern = "python",
