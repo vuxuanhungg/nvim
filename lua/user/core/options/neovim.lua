@@ -5,25 +5,55 @@ local opt = vim.opt
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 
--- Appearance
+---------- Appearance ----------
+
+-- Enable true color support
 opt.termguicolors = true
-opt.signcolumn = "yes" -- always show the sign column otherwise it would shift the text each time
-opt.showmode = false -- hide mode (relevant if cmdheight > 0)
-opt.cmdheight = 0 -- hide command line unless needed
-opt.laststatus = 3 -- only show status line on the focused window
+
+-- Always show the sign column
+-- otherwise it would shift the text everytime cursor moves
+opt.signcolumn = "yes"
+
+-- Don't show the mode, since it's already in the status line
+opt.showmode = false
+
+-- Hide command line unless needed
+opt.cmdheight = 0
+
+-- Only show status line on the focused window
+opt.laststatus = 3
+
+-- Enable line number and cursor line
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true
-opt.wrap = true
+
+-- Set default tab width
 opt.tabstop = 4
 opt.shiftwidth = 4
+
+-- Use space instead of tab
 opt.expandtab = true
+
+-- Word wrap
+opt.wrap = true
 opt.breakindent = true
 opt.linebreak = true
-opt.shortmess:append({ I = true, s = true }) -- disable startup & search messages
-opt.fillchars = opt.fillchars + "eob: " -- hide tilde "~" on empty lines
 
--- Behaviors
+-- Disable startup & search messages
+opt.shortmess:append({ I = true, s = true })
+
+-- Hide tilde "~" on empty lines
+opt.fillchars = opt.fillchars + "eob: "
+
+---------- Behaviors ----------
+
+-- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = "a"
+
+-- Split window to right and below
 opt.splitright = true
 opt.splitbelow = true
+
+-- Minimal number of screen lines to keep above and below the cursor
+opt.scrolloff = 5
