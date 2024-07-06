@@ -31,6 +31,7 @@ return {
         symbols = {
           symbol_icons = require("lspkind").symbol_map,
         },
+        jump_to_single_result = true,
       },
       hls = {
         border = "FloatBorder",
