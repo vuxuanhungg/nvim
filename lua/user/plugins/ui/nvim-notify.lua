@@ -1,4 +1,5 @@
 return {
+  "rcarriga/nvim-notify",
   opts = {
     stages = "static",
     timeout = 3000,

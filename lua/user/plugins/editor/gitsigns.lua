@@ -1,4 +1,5 @@
 return {
+  "lewis6991/gitsigns.nvim",
   opts = {
     current_line_blame_opts = {
       delay = 300,
@@ -54,4 +55,5 @@ return {
       bmap("n", "<leader>hD", actions.diff_this, "Diff against the last commit")
     end,
   },
+  event = { "BufReadPre", "BufNewFile" },
 }

@@ -1,4 +1,10 @@
 return {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  dependencies = {
+    "windwp/nvim-ts-autotag",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+  },
   config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
@@ -36,4 +42,6 @@ return {
       },
     })
   end,
+  cmd = { "TSInstall", "TSInstallInfo", "TSModuleInfo" },
+  event = { "BufReadPost", "BufNewFile" },
 }

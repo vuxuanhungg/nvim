@@ -1,4 +1,5 @@
 return {
+  "nvim-tree/nvim-web-devicons",
   config = function()
     local devicons = require("nvim-web-devicons")
     devicons.set_default_icon("󰈚", "#6d8086", 65)
@@ -41,4 +42,5 @@ return {
       },
     })
   end,
+  lazy = true,
 }

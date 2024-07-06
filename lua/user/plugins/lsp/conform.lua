@@ -1,4 +1,5 @@
 return {
+  "stevearc/conform.nvim",
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
@@ -21,4 +22,7 @@ return {
       lsp_fallback = true,
     },
   },
+  event = function()
+    return require("user.utils").should_plugin_load(not Settings.use_nls, { "BufReadPost", "BufNewFile" })
+  end,
 }

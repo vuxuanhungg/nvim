@@ -1,4 +1,11 @@
 return {
+  "neovim/nvim-lspconfig",
+  dependencies = {
+    { import = "user.plugins.lsp.mason" },
+    { "williamboman/mason-lspconfig.nvim" },
+    { "yioneko/nvim-vtsls" },
+    { "b0o/SchemaStore.nvim" },
+  },
   config = function()
     local assign_keymaps = function(_, bufnr)
       local bmap = require("user.utils").map(bufnr)
@@ -124,22 +131,22 @@ return {
             })
           end,
           ["cssls"] = function()
-            require("user.plugins.configs.servers.cssls").setup(capabilities, common_on_attach)
+            require("user.plugins.lsp.servers.cssls").setup(capabilities, common_on_attach)
           end,
           ["tailwindcss"] = function()
-            require("user.plugins.configs.servers.tailwindcss").setup(capabilities, common_on_attach)
+            require("user.plugins.lsp.servers.tailwindcss").setup(capabilities, common_on_attach)
           end,
           ["jsonls"] = function()
-            require("user.plugins.configs.servers.jsonls").setup(capabilities, common_on_attach)
+            require("user.plugins.lsp.servers.jsonls").setup(capabilities, common_on_attach)
           end,
           ["vtsls"] = function()
-            require("user.plugins.configs.servers.vtsls").setup(capabilities, common_on_attach)
+            require("user.plugins.lsp.servers.vtsls").setup(capabilities, common_on_attach)
           end,
           ["volar"] = function()
-            require("user.plugins.configs.servers.volar").setup(capabilities)
+            require("user.plugins.lsp.servers.volar").setup(capabilities)
           end,
           ["ruff_lsp"] = function()
-            require("user.plugins.configs.servers.ruff-lsp").setup(capabilities, common_on_attach)
+            require("user.plugins.lsp.servers.ruff-lsp").setup(capabilities, common_on_attach)
           end,
         },
       })
@@ -152,4 +159,5 @@ return {
       "Oops! Something went wrong!", -- eslint error if no config file found
     })
   end,
+  event = { "BufReadPre", "BufNewFile" },
 }

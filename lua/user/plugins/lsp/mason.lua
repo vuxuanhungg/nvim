@@ -1,4 +1,5 @@
 return {
+  "williamboman/mason.nvim",
   config = function()
     local default_setup = function()
       require("mason").setup({
@@ -89,4 +90,8 @@ return {
     default_setup()
     extra_setup()
   end,
+  cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+  keys = {
+    { "<leader>M", "<cmd> Mason <cr>", desc = "Mason" },
+  },
 }
