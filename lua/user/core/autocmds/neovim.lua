@@ -4,8 +4,10 @@ local augroup = vim.api.nvim_create_augroup
 autocmd("FileType", {
   pattern = { "neo-tree" },
   callback = function()
-    require("ufo").detach()
-    vim.opt_local.foldenable = false
+    local status_ok, ufo = pcall(require, "ufo")
+    if status_ok then
+      ufo.detach()
+    end
   end,
 })
 
