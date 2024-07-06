@@ -1,3 +1,4 @@
+local b = 1
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
@@ -9,6 +10,12 @@ return {
   config = function()
     local assign_keymaps = function(_, bufnr)
       local bmap = require("user.utils").map(bufnr)
+      local finder = nil
+      if Settings.use_fzf then
+        finder = require("fzf-lua")
+      else
+        finder = require("telescope.builtin")
+      end
 
       local actions = {
         peekOrHover = function()
@@ -23,8 +30,8 @@ return {
       }
 
       bmap("n", "K", actions.peekOrHover, "Hover symbol")
-      bmap("n", "gd", vim.lsp.buf.definition, "Go to definitions")
-      bmap("n", "gr", vim.lsp.buf.references, "Go to references")
+      bmap("n", "gd", finder.lsp_definitions, "Go to definitions")
+      bmap("n", "gr", finder.lsp_references, "Go to references")
       bmap("n", "gl", vim.diagnostic.open_float, "Line diagnostic")
       bmap("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
       bmap("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
@@ -35,11 +42,11 @@ return {
       bmap("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
       bmap("n", "<C-.>", vim.lsp.buf.code_action, "Code action")
 
-      bmap("n", "<leader>fm", actions.format_buffer, "Format buffer")
+      bmap("n", "<leader>fm", vim.lsp.buf.format, "Format buffer")
 
       -- Lesser known
       bmap("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
-      bmap("n", "gI", vim.lsp.buf.implementations, "Go to implementations")
+      bmap("n", "gI", finder.lsp_implementations, "Go to implementations")
     end
 
     local tweak_ui = function()

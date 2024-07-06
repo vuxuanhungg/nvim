@@ -1,11 +1,12 @@
 return {
   "nvim-telescope/telescope.nvim",
-  tag = "0.1.3",
+  branch = "0.1.x",
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     {
       "nvim-telescope/telescope-fzf-native.nvim",
-      build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+      build =
+      "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
       enabled = not Settings.use_fzf,
     },
   },
@@ -74,5 +75,7 @@ return {
     { "<leader>fr", "<cmd> Telescope resume <cr>", desc = "Resume last search" },
     { "<leader>fs", "<cmd> Telescope lsp_document_symbols <cr>", desc = "Document symbols" },
     { "<leader>fS", "<cmd> Telescope lsp_workspace_symbols <cr>", desc = "Workspace symbols" },
+    { "<leader>fx", "<cmd> Telescope diagnostics bufnr=0 <cr>", desc = "Document diagnostics" },
+    { "<leader>fX", "<cmd> Telescope diagnostics <cr>", desc = "Workspace diagnostics" },
   },
 }

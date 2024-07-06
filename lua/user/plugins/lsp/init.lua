@@ -7,14 +7,6 @@ return {
   { import = "user.plugins.lsp.nvim-lint" },
 
   {
-    -- Show trouble
-    "folke/trouble.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = { focus = true },
-    cmd = "Trouble",
-    keys = { { "<leader>x", "<cmd> Trouble diagnostics toggle <cr>", desc = "Trouble" } },
-  },
-  {
     -- Show lightbulb where code actions are available
     "kosayoda/nvim-lightbulb",
     opts = {

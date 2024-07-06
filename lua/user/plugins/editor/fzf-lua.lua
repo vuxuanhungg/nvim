@@ -59,5 +59,7 @@ return {
     { "<leader>fr", "<cmd> FzfLua resume <cr>", desc = "Resume last search" },
     { "<leader>fs", "<cmd> FzfLua lsp_document_symbols <cr>", desc = "Document symbols" },
     { "<leader>fS", "<cmd> FzfLua lsp_workspace_symbols <cr>", desc = "Workspace symbols" },
+    { "<leader>fx", "<cmd> FzfLua diagnostics_document <cr>", desc = "Document diagnostics" },
+    { "<leader>fX", "<cmd> FzfLua diagnostics_workspace <cr>", desc = "Workspace diagnostics" },
   },
 }
