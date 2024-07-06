@@ -1,4 +1,14 @@
 {
-  "diagnostics.disable": ["different-requires"]
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "diagnostics.disable": [
+    "different-requires"
+  ],
+  "diagnostics.globals": [
+    "vim"
+  ],
+  "workspace.checkThirdParty": "false",
+  "format.defaultConfig": {
+    "align_continuous_rect_table_field": "false",
+    "align_array_table": "false"
+  }
 }
-

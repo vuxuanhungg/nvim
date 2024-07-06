@@ -123,9 +123,6 @@ return {
               on_attach = common_on_attach,
             })
           end,
-          ["lua_ls"] = function()
-            require("user.plugins.configs.servers.luals").setup(capabilities, common_on_attach)
-          end,
           ["cssls"] = function()
             require("user.plugins.configs.servers.cssls").setup(capabilities, common_on_attach)
           end,
