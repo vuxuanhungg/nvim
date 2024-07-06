@@ -84,6 +84,7 @@ autocmd("ColorScheme", {
   desc = "Customize highlights",
   group = augroup("colorscheme_load", { clear = true }),
   callback = function()
+    vim.api.nvim_set_hl(0, "WinSeparator", { link = "FloatBorder" })
     vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "FloatBorder" })
     vim.api.nvim_set_hl(0, "AerialLine", { link = "Visual" })
     vim.api.nvim_set_hl(0, "AerialGuide", { link = "IndentBlanklineChar" })
