@@ -63,4 +63,5 @@ return {
     { "<leader>fx", "<cmd> FzfLua diagnostics_document <cr>", desc = "Document diagnostics" },
     { "<leader>fX", "<cmd> FzfLua diagnostics_workspace <cr>", desc = "Workspace diagnostics" },
   },
+  enabled = Settings.use_fzf,
 }

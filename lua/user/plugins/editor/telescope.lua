@@ -78,4 +78,5 @@ return {
     { "<leader>fx", "<cmd> Telescope diagnostics bufnr=0 <cr>", desc = "Document diagnostics" },
     { "<leader>fX", "<cmd> Telescope diagnostics <cr>", desc = "Workspace diagnostics" },
   },
+  enabled = not Settings.use_fzf,
 }

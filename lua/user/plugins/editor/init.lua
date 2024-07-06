@@ -5,8 +5,8 @@ return {
   { import = "user.plugins.editor.neo-tree" },
 
   -- Fuzzy finder
-  { import = "user.plugins.editor.telescope", enabled = not Settings.use_fzf },
-  { import = "user.plugins.editor.fzf-lua", enabled = Settings.use_fzf },
+  { import = "user.plugins.editor.telescope" },
+  { import = "user.plugins.editor.fzf-lua" },
 
   -- Syntax highlighter
   { import = "user.plugins.editor.treesitter" },
