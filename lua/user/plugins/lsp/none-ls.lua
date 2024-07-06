@@ -2,8 +2,8 @@ return {
   "nvimtools/none-ls.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvimtools/none-ls-extras.nvim",
-    "gbprod/none-ls-shellcheck.nvim",
+    { "nvimtools/none-ls-extras.nvim", enabled = Settings.use_nls },
+    { "gbprod/none-ls-shellcheck.nvim", enabled = Settings.use_nls },
   },
   opts = function()
     local nls = require("null-ls")
@@ -48,7 +48,6 @@ return {
       end,
     }
   end,
-  event = function()
-    return require("user.utils").should_plugin_load(Settings.use_nls, { "BufReadPre", "BufNewFile" })
-  end,
+  event = { "BufReadPre", "BufNewFile" },
+  enabled = Settings.use_nls,
 }

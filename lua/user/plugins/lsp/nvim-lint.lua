@@ -22,7 +22,6 @@ return {
       end,
     })
   end,
-  event = function()
-    return require("user.utils").should_plugin_load(not Settings.use_nls, { "BufReadPre", "BufNewFile" })
-  end,
+  event = { "BufReadPre", "BufNewFile" },
+  enabled = not Settings.use_nls,
 }

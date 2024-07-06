@@ -22,7 +22,6 @@ return {
       lsp_fallback = true,
     },
   },
-  event = function()
-    return require("user.utils").should_plugin_load(not Settings.use_nls, { "BufReadPost", "BufNewFile" })
-  end,
+  event = { "BufReadPost", "BufNewFile" },
+  enabled = not Settings.use_nls,
 }
