@@ -51,6 +51,12 @@ return {
       end
     end
 
+    local function filepath()
+      local path = vim.fn.expand("%")
+      path = path:gsub("/", " > ")
+      return path
+    end
+
     local harpoon2 = { sections = { lualine_a = { "filetype" } }, filetypes = { "harpoon" } }
 
     lualine.setup({
@@ -79,6 +85,7 @@ return {
       },
       winbar = {
         lualine_a = {
+          { filepath, color = "lualine_a_inactive" },
           {
             "navic",
             color = "lualine_a_inactive",
