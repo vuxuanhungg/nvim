@@ -85,11 +85,8 @@ return {
       },
       winbar = {
         lualine_a = {
-          { filepath, color = "lualine_a_inactive" },
-          {
-            "navic",
-            color = "lualine_a_inactive",
-          },
+          { filepath, color = Settings.colorscheme == "vscode" and { fg = "#888888", bg = "NONE" } or "Comment" },
+          { "navic", color = Settings.colorscheme == "vscode" and { fg = "#888888", bg = "NONE" } or "Comment" },
         },
       },
       extensions = { "lazy", "mason", "neo-tree", "trouble", "fugitive", "aerial", harpoon2 },
