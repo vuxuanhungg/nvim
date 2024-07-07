@@ -7,15 +7,6 @@ return {
   { import = "user.plugins.lsp.nvim-lint" },
 
   {
-    -- Show lightbulb where code actions are available
-    "kosayoda/nvim-lightbulb",
-    opts = {
-      priority = 1000,
-      autocmd = { enabled = true },
-    },
-    event = "LspAttach",
-  },
-  {
     -- LSP progress UI
     "j-hui/fidget.nvim",
     tag = "v1.4.4",
