@@ -1,4 +1,3 @@
-local b = 1
 return {
   "neovim/nvim-lspconfig",
   dependencies = {
