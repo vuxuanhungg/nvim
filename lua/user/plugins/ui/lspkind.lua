@@ -17,4 +17,5 @@ return {
   config = function(_, opts)
     require("lspkind").init(opts)
   end,
+  lazy = true,
 }
