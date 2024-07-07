@@ -12,5 +12,5 @@ else
 end
 
 require("user.core.lazy")
+require("user.core.colorscheme")
 
-vim.cmd.colorscheme(Settings.colorscheme)
