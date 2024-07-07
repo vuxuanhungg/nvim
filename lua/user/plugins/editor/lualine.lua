@@ -112,6 +112,12 @@ return {
           { "navic", color = "lualine_winbar" },
         },
       },
+      inactive_winbar = {
+        lualine_a = {
+          { filepath, color = "lualine_winbar" },
+          { "navic", color = "lualine_winbar" },
+        },
+      },
       extensions = { "lazy", "mason", "neo-tree", "trouble", "fugitive", "aerial", harpoon2 },
     })
 
