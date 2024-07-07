@@ -63,6 +63,9 @@ return {
 
     local harpoon2 = { sections = { lualine_a = { "filetype" } }, filetypes = { "harpoon" } }
 
+    -- Create hl_group so that we can easily update it afterword
+    vim.api.nvim_set_hl(0, "lualine_winbar", { link = "Comment" })
+
     lualine.setup({
       options = {
         component_separators = "",
@@ -105,8 +108,8 @@ return {
       },
       winbar = {
         lualine_a = {
-          { filepath, color = Settings.colorscheme == "vscode" and { fg = "#888888", bg = "NONE" } or "Comment" },
-          { "navic", color = Settings.colorscheme == "vscode" and { fg = "#888888", bg = "NONE" } or "Comment" },
+          { filepath, color = "lualine_winbar" },
+          { "navic", color = "lualine_winbar" },
         },
       },
       extensions = { "lazy", "mason", "neo-tree", "trouble", "fugitive", "aerial", harpoon2 },

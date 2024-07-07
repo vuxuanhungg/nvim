@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
     if vim.g.colors_name == "vscode" then
       vim.api.nvim_set_hl(0, "FzfLuaBorder", { link = "LspFloatWinBorder" })
+      vim.api.nvim_set_hl(0, "lualine_winbar", { fg = "#888888", bg = "NONE" })
     end
   end,
 })
