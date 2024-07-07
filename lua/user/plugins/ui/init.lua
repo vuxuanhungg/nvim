@@ -23,17 +23,12 @@ return {
   -- Nerd-font icons
   { import = "user.plugins.ui.nvim-web-devicons" },
 
+  -- Kind icons
+  { import = "user.plugins.ui.lspkind" },
+
   -- Improve default vim.ui interfaces
   { import = "user.plugins.ui.dressing" },
 
   -- Fancy notification
   { import = "user.plugins.ui.nvim-notify" },
-
-  {
-    "onsails/lspkind.nvim",
-    config = function()
-      require("lspkind").init({ preset = "codicons" })
-    end,
-    lazy = true,
-  },
 }
