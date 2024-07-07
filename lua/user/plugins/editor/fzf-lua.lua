@@ -38,6 +38,9 @@ return {
         border = "FloatBorder",
         preview_border = "FloatBorder",
       },
+      fzf_colors = {
+        gutter = "-1",
+      },
       keymap = {
         fzf = {
           ["ctrl-n"] = "down",
