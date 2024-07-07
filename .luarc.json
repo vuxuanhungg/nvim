@@ -7,8 +7,5 @@
     "vim"
   ],
   "workspace.checkThirdParty": "false",
-  "format.defaultConfig": {
-    "align_continuous_rect_table_field": "false",
-    "align_array_table": "false"
-  }
+  "format.enable": false
 }
