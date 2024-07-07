@@ -95,10 +95,6 @@ return {
 
       local common_on_attach = function(client, bufnr)
         assign_keymaps(client, bufnr)
-
-        if client.server_capabilities["documentSymbolProvider"] and client.name ~= "volar" then
-          require("nvim-navic").attach(client, bufnr)
-        end
       end
 
       local servers = {

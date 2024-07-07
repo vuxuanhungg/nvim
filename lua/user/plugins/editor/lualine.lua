@@ -7,6 +7,10 @@ return {
       "SmiteshP/nvim-navic",
       opts = {
         click = true,
+        lsp = {
+          auto_attach = true,
+          preference = { "volar", "vtsls" },
+        },
         -- TODO: Extract icons to separate file
         icons = {
           File = " ",
