@@ -28,7 +28,11 @@ gmap("v", "<A-k>", ":m '<-2<cr>gv-gv", "Move block up")
 gmap("v", "<A-J>", "yPgv", "Copy block down")
 gmap("v", "<A-K>", "y'>pgv", "Copy block up")
 
--- Misc
+-- Better select
+gmap({ "o", "x" }, "a'", "2i'", "Select arround ' without leading whitespace")
+gmap({ "o", "x" }, 'a"', '2i"', 'Select arround " without leading whitespace')
+
+-- Toggle options
 gmap("n", "<leader>uc", function()
   vim.api.nvim_set_option("cmdheight", 1 - vim.api.nvim_get_option("cmdheight"))
 end, "Toggle cmdline")
