@@ -4,9 +4,10 @@ return {
   config = function()
     local opt = vim.opt
 
+    opt.foldcolumn = "0"
+    opt.foldenable = true
     opt.foldlevel = 99
     opt.foldlevelstart = 99
-    opt.foldenable = true
 
     local ftMap = {
       vim = "indent",
