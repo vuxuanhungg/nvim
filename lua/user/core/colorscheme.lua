@@ -4,7 +4,7 @@ end
 
 vim.cmd.colorscheme(Settings.colorscheme)
 
-vim.api.nvim_create_autocmd("ColorScheme", {
+vim.api.nvim_create_autocmd({ "BufWinEnter", "ColorScheme" }, {
   desc = "Customize highlights",
   group = vim.api.nvim_create_augroup("colorscheme_load", { clear = true }),
   callback = function()
