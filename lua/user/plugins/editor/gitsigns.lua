@@ -44,8 +44,8 @@ return {
 
       -- Actions
       bmap("n", "<leader>ub", gs.toggle_current_line_blame, "Toggle line blame")
-      bmap("n", "hb", actions.blame_line, "Blame line")
-      bmap("n", "hp", gs.preview_hunk, "Preview hunk")
+      bmap("n", "<leader>hb", actions.blame_line, "Blame line")
+      bmap("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
       bmap("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
       bmap("n", "<leader>hS", gs.stage_buffer, "Stage buffer")
       bmap("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
