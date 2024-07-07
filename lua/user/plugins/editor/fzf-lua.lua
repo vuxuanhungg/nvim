@@ -34,10 +34,6 @@ return {
         },
         jump_to_single_result = true,
       },
-      hls = {
-        border = "FloatBorder",
-        preview_border = "FloatBorder",
-      },
       fzf_colors = {
         gutter = "-1",
       },
