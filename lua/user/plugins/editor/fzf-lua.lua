@@ -5,8 +5,6 @@ return {
     "nvim-tree/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
   },
-  -- Note: Currently cannot use <C-cr> for mapping (vertical split)
-  -- use <C-v> instead
   config = function()
     require("fzf-lua").setup({
       winopts = {
@@ -15,6 +13,9 @@ return {
         row = 0.5,
         col = 0.5,
         border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+        on_create = function()
+          vim.keymap.set("t", "<C-cr>", "<C-v>")
+        end,
       },
       files = {
         git_icons = false,
