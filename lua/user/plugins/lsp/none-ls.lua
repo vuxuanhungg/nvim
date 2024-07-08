@@ -1,10 +1,6 @@
 return {
   "nvimtools/none-ls.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    { "nvimtools/none-ls-extras.nvim", enabled = Settings.use_nls },
-    { "gbprod/none-ls-shellcheck.nvim", enabled = Settings.use_nls },
-  },
+  dependencies = { "nvim-lua/plenary.nvim" },
   opts = function()
     local nls = require("null-ls")
     local formatting = nls.builtins.formatting
@@ -17,8 +13,6 @@ return {
 
         -- bash
         formatting.shfmt,
-        require("none-ls-shellcheck.diagnostics"),
-        require("none-ls-shellcheck.code_actions"),
 
         -- node
         formatting.prettierd,
