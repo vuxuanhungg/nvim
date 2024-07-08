@@ -31,6 +31,9 @@ return {
           "__pycache__/",
         },
       },
+      oldfiles = {
+        cwd_only = true,
+      },
       grep = {
         fzf_opts = {
           ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-grep-history",
