@@ -24,6 +24,12 @@ return {
         fzf_opts = {
           ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
         },
+        file_ignore_patterns = {
+          "node_modules/",
+          ".next/",
+          "venv/",
+          "__pycache__/",
+        },
       },
       grep = {
         fzf_opts = {

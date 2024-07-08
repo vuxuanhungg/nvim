@@ -32,7 +32,6 @@ return {
           "node_modules/",
           ".next/",
           "venv/",
-          ".venv/",
           "__pycache__/",
         },
         mappings = {
