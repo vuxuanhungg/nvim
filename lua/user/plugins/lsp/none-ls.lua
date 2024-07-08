@@ -22,8 +22,6 @@ return {
 
         -- node
         formatting.prettierd,
-        require("none-ls.diagnostics.eslint"),
-        require("none-ls.code_actions.eslint"),
 
         -- python
         formatting.black,
