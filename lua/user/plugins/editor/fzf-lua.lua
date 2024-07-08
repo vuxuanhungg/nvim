@@ -7,6 +7,7 @@ return {
   },
   config = function()
     require("fzf-lua").setup({
+      "default-title",
       winopts = {
         width = 0.8,
         height = 0.8,
@@ -18,6 +19,7 @@ return {
         end,
       },
       files = {
+        cwd_prompt = false,
         git_icons = false,
         fzf_opts = {
           ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",

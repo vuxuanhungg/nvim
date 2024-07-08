@@ -13,4 +13,3 @@ end
 
 require("user.core.lazy")
 require("user.core.colorscheme")
-
