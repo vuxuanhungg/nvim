@@ -55,11 +55,5 @@ autocmd("VimEnter", {
 autocmd("VimLeavePre", {
   desc = "Reset kitty spacing on quit",
   group = augroup("reset_kitty_spacing", { clear = true }),
-  callback = function()
-    os.execute("kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default")
-
-    -- HACK: Avoid uv_close: Assertion '!uv__is_closing(handle)' failed
-    -- References: https://github.com/neovim/neovim/issues/21856#issuecomment-1514723887
-    vim.cmd("sleep 10m")
-  end,
+  command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
 })
