@@ -1,11 +1,9 @@
-local linters_by_ft = {}
-
 return {
   "mfussenegger/nvim-lint",
   config = function()
     local lint = require("lint")
 
-    lint.linters_by_ft = linters_by_ft
+    lint.linters_by_ft = {}
 
     vim.api.nvim_create_autocmd({ "BufReadPost", "BufWritePost", "InsertLeave" }, {
       callback = function()
@@ -14,5 +12,5 @@ return {
     })
   end,
   event = { "BufReadPre", "BufNewFile" },
-  enabled = not Settings.use_nls and #linters_by_ft > 0,
+  enabled = not Settings.use_nls,
 }
