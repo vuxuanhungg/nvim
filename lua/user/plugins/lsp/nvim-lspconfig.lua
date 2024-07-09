@@ -110,7 +110,7 @@ return {
         "eslint",
         "volar",
         "prismals",
-        "pyright",
+        "basedpyright",
         "ruff_lsp",
       }
 
@@ -137,6 +137,9 @@ return {
           end,
           ["volar"] = function()
             require("user.plugins.lsp.servers.volar").setup(capabilities)
+          end,
+          ["basedpyright"] = function()
+            require("user.plugins.lsp.servers.basedpyright").setup(capabilities, common_on_attach)
           end,
           ["ruff_lsp"] = function()
             require("user.plugins.lsp.servers.ruff-lsp").setup(capabilities, common_on_attach)
