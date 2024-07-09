@@ -31,7 +31,7 @@ return {
       local Package = require("mason-core.package")
 
       local notify = function(msg, type)
-        require("user.utils").notify(msg, type or vim.log.levels.INFO, { title = "mason.nvim" })
+        vim.notify(msg, type or vim.log.levels.INFO, { title = "mason.nvim" })
       end
 
       local resolve_package = function(name)

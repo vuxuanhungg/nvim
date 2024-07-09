@@ -14,15 +14,6 @@ M.map = function(bufnr)
   end
 end
 
----@param msg string Notification body
----@param type? number Notification type (:help vim.log.levels)
----@param opts? table Optional params
-M.notify = function(msg, type, opts)
-  vim.schedule(function()
-    vim.notify(msg, type, opts)
-  end)
-end
-
 --- Open a URL under the cursor with the current operating system
 ---@param path string The path of the file to open with the system opener
 M.system_open = function(path)
@@ -41,7 +32,7 @@ M.system_open = function(path)
     cmd = { "open" }
   end
   if not cmd then
-    M.notify("Available system opening tool not found", vim.log.levels.ERROR)
+    vim.notify("Available system opening tool not found", vim.log.levels.ERROR)
   end
   vim.fn.jobstart(vim.fn.extend(cmd, { path or vim.fn.expand("<cfile>") }), { detach = true })
 end
@@ -54,7 +45,7 @@ end
 M.toggle_word_wrap = function()
   local word_wrap = vim.api.nvim_get_option_value("wrap", {})
   vim.api.nvim_set_option_value("wrap", not word_wrap, {})
-  vim.notify("Word wrap: " .. (word_wrap and "off" or "on"))
+  vim.notify("Word wrap: " .. (word_wrap and "off" or "on"), vim.log.levels.INFO, { title = "neovim" })
 end
 
 --- Filter out diagnostic messages we do not want to see

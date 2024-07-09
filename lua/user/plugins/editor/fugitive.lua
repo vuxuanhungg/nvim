@@ -29,7 +29,7 @@ return {
     local utils = require("user.utils")
     local toggle_fugitive = function()
       if not utils.is_git_repo() then
-        utils.notify("File does not belong to a Git repository", vim.log.levels.ERROR, { title = "vim-futigive" })
+        vim.notify("File does not belong to a Git repository", vim.log.levels.ERROR, { title = "vim-futigive" })
         return
       end
 

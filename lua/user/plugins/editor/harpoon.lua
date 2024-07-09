@@ -16,7 +16,7 @@ return {
     end
     local mark_file = function()
       harpoon:list():add()
-      require("user.utils").notify("Buffer marked")
+      vim.notify("Buffer marked", vim.log.levels.INFO, { title = "harpoon" })
     end
     local navigate_to_buffer = function(index)
       harpoon:list():select(index)

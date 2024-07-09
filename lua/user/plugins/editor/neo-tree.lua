@@ -62,7 +62,7 @@ return {
         vim.api.nvim_echo(messages, false, {})
         local result = results[vim.fn.getcharstr()]
         if result and result.val and result.val ~= "" then
-          vim.notify("Copied: " .. result.val)
+          vim.notify("Copied: " .. result.val, vim.log.levels.INFO, { title = "neo-tree" })
           vim.fn.setreg("+", result.val)
         end
       end,
