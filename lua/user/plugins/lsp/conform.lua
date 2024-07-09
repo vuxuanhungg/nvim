@@ -1,3 +1,5 @@
+local slow_format_filetypes = {}
+
 return {
   "stevearc/conform.nvim",
   opts = {
@@ -26,10 +28,26 @@ return {
       markdown = { { "prettierd", "prettier" } },
       yaml = { { "prettierd", "prettier" } },
     },
-    format_on_save = {
-      timeout_ms = 500,
-      lsp_format = "fallback",
-    },
+
+    format_on_save = function(bufnr)
+      if slow_format_filetypes[vim.bo[bufnr].filetype] then
+        return
+      end
+      local on_format = function(err)
+        if err and err:match("timeout$") then
+          slow_format_filetypes[vim.bo[bufnr].filetype] = true
+        end
+      end
+
+      return { timeout_ms = 200, lsp_format = "fallback" }, on_format
+    end,
+
+    format_after_save = function(bufnr)
+      if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+        return
+      end
+      return { lsp_format = "fallback" }
+    end,
   },
   cmd = { "ConformInfo" },
   event = { "BufWritePre" },
