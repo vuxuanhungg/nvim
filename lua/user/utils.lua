@@ -51,6 +51,12 @@ M.is_git_repo = function()
   return not not (vim.uv or vim.loop).fs_stat(path)
 end
 
+M.toggle_word_wrap = function()
+  local word_wrap = vim.api.nvim_get_option_value("wrap", {})
+  vim.api.nvim_set_option_value("wrap", not word_wrap, {})
+  vim.notify("Word wrap: " .. (word_wrap and "off" or "on"))
+end
+
 --- Filter out diagnostic messages we do not want to see
 ---@param messages string[]
 M.filter_diagnostics = function(messages)

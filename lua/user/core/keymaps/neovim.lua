@@ -37,6 +37,4 @@ gmap("n", "<leader>uc", function()
   vim.api.nvim_set_option("cmdheight", 1 - vim.api.nvim_get_option("cmdheight"))
 end, "Toggle cmdline")
 
-gmap("n", "<leader>uw", function()
-  vim.cmd.set("wrap!")
-end, "Toggle wrap")
+gmap("n", "<leader>uw", require("user.utils").toggle_word_wrap, "Toggle word wrap")
