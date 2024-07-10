@@ -1,6 +1,18 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
+autocmd("VimEnter", {
+  desc = "Set kitty spacing for neovim",
+  group = augroup("nvim_set_kitty_spacing", { clear = true }),
+  command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 margin=0",
+})
+
+autocmd("VimLeavePre", {
+  desc = "Reset kitty spacing on quit",
+  group = augroup("reset_kitty_spacing", { clear = true }),
+  command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
+})
+
 autocmd("FileType", {
   pattern = { "neo-tree" },
   callback = function()
@@ -53,18 +65,6 @@ autocmd("BufWinEnter", {
       })
     end
   end,
-})
-
-autocmd("VimEnter", {
-  desc = "Set kitty spacing for neovim",
-  group = augroup("nvim_set_kitty_spacing", { clear = true }),
-  command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 margin=0",
-})
-
-autocmd("VimLeavePre", {
-  desc = "Reset kitty spacing on quit",
-  group = augroup("reset_kitty_spacing", { clear = true }),
-  command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
 })
 
 -- Reference: https://github.com/AstroNvim/astrocommunity/blob/main/lua/astrocommunity/editing-support/vim-visual-multi/init.lua
