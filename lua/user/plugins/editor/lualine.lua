@@ -71,12 +71,11 @@ return {
         component_separators = "",
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
-          "help",
-          "alpha",
-          "fugitive",
           winbar = {
+            "help",
+            "alpha",
             "neo-tree",
-            "gitcommit",
+            "fugitive",
           },
         },
       },
