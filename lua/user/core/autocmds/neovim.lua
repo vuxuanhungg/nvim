@@ -13,10 +13,19 @@ autocmd("FileType", {
 
 autocmd("FileType", {
   desc = "Prevent indenting when pressing colon in Python files",
-  group = augroup("python_no_indent_on_colon_press", { clear = true }),
+  group = augroup("python_no_colon_indent", { clear = true }),
   pattern = "python",
   callback = function()
     vim.opt_local.indentkeys:remove({ "<:>" })
+  end,
+})
+
+autocmd("FileType", {
+  desc = "Prevent indenting when pressing bracket in Vue files",
+  group = augroup("vue_no_bracket_indent", { clear = true }),
+  pattern = "vue",
+  callback = function()
+    vim.opt_local.indentkeys:remove({ "{", "}" })
   end,
 })
 
