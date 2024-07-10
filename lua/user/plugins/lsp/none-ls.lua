@@ -1,6 +1,10 @@
+-- Note: cannot auto organize imports on save
 return {
   "nvimtools/none-ls.nvim",
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    { "nvimtools/none-ls-extras.nvim", enabled = Settings.use_nls },
+  },
   opts = function()
     local nls = require("null-ls")
     local formatting = nls.builtins.formatting
@@ -18,7 +22,7 @@ return {
         formatting.prettierd,
 
         -- python
-        formatting.black,
+        require("none-ls.formatting.ruff_format"),
       },
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then

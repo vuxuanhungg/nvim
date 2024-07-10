@@ -111,7 +111,7 @@ return {
         "volar",
         "prismals",
         "basedpyright",
-        "ruff_lsp",
+        "ruff",
       }
 
       require("mason-lspconfig").setup({
@@ -140,9 +140,6 @@ return {
           end,
           ["basedpyright"] = function()
             require("user.plugins.lsp.servers.basedpyright").setup(capabilities, common_on_attach)
-          end,
-          ["ruff_lsp"] = function()
-            require("user.plugins.lsp.servers.ruff-lsp").setup(capabilities, common_on_attach)
           end,
         },
       })

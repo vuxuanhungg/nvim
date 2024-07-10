@@ -4,7 +4,7 @@ Settings = {
 
   --- Whether to use `none-ls` or `conform` + `nvim-lint`
   ---@type boolean
-  use_nls = true,
+  use_nls = false,
 
   --[[
  Whether to use `telescope.nvim` or `fzf-lua.nvim`

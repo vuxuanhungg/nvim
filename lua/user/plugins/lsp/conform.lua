@@ -22,7 +22,7 @@ return {
       vue = { { "prettierd", "prettier" } },
 
       -- python
-      python = { "black" },
+      python = { "ruff_organize_imports", "ruff_format" },
 
       -- others
       markdown = { { "prettierd", "prettier" } },

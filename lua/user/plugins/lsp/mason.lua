@@ -22,7 +22,6 @@ return {
         "shfmt",
         "shellcheck",
         "prettierd",
-        "black",
       }
 
       local Registry = require("mason-registry")
