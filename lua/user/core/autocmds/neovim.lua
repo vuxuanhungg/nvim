@@ -66,3 +66,17 @@ autocmd("VimLeavePre", {
   group = augroup("reset_kitty_spacing", { clear = true }),
   command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
 })
+
+-- Reference: https://github.com/AstroNvim/astrocommunity/blob/main/lua/astrocommunity/editing-support/vim-visual-multi/init.lua
+autocmd("User", {
+  desc = "Avoid spurious 'hit-enter-prompt' when exiting vim-visual-multi",
+  pattern = "visual_multi_exit",
+  callback = function()
+    local cmdheight = vim.api.nvim_get_option_value("cmdheight", {})
+    -- Temporarily set cmdheight to 1, then set back to previous value
+    vim.opt.cmdheight = 1
+    vim.schedule(function()
+      vim.opt.cmdheight = cmdheight
+    end)
+  end,
+})

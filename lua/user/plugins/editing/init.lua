@@ -22,6 +22,10 @@ return {
     cmd = "MaximizerToggle",
     keys = { { "<leader>sm", "<cmd> MaximizerToggle <cr>", desc = "Maximize window" } },
   },
+  {
+    "mg979/vim-visual-multi",
+    event = { "BufReadPost", "BufNewFile" },
+  },
 
   -- Autocompletion
   { import = "user.plugins.editing.nvim-cmp" },
