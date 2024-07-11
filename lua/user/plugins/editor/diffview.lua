@@ -73,7 +73,7 @@ return {
       {
         "<leader>g",
         toggle_diffview,
-        desc = "Diffview",
+        desc = "(Git) Diffview",
       },
     }
   end,
