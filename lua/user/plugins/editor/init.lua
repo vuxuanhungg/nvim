@@ -21,6 +21,7 @@ return {
   -- Git
   { import = "user.plugins.editor.gitsigns" },
   { import = "user.plugins.editor.fugitive" },
+  { import = "user.plugins.editor.diffview" },
 
   {
     -- Search & replace
