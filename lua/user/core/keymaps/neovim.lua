@@ -33,8 +33,6 @@ gmap({ "o", "x" }, "a'", "2i'", "Select arround ' without leading whitespace")
 gmap({ "o", "x" }, 'a"', '2i"', 'Select arround " without leading whitespace')
 
 -- Toggle options
-gmap("n", "<leader>uc", function()
-  vim.api.nvim_set_option("cmdheight", 1 - vim.api.nvim_get_option("cmdheight"))
-end, "Toggle cmdline")
+gmap("n", "<leader>uc", utils.toggle_cmdline, "Toggle cmdline")
 
-gmap("n", "<leader>uw", require("user.utils").toggle_word_wrap, "Toggle word wrap")
+gmap("n", "<leader>uw", utils.toggle_word_wrap, "Toggle word wrap")

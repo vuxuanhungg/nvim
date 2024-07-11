@@ -42,6 +42,16 @@ M.is_git_repo = function()
   return not not (vim.uv or vim.loop).fs_stat(path)
 end
 
+M.toggle_cmdline = function()
+  local cmdheight = vim.api.nvim_get_option_value("cmdheight", {})
+  vim.api.nvim_set_option_value("cmdheight", 1 - cmdheight, {})
+  vim.notify(
+    "Command line: " .. (cmdheight == 1 and "disabled" or "enabled"),
+    vim.log.levels.INFO,
+    { title = "neovim" }
+  )
+end
+
 M.toggle_word_wrap = function()
   local word_wrap = vim.api.nvim_get_option_value("wrap", {})
   vim.api.nvim_set_option_value("wrap", not word_wrap, {})
