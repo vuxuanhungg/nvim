@@ -37,7 +37,7 @@ return {
           ["g<C-x>"] = false,
           { "n", "<C-g>", actions.cycle_layout, { desc = "Cycle through available layouts" } },
           { "n", "cc", "<cmd> Git commit <bar> wincmd J <cr>", { desc = "Commit staged changes" } },
-          { "n", "ca", "<cmd>Git commit --amend <bar> wincmd J<cr>", { desc = "Amend the last commit" } },
+          { "n", "ca", "<cmd> Git commit --amend <bar> wincmd J <cr>", { desc = "Amend the last commit" } },
         },
         file_history_panel = {
           ["[F"] = false,
@@ -55,6 +55,11 @@ return {
   end,
   keys = function()
     local toggle_diffview = function()
+      if not require("user.utils").is_git_repo() then
+        vim.notify("File does not belong to a Git repository", vim.log.levels.ERROR, { title = "diffview.nvim" })
+        return
+      end
+
       local open = vim.t.diffview_view_initialized
       if open then
         vim.cmd.DiffviewClose()
@@ -65,7 +70,7 @@ return {
 
     return {
       {
-        "<leader>d",
+        "<leader>g",
         toggle_diffview,
         desc = "Diffview",
       },
