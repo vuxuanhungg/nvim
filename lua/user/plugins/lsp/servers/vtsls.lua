@@ -12,15 +12,11 @@ return {
           organize_imports = function()
             require("vtsls").commands.organize_imports()
           end,
-          add_missing_imports = function()
-            require("vtsls").commands.add_missing_imports()
-          end,
         }
 
         local map = vim.keymap.set
         map("n", "<leader>rf", actions.rename_file, { desc = "Rename file", buffer = bufnr })
         map("n", "<A-O>", actions.organize_imports, { desc = "Organize imports", buffer = bufnr })
-        map("n", "<leader>ai", actions.add_missing_imports, { desc = "Add missing imports", buffer = bufnr })
       end,
       filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
       settings = {
