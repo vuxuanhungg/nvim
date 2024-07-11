@@ -53,6 +53,7 @@ return {
       },
     })
   end,
+  cmd = { "DiffviewOpen", "DiffviewFileHistory" },
   keys = function()
     local toggle_diffview = function()
       if not require("user.utils").is_git_repo() then
