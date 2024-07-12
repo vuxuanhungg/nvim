@@ -5,59 +5,57 @@ return {
     "nvim-tree/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
   },
-  config = function()
-    require("fzf-lua").setup({
-      "default-title",
-      winopts = {
-        width = 0.8,
-        height = 0.8,
-        row = 0.5,
-        col = 0.5,
-        border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-        on_create = function()
-          vim.keymap.set("t", "<C-cr>", "<C-v>")
-        end,
+  opts = {
+    "default-title",
+    winopts = {
+      width = 0.8,
+      height = 0.8,
+      row = 0.5,
+      col = 0.5,
+      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+      on_create = function()
+        vim.keymap.set("t", "<C-cr>", "<C-v>")
+      end,
+    },
+    files = {
+      cwd_prompt = false,
+      git_icons = false,
+      fzf_opts = {
+        ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
       },
-      files = {
-        cwd_prompt = false,
-        git_icons = false,
-        fzf_opts = {
-          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-files-history",
-        },
-        file_ignore_patterns = {
-          "node_modules/",
-          ".next/",
-          "venv/",
-          "__pycache__/",
-        },
+      file_ignore_patterns = {
+        "node_modules/",
+        ".next/",
+        "venv/",
+        "__pycache__/",
       },
-      oldfiles = {
-        cwd_only = true,
+    },
+    oldfiles = {
+      cwd_only = true,
+    },
+    grep = {
+      fzf_opts = {
+        ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-grep-history",
       },
-      grep = {
-        fzf_opts = {
-          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-grep-history",
-        },
+    },
+    lsp = {
+      symbols = {
+        symbol_icons = require("lspkind").symbol_map,
       },
-      lsp = {
-        symbols = {
-          symbol_icons = require("lspkind").symbol_map,
-        },
-        jump_to_single_result = true,
+      jump_to_single_result = true,
+    },
+    fzf_colors = {
+      gutter = "-1",
+    },
+    keymap = {
+      fzf = {
+        ["ctrl-n"] = "down",
+        ["ctrl-p"] = "up",
+        ["ctrl-j"] = "next-history",
+        ["ctrl-k"] = "previous-history",
       },
-      fzf_colors = {
-        gutter = "-1",
-      },
-      keymap = {
-        fzf = {
-          ["ctrl-n"] = "down",
-          ["ctrl-p"] = "up",
-          ["ctrl-j"] = "next-history",
-          ["ctrl-k"] = "previous-history",
-        },
-      },
-    })
-  end,
+    },
+  },
   cmd = "FzfLua",
   keys = {
     { "<leader>fa", "<cmd> FzfLua <cr>", desc = "Find all" },
