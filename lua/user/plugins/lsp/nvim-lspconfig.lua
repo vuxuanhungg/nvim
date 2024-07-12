@@ -3,6 +3,7 @@ return {
   dependencies = {
     { import = "user.plugins.lsp.mason" },
     { "williamboman/mason-lspconfig.nvim" },
+    { import = "user.plugins.lsp.lazydev" },
     { "yioneko/nvim-vtsls" },
     { "b0o/SchemaStore.nvim" },
   },
