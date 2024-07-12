@@ -102,6 +102,14 @@ return {
           end
         end,
       },
+
+      ---------- Map <esc> to enter normal mode instead of close prompt ----------
+      {
+        event = "neo_tree_popup_input_ready",
+        handler = function(args)
+          vim.keymap.set("i", "<esc>", vim.cmd.stopinsert, { noremap = true, buffer = args.bufnr })
+        end,
+      },
     },
   },
   cmd = "Neotree",
