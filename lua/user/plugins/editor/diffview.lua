@@ -55,27 +55,4 @@ return {
     })
   end,
   cmd = { "DiffviewOpen", "DiffviewFileHistory" },
-  keys = function()
-    local toggle_diffview = function()
-      if not require("user.utils").is_git_repo() then
-        vim.notify("File does not belong to a Git repository", vim.log.levels.ERROR, { title = "diffview.nvim" })
-        return
-      end
-
-      local open = vim.t.diffview_view_initialized
-      if open then
-        vim.cmd.DiffviewClose()
-      else
-        vim.cmd.DiffviewOpen()
-      end
-    end
-
-    return {
-      {
-        "<leader>g",
-        toggle_diffview,
-        desc = "(Git) Diffview",
-      },
-    }
-  end,
 }
