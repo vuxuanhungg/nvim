@@ -56,7 +56,9 @@ return {
     end
 
     local function filepath()
-      local path = vim.fn.expand("%")
+      -- return current file's path relative to the home dir
+      -- and replace the home dir with `~`
+      local path = vim.fn.expand("%:~:.")
       path = path:gsub("/", " > ")
       return path
     end
