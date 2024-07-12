@@ -42,8 +42,6 @@ return {
       bmap("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
       bmap("n", "<C-.>", vim.lsp.buf.code_action, "Code action")
 
-      bmap("n", "<leader>fm", vim.lsp.buf.format, "Format buffer")
-
       -- Lesser known
       bmap("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
       bmap("n", "gI", finder.lsp_implementations, "Go to implementations")
