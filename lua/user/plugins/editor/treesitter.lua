@@ -10,12 +10,16 @@ return {
   config = function()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
+        -- the listed parsers MUST always be installed
         "c",
+        "lua",
         "vim",
         "vimdoc",
         "query",
-        "lua",
+        "markdown",
+        "markdown_inline",
 
+        -- user list
         "bash",
         "html",
         "css",
@@ -27,8 +31,6 @@ return {
         "vue",
         "pug",
         "prisma",
-        "markdown",
-        "markdown_inline",
         "python",
         "toml",
         "yaml",
