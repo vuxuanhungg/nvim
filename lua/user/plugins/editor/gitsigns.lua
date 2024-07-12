@@ -5,52 +5,44 @@ return {
       delay = 300,
     },
     on_attach = function(bufnr)
-      local gs = package.loaded.gitsigns
+      local gitsigns = require("gitsigns")
       local bmap = require("user.utils").map(bufnr)
 
-      local navigation = {
-        next_hunk = function()
-          if vim.wo.diff then
-            return "]h"
-          end
-          vim.schedule(function()
-            gs.next_hunk()
-          end)
-          return "<Ignore>"
-        end,
-        prev_hunk = function()
-          if vim.wo.diff then
-            return "[h"
-          end
-          vim.schedule(function()
-            gs.prev_hunk()
-          end)
-          return "<Ignore>"
-        end,
-      }
+      ---------- Navigation ----------
+      bmap("n", "]h", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "]h", bang = true })
+        else
+          gitsigns.nav_hunk("next")
+        end
+      end)
 
+      bmap("n", "[h", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "[h", bang = true })
+        else
+          gitsigns.nav_hunk("prev")
+        end
+      end)
+
+      ---------- Actions ----------
       local actions = {
         blame_line = function()
-          gs.blame_line({ full = true })
+          gitsigns.blame_line({ full = true })
         end,
         diff_this = function()
-          gs.diffthis("~")
+          gitsigns.diffthis("~")
         end,
       }
 
-      -- Navigation
-      bmap("n", "]h", navigation.next_hunk, "Next hunk", { expr = true })
-      bmap("n", "[h", navigation.prev_hunk, "Prev hunk", { expr = true })
-
-      -- Actions
-      bmap("n", "<leader>ub", gs.toggle_current_line_blame, "Toggle line blame")
+      bmap("n", "<leader>ub", gitsigns.toggle_current_line_blame, "Toggle line blame")
       bmap("n", "<leader>hb", actions.blame_line, "Blame line")
-      bmap("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
-      bmap("n", "<leader>hs", gs.stage_hunk, "Stage hunk")
-      bmap("n", "<leader>hS", gs.stage_buffer, "Stage buffer")
-      bmap("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
-      bmap("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
-      bmap("n", "<leader>hR", gs.reset_buffer, "Reset buffer")
+      bmap("n", "<leader>hp", gitsigns.preview_hunk, "Preview hunk")
+      bmap("n", "<leader>hs", gitsigns.stage_hunk, "Stage hunk")
+      bmap("n", "<leader>hS", gitsigns.stage_buffer, "Stage buffer")
+      bmap("n", "<leader>hu", gitsigns.undo_stage_hunk, "Undo stage hunk")
+      bmap("n", "<leader>hr", gitsigns.reset_hunk, "Reset hunk")
+      bmap("n", "<leader>hR", gitsigns.reset_buffer, "Reset buffer")
     end,
   },
   event = { "BufReadPre", "BufNewFile" },
