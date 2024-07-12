@@ -6,7 +6,15 @@ return {
   },
 
   init = function()
-    local silent_messages = { "No information available" }
+    local silent_messages = {
+      -- Multiple servers are attached to a filetype
+      -- but only one server has the information
+      -- on hover over (e.g. tailwindcss - vtsls)
+      "No information available",
+
+      -- [Code action] Move to a new file (vtsls)
+      "Request codeAction/resolve failed with message: <semantic> TypeScript Server Error",
+    }
 
     vim.notify = function(msg, ...)
       for _, silent in ipairs(silent_messages) do
