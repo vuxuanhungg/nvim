@@ -39,7 +39,6 @@ return {
       bmap("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
       bmap("n", "<F2>", vim.lsp.buf.rename, "Rename symbol")
 
-      bmap("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
       bmap("n", "<C-.>", vim.lsp.buf.code_action, "Code action")
 
       -- Lesser known
