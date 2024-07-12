@@ -24,6 +24,7 @@ Whether to use `none-ls` or `conform` + `nvim-lint`
 - Cons:
     Cannot get lazyloaded colorschemes
     Limited support for scrolling results/preview window (until recently)
+    Does not support toggling hidden/git ignore
 
 `fzf-lua.nvim`:
 - Pros:
