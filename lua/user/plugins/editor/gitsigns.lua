@@ -51,8 +51,6 @@ return {
       bmap("n", "<leader>hu", gs.undo_stage_hunk, "Undo stage hunk")
       bmap("n", "<leader>hr", gs.reset_hunk, "Reset hunk")
       bmap("n", "<leader>hR", gs.reset_buffer, "Reset buffer")
-      bmap("n", "<leader>hd", gs.diffthis, "Diff against the index")
-      bmap("n", "<leader>hD", actions.diff_this, "Diff against the last commit")
     end,
   },
   event = { "BufReadPre", "BufNewFile" },
