@@ -38,8 +38,8 @@ M.system_open = function(path)
 end
 
 M.is_git_repo = function()
-  local path = (vim.uv or vim.loop).cwd() .. "/.git"
-  return not not (vim.uv or vim.loop).fs_stat(path)
+  local path = vim.uv.cwd() .. "/.git"
+  return not not vim.uv.fs_stat(path)
 end
 
 M.toggle_cmdline = function()
@@ -71,6 +71,7 @@ M.filter_diagnostics = function(messages)
 
   local old_set = vim.diagnostic.set
 
+  ---@diagnostic disable-next-line: duplicate-set-field
   vim.diagnostic.set = function(namespace, bufnr, diagnostics, opts)
     old_set(namespace, bufnr, filter(diagnostics), opts)
   end
