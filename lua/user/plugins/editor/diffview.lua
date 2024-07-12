@@ -36,6 +36,7 @@ return {
           ["<leader>b"] = false,
           ["g<C-x>"] = false,
           { "n", "<C-g>", actions.cycle_layout, { desc = "Cycle through available layouts" } },
+          { "n", "gs", "<cmd> Git <bar> wincmd J <cr>", { desc = "Show all status" } },
           { "n", "cc", "<cmd> Git commit <bar> wincmd J <cr>", { desc = "Commit staged changes" } },
           { "n", "ca", "<cmd> Git commit --amend <bar> wincmd J <cr>", { desc = "Amend the last commit" } },
         },
