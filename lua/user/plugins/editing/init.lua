@@ -9,7 +9,7 @@ return {
     "kylechui/nvim-surround",
     version = "*",
     opts = {},
-    event = { "BufReadPost", "BufNewFile" },
+    event = "VeryLazy",
     cond = vim.g.vscode,
   },
   {
