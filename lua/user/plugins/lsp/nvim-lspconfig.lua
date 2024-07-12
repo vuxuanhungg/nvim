@@ -67,9 +67,8 @@ return {
         update_in_insert = true,
         severity_sort = true,
         float = {
-          style = "minimal",
           border = "single",
-          source = "always",
+          source = true,
         },
       })
 

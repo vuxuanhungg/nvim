@@ -1,11 +1,4 @@
 {
   "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
-  "diagnostics.disable": [
-    "different-requires"
-  ],
-  "diagnostics.globals": [
-    "vim"
-  ],
-  "workspace.checkThirdParty": "false",
-  "format.enable": false
+  "diagnostics.disable": ["different-requires", "missing-fields"]
 }
