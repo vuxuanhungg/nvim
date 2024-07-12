@@ -60,6 +60,7 @@ return {
   end,
   cmd = "FzfLua",
   keys = {
+    { "<leader>fa", "<cmd> FzfLua <cr>", desc = "Find all" },
     { "<C-p>", "<cmd> FzfLua files <cr>", desc = "Find files" },
     { "<leader>ff", "<cmd> FzfLua files <cr>", desc = "Find files" },
     { "<leader>fo", "<cmd> FzfLua oldfiles <cr>", desc = "Recent files" },
@@ -73,8 +74,6 @@ return {
     { "<leader>fS", "<cmd> FzfLua lsp_workspace_symbols <cr>", desc = "Workspace symbols" },
     { "<leader>fx", "<cmd> FzfLua diagnostics_document <cr>", desc = "Document diagnostics" },
     { "<leader>fX", "<cmd> FzfLua diagnostics_workspace <cr>", desc = "Workspace diagnostics" },
-    { "<leader>fgs", "<cmd> FzfLua git_status <cr>", desc = "Git status" },
-    { "<leader>fgc", "<cmd> FzfLua git_commits <cr>", desc = "Git commits" },
   },
   enabled = Settings.use_fzf,
 }
