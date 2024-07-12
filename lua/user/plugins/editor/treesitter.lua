@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   dependencies = {
-    "windwp/nvim-ts-autotag",
+    { "windwp/nvim-ts-autotag", opts = {} },
     "JoosepAlviste/nvim-ts-context-commentstring",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "nvim-treesitter/nvim-treesitter-context",
@@ -36,10 +36,6 @@ return {
       auto_install = false,
       highlight = { enable = true },
       indent = { enable = true },
-      autotag = {
-        enable = true,
-        enable_close_on_slash = false,
-      },
       context_commentstring = {
         enable = true,
         enable_autocmd = false,
