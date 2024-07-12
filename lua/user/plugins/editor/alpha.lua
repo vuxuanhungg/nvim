@@ -17,7 +17,6 @@ return {
     local use_fzf = Settings.use_fzf
 
     dashboard.section.buttons.val = {
-      dashboard.button("e", "󰝒" .. "  New file", ":ene <bar> startinsert <cr>"),
       dashboard.button(
         "f",
         "󰱼" .. "  Find file",
@@ -27,11 +26,6 @@ return {
         "o",
         "󰤘" .. "  Recent files",
         use_fzf and "<cmd> FzfLua oldfiles <cr>" or "<cmd> Telescope oldfiles <cr>"
-      ),
-      dashboard.button(
-        "w",
-        "󰭷" .. "  Search text",
-        use_fzf and "<cmd> FzfLua live_grep <cr>" or "<cmd> Telescope live_grep <cr>"
       ),
       dashboard.button("c", "󰒓" .. "  Config", ":e $MYVIMRC <bar> cd %:p:h <cr>"),
       dashboard.button("q", "󰶞" .. "  Quit", ":qa <cr>"),
