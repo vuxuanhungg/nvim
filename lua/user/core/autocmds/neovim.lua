@@ -14,16 +14,6 @@ autocmd("VimLeavePre", {
 })
 
 autocmd("FileType", {
-  pattern = { "neo-tree" },
-  callback = function()
-    local status_ok, ufo = pcall(require, "ufo")
-    if status_ok then
-      ufo.detach()
-    end
-  end,
-})
-
-autocmd("FileType", {
   desc = "Prevent indenting when pressing colon in Python files",
   group = augroup("python_no_colon_indent", { clear = true }),
   pattern = "python",

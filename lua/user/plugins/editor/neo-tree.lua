@@ -86,6 +86,13 @@ return {
       },
     },
     event_handlers = {
+      ---------- Fix nvim-ufo autofold neo-tree folders ----------
+      {
+        event = "neo_tree_window_after_open",
+        handler = function()
+          vim.opt_local.foldenable = false
+        end,
+      },
       ---------- Equalize Window Sizes on Neo-tree Open and Close ----------
       {
         event = "neo_tree_window_after_open",
