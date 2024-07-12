@@ -14,29 +14,6 @@ M.map = function(bufnr)
   end
 end
 
---- Open a URL under the cursor with the current operating system
----@param path string The path of the file to open with the system opener
-M.system_open = function(path)
-  if vim.ui.open then
-    return vim.ui.open(path)
-  end
-  local cmd
-  if vim.fn.has("win32") == 1 and vim.fn.executable("explorer") == 1 then
-    -- windows
-    cmd = { "cmd.exe", "/K", "explorer" }
-  elseif vim.fn.has("unix") == 1 and vim.fn.executable("xdg-open") == 1 then
-    -- linux
-    cmd = { "xdg-open" }
-  elseif (vim.fn.has("mac") == 1 or vim.fn.has("unix") == 1) and vim.fn.executable("open") == 1 then
-    -- osx
-    cmd = { "open" }
-  end
-  if not cmd then
-    vim.notify("Available system opening tool not found", vim.log.levels.ERROR)
-  end
-  vim.fn.jobstart(vim.fn.extend(cmd, { path or vim.fn.expand("<cfile>") }), { detach = true })
-end
-
 M.is_git_repo = function()
   local path = vim.uv.cwd() .. "/.git"
   return not not vim.uv.fs_stat(path)

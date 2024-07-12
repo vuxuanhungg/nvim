@@ -9,7 +9,8 @@ return {
   opts = {
     commands = {
       system_open = function(state)
-        require("user.utils").system_open(state.tree:get_node():get_id())
+        local path = state.tree:get_node():get_id()
+        vim.ui.open(path)
       end,
       parent_or_close = function(state)
         local node = state.tree:get_node()
