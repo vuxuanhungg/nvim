@@ -55,15 +55,19 @@ return {
       end
     end
 
-    local function filepath()
-      -- return current file's path relative to the home dir
-      -- and replace the home dir with `~`
-      local path = vim.fn.expand("%:~:.")
-      path = path:gsub("/", " > ")
-      return path
-    end
-
     local harpoon2 = { sections = { lualine_a = { "filetype" } }, filetypes = { "harpoon" } }
+
+    local winbar_a = {
+      {
+        "filename",
+        path = 1,
+        fmt = function(str)
+          return str:gsub("/", " > ")
+        end,
+        color = "lualine_winbar",
+      },
+      { "navic", color = "lualine_winbar" },
+    }
 
     -- Create hl_group so that we can easily update it afterword
     vim.api.nvim_set_hl(0, "lualine_winbar", { link = "Comment" })
@@ -108,16 +112,10 @@ return {
         },
       },
       winbar = {
-        lualine_a = {
-          { filepath, color = "lualine_winbar" },
-          { "navic", color = "lualine_winbar" },
-        },
+        lualine_a = winbar_a,
       },
       inactive_winbar = {
-        lualine_a = {
-          { filepath, color = "lualine_winbar" },
-          { "navic", color = "lualine_winbar" },
-        },
+        lualine_a = winbar_a,
       },
       extensions = { "lazy", "mason", "neo-tree", "trouble", "fugitive", "aerial", harpoon2 },
     })
