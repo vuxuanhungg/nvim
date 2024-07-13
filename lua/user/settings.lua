@@ -45,6 +45,9 @@ Settings = {
       Operator = " ",
       TypeParameter = " ",
     },
+    git = {
+      Branch = " ",
+    },
   },
 
   --[[

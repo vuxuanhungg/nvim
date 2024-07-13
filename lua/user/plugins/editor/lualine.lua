@@ -31,7 +31,7 @@ return {
       sections = {
         lualine_a = {
           function()
-            return " " .. vim.fn.FugitiveHead()
+            return Settings.icons.git.Branch .. vim.fn.FugitiveHead()
           end,
         },
         lualine_z = { "location" },
@@ -99,7 +99,7 @@ return {
       },
       sections = {
         lualine_b = {
-          { "branch", icon = "" },
+          { "branch", icon = Settings.icons.git.Branch },
           "diff",
           {
             "diagnostics",
