@@ -55,7 +55,46 @@ return {
       end
     end
 
-    local harpoon2 = { sections = { lualine_a = { "filetype" } }, filetypes = { "harpoon" } }
+    local fugitive = {
+      sections = {
+        lualine_a = {
+          function()
+            return " " .. vim.fn.FugitiveHead()
+          end,
+        },
+        lualine_z = { "location" },
+      },
+
+      filetypes = { "fugitive" },
+    }
+
+    local harpoon = {
+      sections = {
+        lualine_a = {
+          function()
+            return "󱂬 Harpoon"
+          end,
+        },
+        lualine_z = {
+          "location",
+        },
+      },
+      filetypes = { "harpoon" },
+    }
+
+    local aerial = {
+      sections = {
+        lualine_a = {
+          function()
+            return " Aerial"
+          end,
+        },
+        lualine_z = {
+          "location",
+        },
+      },
+      filetypes = { "aerial" },
+    }
 
     local winbar_a = {
       {
@@ -82,10 +121,16 @@ return {
             "alpha",
             "neo-tree",
             "fugitive",
+            "aerial",
           },
         },
       },
       sections = {
+        lualine_b = {
+          { "branch", icon = "" },
+          "diff",
+          "diagnostics",
+        },
         lualine_c = {
           { "searchcount" },
           { macro_record, type = "lua_expr" },
@@ -117,7 +162,7 @@ return {
       inactive_winbar = {
         lualine_a = winbar_a,
       },
-      extensions = { "lazy", "mason", "neo-tree", "trouble", "fugitive", "aerial", harpoon2 },
+      extensions = { "lazy", "mason", "neo-tree", fugitive, aerial, harpoon },
     })
 
     ---------- Refresh lualine correctly ----------
