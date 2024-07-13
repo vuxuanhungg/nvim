@@ -1,3 +1,34 @@
+local macro_record = {
+  status = {
+    function()
+      local register = vim.fn.reg_recording()
+      if register == "" then
+        return ""
+      else
+        return "Recording @" .. register
+      end
+    end,
+    type = "lua_expr",
+  },
+  update = function()
+    local autocmd = vim.api.nvim_create_autocmd
+    local refresh = function()
+      require("lualine").refresh({
+        place = { "statusline" },
+      })
+    end
+
+    autocmd("RecordingEnter", { callback = refresh })
+    autocmd("RecordingLeave", {
+      callback = function()
+        -- Reference: https://www.reddit.com/r/neovim/comments/xy0tu1/cmdheight0_recording_macros_message/
+        local timer = vim.uv.new_timer()
+        timer:start(50, 0, vim.schedule_wrap(refresh))
+      end,
+    })
+  end,
+}
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -57,18 +88,6 @@ return {
           info = Settings.icons.diagnostics.Info,
           hint = Settings.icons.diagnostics.Hint,
         },
-      },
-
-      macro_record = {
-        function()
-          local register = vim.fn.reg_recording()
-          if register == "" then
-            return ""
-          else
-            return "Recording @" .. register
-          end
-        end,
-        type = "lua_expr",
       },
     }
 
@@ -133,7 +152,7 @@ return {
           { "b:gitsigns_head", icon = Settings.icons.git.Branch },
           components.diagnostics,
         },
-        lualine_c = { "searchcount", components.macro_record },
+        lualine_c = { "searchcount", macro_record.status },
       },
       tabline = {
         lualine_a = { components.buffer },
@@ -147,22 +166,7 @@ return {
       extensions = { "lazy", "mason", "neo-tree", extensions.aerial, extensions.fugitive, extensions.harpoon },
     })
 
-    ---------- Refresh lualine correctly ----------
-    local autocmd = vim.api.nvim_create_autocmd
-    local refresh = function()
-      lualine.refresh({
-        place = { "statusline" },
-      })
-    end
-
-    autocmd("RecordingEnter", { callback = refresh })
-    autocmd("RecordingLeave", {
-      callback = function()
-        -- Reference: https://www.reddit.com/r/neovim/comments/xy0tu1/cmdheight0_recording_macros_message/
-        local timer = vim.uv.new_timer()
-        timer:start(50, 0, vim.schedule_wrap(refresh))
-      end,
-    })
+    macro_record.update()
   end,
   event = "VeryLazy",
   keys = {
