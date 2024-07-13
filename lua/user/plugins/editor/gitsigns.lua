@@ -15,7 +15,7 @@ return {
         else
           gitsigns.nav_hunk("next")
         end
-      end)
+      end, "Next hunk")
 
       bmap("n", "[h", function()
         if vim.wo.diff then
@@ -23,7 +23,7 @@ return {
         else
           gitsigns.nav_hunk("prev")
         end
-      end)
+      end, "Previous hunk")
 
       ---------- Actions ----------
       local actions = {
