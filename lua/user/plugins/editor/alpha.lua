@@ -19,17 +19,18 @@ return {
     dashboard.section.buttons.val = {
       dashboard.button(
         "f",
-        "󰱼" .. "  Find file",
+        "󰱼  Find file",
         use_fzf and "<cmd> FzfLua files <cr>" or "<cmd> Telescope find_files <cr>"
       ),
       dashboard.button(
         "o",
-        "󰤘" .. "  Recent files",
+        "󰤘  Recent files",
         use_fzf and "<cmd> FzfLua oldfiles <cr>" or "<cmd> Telescope oldfiles <cr>"
       ),
-      dashboard.button("c", "󰒓" .. "  Config", ":e $MYVIMRC <bar> cd %:p:h <cr>"),
-      dashboard.button("q", "󰶞" .. "  Quit", ":qa <cr>"),
+      dashboard.button("c", "󰒓  Config", ":e $MYVIMRC <bar> cd %:p:h <cr>"),
+      dashboard.button("q", "󰶞  Quit", ":qa <cr>"),
     }
+
     dashboard.config.layout[1].val = vim.fn.max({ 2, vim.fn.floor(vim.fn.winheight(0) * 0.2) })
     dashboard.config.layout[3].val = 5
     dashboard.config.opts.noautocmd = true
