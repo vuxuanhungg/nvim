@@ -18,70 +18,101 @@ return {
   config = function()
     local lualine = require("lualine")
 
-    local macro_record = function()
-      local register = vim.fn.reg_recording()
-      if register == "" then
-        return ""
-      else
-        return "Recording @" .. register
-      end
-    end
-
-    local fugitive = {
-      sections = {
-        lualine_a = {
-          function()
-            return Settings.icons.git.Branch .. vim.fn.FugitiveHead()
-          end,
-        },
-        lualine_z = { "location" },
-      },
-
-      filetypes = { "fugitive" },
-    }
-
-    local harpoon = {
-      sections = {
-        lualine_a = {
-          function()
-            return "󱂬 Harpoon"
-          end,
-        },
-        lualine_z = {
-          "location",
-        },
-      },
-      filetypes = { "harpoon" },
-    }
-
-    local aerial = {
-      sections = {
-        lualine_a = {
-          function()
-            return " Aerial"
-          end,
-        },
-        lualine_z = {
-          "location",
-        },
-      },
-      filetypes = { "aerial" },
-    }
-
-    local winbar_a = {
-      {
-        "filename",
-        path = 1,
-        fmt = function(str)
-          return str:gsub("/", " > ")
-        end,
-        color = "lualine_winbar",
-      },
-      { "navic", color = "lualine_winbar" },
-    }
-
     -- Create hl_group so that we can easily update it afterword
     vim.api.nvim_set_hl(0, "lualine_winbar", { link = "Comment" })
+
+    local components = {
+      buffer = {
+        "buffers",
+        padding = 2,
+        symbols = { alternate_file = "" },
+        section_separators = { left = "", right = "" },
+        filetype_names = {
+          ["neo-tree"] = "Neo-tree",
+          lazy = "Lazy",
+          mason = "Mason",
+          harpoon = "Harpoon",
+          aerial = "Aerial",
+          spectre_panel = "Spectre",
+        },
+      },
+
+      winbar = {
+        {
+          "filename",
+          path = 1,
+          fmt = function(str)
+            return str:gsub("/", " > ")
+          end,
+          color = "lualine_winbar",
+        },
+        { "navic", color = "lualine_winbar" },
+      },
+
+      diagnostics = {
+        "diagnostics",
+        symbols = {
+          error = Settings.icons.diagnostics.Error,
+          warn = Settings.icons.diagnostics.Warn,
+          info = Settings.icons.diagnostics.Info,
+          hint = Settings.icons.diagnostics.Hint,
+        },
+      },
+
+      macro_record = {
+        function()
+          local register = vim.fn.reg_recording()
+          if register == "" then
+            return ""
+          else
+            return "Recording @" .. register
+          end
+        end,
+        type = "lua_expr",
+      },
+    }
+
+    local extensions = {
+      aerial = {
+        sections = {
+          lualine_a = {
+            function()
+              return " Aerial"
+            end,
+          },
+          lualine_z = {
+            "location",
+          },
+        },
+        filetypes = { "aerial" },
+      },
+
+      fugitive = {
+        sections = {
+          lualine_a = {
+            function()
+              return Settings.icons.git.Branch .. vim.fn.FugitiveHead()
+            end,
+          },
+          lualine_z = { "location" },
+        },
+        filetypes = { "fugitive" },
+      },
+
+      harpoon = {
+        sections = {
+          lualine_a = {
+            function()
+              return "󱂬 Harpoon"
+            end,
+          },
+          lualine_z = {
+            "location",
+          },
+        },
+        filetypes = { "harpoon" },
+      },
+    }
 
     lualine.setup({
       options = {
@@ -101,46 +132,20 @@ return {
         lualine_b = {
           { "branch", icon = Settings.icons.git.Branch },
           "diff",
-          {
-            "diagnostics",
-            symbols = {
-              error = Settings.icons.diagnostics.Error,
-              warn = Settings.icons.diagnostics.Warn,
-              info = Settings.icons.diagnostics.Info,
-              hint = Settings.icons.diagnostics.Hint,
-            },
-          },
+          components.diagnostics,
         },
-        lualine_c = {
-          { "searchcount" },
-          { macro_record, type = "lua_expr" },
-        },
+        lualine_c = { "searchcount", components.macro_record },
       },
       tabline = {
-        lualine_a = {
-          {
-            "buffers",
-            padding = 2,
-            symbols = { alternate_file = "" },
-            section_separators = { left = "", right = "" },
-            filetype_names = {
-              ["neo-tree"] = "Neo-tree",
-              lazy = "Lazy",
-              mason = "Mason",
-              harpoon = "Harpoon",
-              aerial = "Aerial",
-              spectre_panel = "Spectre",
-            },
-          },
-        },
+        lualine_a = { components.buffer },
       },
       winbar = {
-        lualine_a = winbar_a,
+        lualine_a = components.winbar,
       },
       inactive_winbar = {
-        lualine_a = winbar_a,
+        lualine_a = components.winbar,
       },
-      extensions = { "lazy", "mason", "neo-tree", fugitive, aerial, harpoon },
+      extensions = { "lazy", "mason", "neo-tree", extensions.aerial, extensions.fugitive, extensions.harpoon },
     })
 
     ---------- Refresh lualine correctly ----------
