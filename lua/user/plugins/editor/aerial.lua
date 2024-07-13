@@ -3,7 +3,6 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
-    "onsails/lspkind.nvim",
   },
   opts = {
     layout = {
@@ -14,6 +13,7 @@ return {
     },
     attach_mode = "global",
     show_guides = true,
+    icons = Settings.icons.kinds,
   },
   cmd = "AerialToggle",
   keys = {

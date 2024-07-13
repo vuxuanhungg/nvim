@@ -2,6 +2,45 @@ Settings = {
   ---@type "vscode" | "catppuccin" | "tokyonight"
   colorscheme = "tokyonight",
 
+  icons = {
+    kinds = {
+      Text = " ",
+      Unit = " ",
+      Value = " ",
+      Keyword = " ",
+      Snippet = " ",
+      Color = " ",
+      Reference = " ",
+      Folder = " ",
+      File = " ",
+      Module = " ",
+      Namespace = " ",
+      Package = " ",
+      Class = " ",
+      Method = " ",
+      Property = " ",
+      Field = " ",
+      Constructor = " ",
+      Enum = " ",
+      Interface = " ",
+      Function = " ",
+      Variable = " ",
+      Constant = " ",
+      String = " ",
+      Number = " ",
+      Boolean = " ",
+      Array = " ",
+      Object = " ",
+      Key = " ",
+      Null = " ",
+      EnumMember = " ",
+      Struct = " ",
+      Event = " ",
+      Operator = " ",
+      TypeParameter = " ",
+    },
+  },
+
   --[[
 Whether to use `none-ls` or `conform` + `nvim-lint`
 

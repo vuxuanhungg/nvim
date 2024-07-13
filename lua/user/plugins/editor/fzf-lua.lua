@@ -40,7 +40,7 @@ return {
     },
     lsp = {
       symbols = {
-        symbol_icons = require("lspkind").symbol_map,
+        symbol_icons = Settings.icons.kinds,
       },
       jump_to_single_result = true,
     },

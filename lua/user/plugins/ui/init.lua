@@ -23,9 +23,6 @@ return {
   -- Nerd-font icons
   { import = "user.plugins.ui.nvim-web-devicons" },
 
-  -- Kind icons
-  { import = "user.plugins.ui.lspkind" },
-
   -- Improve default vim.ui interfaces
   { import = "user.plugins.ui.dressing" },
 
