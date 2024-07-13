@@ -59,20 +59,6 @@ return {
         },
       },
 
-      diff = {
-        "diff",
-        source = function()
-          local gitsigns = vim.b.gitsigns_status_dict
-          if gitsigns then
-            return {
-              added = gitsigns.added,
-              modified = gitsigns.changed,
-              removed = gitsigns.removed,
-            }
-          end
-        end,
-      },
-
       macro_record = {
         function()
           local register = vim.fn.reg_recording()
@@ -145,7 +131,6 @@ return {
       sections = {
         lualine_b = {
           { "b:gitsigns_head", icon = Settings.icons.git.Branch },
-          components.diff,
           components.diagnostics,
         },
         lualine_c = { "searchcount", components.macro_record },
