@@ -3,6 +3,12 @@ Settings = {
   colorscheme = "tokyonight",
 
   icons = {
+    diagnostics = {
+      Error = "󰅚 ",
+      Warn = "󰀪 ",
+      Info = "󰋽 ",
+      Hint = "󰌶 ",
+    },
     kinds = {
       Text = " ",
       Unit = " ",

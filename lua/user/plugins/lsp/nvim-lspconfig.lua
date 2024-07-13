@@ -54,10 +54,10 @@ return {
         vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
       end
 
-      define_sign("Error", "󰅚 ")
-      define_sign("Warn", "󰀪 ")
-      define_sign("Hint", "󰌶 ")
-      define_sign("Info", "󰋽 ")
+      define_sign("Error", Settings.icons.diagnostics.Error)
+      define_sign("Warn", Settings.icons.diagnostics.Warn)
+      define_sign("Info", Settings.icons.diagnostics.Info)
+      define_sign("Hint", Settings.icons.diagnostics.Hint)
 
       vim.diagnostic.config({
         virtual_text = false,

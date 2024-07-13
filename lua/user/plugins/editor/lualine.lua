@@ -101,7 +101,15 @@ return {
         lualine_b = {
           { "branch", icon = "" },
           "diff",
-          "diagnostics",
+          {
+            "diagnostics",
+            symbols = {
+              error = Settings.icons.diagnostics.Error,
+              warn = Settings.icons.diagnostics.Warn,
+              info = Settings.icons.diagnostics.Info,
+              hint = Settings.icons.diagnostics.Hint,
+            },
+          },
         },
         lualine_c = {
           { "searchcount" },
@@ -113,9 +121,7 @@ return {
           {
             "buffers",
             padding = 2,
-            symbols = {
-              alternate_file = "",
-            },
+            symbols = { alternate_file = "" },
             section_separators = { left = "", right = "" },
             filetype_names = {
               ["neo-tree"] = "Neo-tree",
