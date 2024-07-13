@@ -13,6 +13,17 @@ autocmd("VimLeavePre", {
   command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
 })
 
+-- Reference: https://www.lazyvim.org/configuration/general#auto-commands
+autocmd("VimResized", {
+  desc = "Resize splits on window resize",
+  group = augroup("splits_resize", { clear = true }),
+  callback = function()
+    local current_tab = vim.fn.tabpagenr()
+    vim.cmd("tabdo wincmd =")
+    vim.cmd("tabnext " .. current_tab)
+  end,
+})
+
 autocmd("FileType", {
   desc = "Prevent indenting when pressing colon in Python files",
   group = augroup("python_no_colon_indent", { clear = true }),
