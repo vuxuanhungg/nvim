@@ -32,6 +32,9 @@ return {
 
   ---------- Buffer-scope utilities ----------
 
+  -- Highlight word under cursor
+  { import = "user.plugins.editor.illuminate" },
+
   -- Symbols outline
   { import = "user.plugins.editor.aerial" },
 
@@ -41,11 +44,6 @@ return {
   {
     -- Auto set indenting-related options
     "tpope/vim-sleuth",
-    event = { "BufReadPost", "BufNewFile" },
-  },
-  {
-    -- Highlight word under cursor
-    "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile" },
   },
   {
