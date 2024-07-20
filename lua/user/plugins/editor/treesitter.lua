@@ -34,6 +34,7 @@ return {
         "python",
         "toml",
         "yaml",
+        "gitcommit",
       },
       auto_install = false,
       highlight = { enable = true },
