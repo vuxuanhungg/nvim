@@ -58,6 +58,9 @@ return {
         padding = 2,
         symbols = { alternate_file = "" },
         section_separators = { left = "", right = "" },
+        buffers_color = {
+          active = "lualine_a_normal",
+        },
         filetype_names = {
           ["neo-tree"] = "Neo-tree",
           lazy = "Lazy",
