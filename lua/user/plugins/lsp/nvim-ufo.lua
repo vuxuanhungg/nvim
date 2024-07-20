@@ -75,5 +75,5 @@ return {
       },
     })
   end,
-  event = "LspAttach",
+  event = { "BufReadPost", "BufNewFile", "LspAttach" },
 }
