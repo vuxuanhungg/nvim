@@ -6,16 +6,9 @@ vim.cmd.colorscheme(Settings.colorscheme)
 
 vim.api.nvim_create_autocmd({ "BufWinEnter", "ColorScheme" }, {
   desc = "Customize highlights",
-  group = vim.api.nvim_create_augroup("colorscheme_load", { clear = true }),
+  group = vim.api.nvim_create_augroup("highlights_customize", { clear = true }),
   callback = function()
-    vim.api.nvim_set_hl(0, "WinSeparator", { link = "FloatBorder" })
-    vim.api.nvim_set_hl(0, "LspInfoBorder", { link = "FloatBorder" })
     vim.api.nvim_set_hl(0, "AerialLine", { link = "Visual" })
-    vim.api.nvim_set_hl(0, "AerialGuide", { link = "IndentBlanklineChar" })
-
-    if vim.g.colors_name == "vscode" then
-      vim.api.nvim_set_hl(0, "FzfLuaBorder", { link = "LspFloatWinBorder" })
-      vim.api.nvim_set_hl(0, "lualine_winbar", { fg = "#888888", bg = "NONE" })
-    end
+    vim.api.nvim_set_hl(0, "AerialGuide", { link = "IblIndent" })
   end,
 })
