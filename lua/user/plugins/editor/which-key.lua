@@ -1,21 +1,23 @@
 return {
   "folke/which-key.nvim",
-  config = function()
-    local wk = require("which-key")
-    wk.setup({
-      window = { border = "single" },
-      layout = { align = "center" },
-    })
-    local opts = {
-      ["<leader>b"] = { name = "Harpoon", _ = "which_key_ignore" },
-      ["<leader>f"] = { name = "Finder", _ = "which_key_ignore" },
-      ["<leader>g"] = { name = "Git", _ = "which_key_ignore" },
-      ["<leader>h"] = { name = "(Git) Hunk", _ = "which_key_ignore" },
-      ["<leader>r"] = { name = "Rename", _ = "which_key_ignore" },
-      ["<leader>s"] = { name = "Split", _ = "which_key_ignore" },
-      ["<leader>u"] = { name = "Toggle", _ = "which_key_ignore" },
-    }
-    wk.register(opts)
-  end,
+  opts = {
+    preset = "helix",
+    spec = {
+      { "<leader>b", group = "Buffer" },
+      { "<leader>f", group = "Finder" },
+      { "<leader>g", group = "Git" },
+      { "<leader>h", group = "Hunk" },
+      { "<leader>r", group = "Rename" },
+      { "<leader>s", group = "Split" },
+      { "<leader>u", group = "Toggle" },
+    },
+    win = {
+      border = "single",
+      padding = { 1, 4 },
+    },
+    icons = {
+      mappings = false,
+    },
+  },
   event = "VeryLazy",
 }
