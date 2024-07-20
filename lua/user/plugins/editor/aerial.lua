@@ -1,3 +1,9 @@
+-- Trim icons whitespace
+local icons = vim.deepcopy(Settings.icons.kinds)
+for k, v in pairs(icons) do
+  icons[k] = v:gsub(" ", "")
+end
+
 return {
   "stevearc/aerial.nvim",
   dependencies = {
@@ -13,7 +19,7 @@ return {
     },
     attach_mode = "global",
     show_guides = true,
-    icons = Settings.icons.kinds,
+    icons = icons,
   },
   cmd = "AerialToggle",
   keys = {
