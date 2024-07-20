@@ -7,6 +7,17 @@ return {
     "MunifTanjim/nui.nvim",
   },
   opts = {
+    -- Don't show git status icons
+    default_component_configs = {
+      git_status = {
+        symbols = {
+          added = "",
+          modified = "",
+          deleted = "",
+          renamed = "",
+        },
+      },
+    },
     commands = {
       system_open = function(state)
         local path = state.tree:get_node():get_id()
