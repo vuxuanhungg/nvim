@@ -1,7 +1,11 @@
 return {
   "ibhagwan/fzf-lua",
   dependencies = {
-    { "junegunn/fzf", build = "./install --bin", enabled = Settings.use_fzf },
+    {
+      "junegunn/fzf",
+      build = "./install --bin",
+      enabled = Settings.use_fzf and not vim.fn.executable("fzf"),
+    },
     "nvim-tree/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
   },
