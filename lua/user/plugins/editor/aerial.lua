@@ -16,6 +16,9 @@ return {
       placement = "edge",
       default_direction = "right",
       preserve_equality = true,
+      win_opts = {
+        statuscolumn = " ",
+      },
     },
     attach_mode = "global",
     show_guides = true,
