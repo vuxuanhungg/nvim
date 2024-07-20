@@ -47,17 +47,8 @@ return {
     end
 
     local tweak_ui = function()
-      ---@param level string
-      ---@param icon string
-      local define_sign = function(level, icon)
-        local name = "DiagnosticSign" .. level
-        vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
-      end
-
-      define_sign("Error", Settings.icons.diagnostics.Error)
-      define_sign("Warn", Settings.icons.diagnostics.Warn)
-      define_sign("Info", Settings.icons.diagnostics.Info)
-      define_sign("Hint", Settings.icons.diagnostics.Hint)
+      local s = vim.diagnostic.severity
+      local i = Settings.icons.diagnostics
 
       vim.diagnostic.config({
         virtual_text = false,
@@ -66,6 +57,14 @@ return {
         float = {
           border = "single",
           source = true,
+        },
+        signs = {
+          text = {
+            [s.ERROR] = i.Error,
+            [s.WARN] = i.Warn,
+            [s.HINT] = i.Hint,
+            [s.INFO] = i.Info,
+          },
         },
       })
 
