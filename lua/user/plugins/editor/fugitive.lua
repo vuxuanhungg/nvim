@@ -20,7 +20,7 @@ return {
     end
 
     return {
-      { "<leader>g", toggle_fugitive, desc = "(Git) Fugitive" },
+      { "<leader>gs", toggle_fugitive, desc = "Toggle Fugitive" },
     }
   end,
 }
