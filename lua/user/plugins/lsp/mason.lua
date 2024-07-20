@@ -87,6 +87,15 @@ return {
 
     default_setup()
     extra_setup()
+
+    vim.api.nvim_create_autocmd("FileType", {
+      desc = "Hide cursorline in Mason",
+      group = vim.api.nvim_create_augroup("mason_hide_cursorline", { clear = true }),
+      pattern = "mason",
+      callback = function()
+        vim.opt_local.cursorline = false
+      end,
+    })
   end,
   cmd = { "Mason", "MasonUpdate", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
   keys = {
