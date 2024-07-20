@@ -34,5 +34,4 @@ gmap({ "o", "x" }, 'a"', '2i"', 'Select arround " without leading whitespace')
 
 -- Toggle options
 gmap("n", "<leader>uc", utils.toggle_cmdline, "Toggle cmdline")
-
 gmap("n", "<leader>uw", utils.toggle_word_wrap, "Toggle word wrap")
