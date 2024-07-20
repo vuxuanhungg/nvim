@@ -146,6 +146,8 @@ return {
             "neo-tree",
             "fugitive",
             "aerial",
+            "DiffviewFiles",
+            "DiffviewFileHistory",
           },
         },
       },
