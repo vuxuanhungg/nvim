@@ -16,6 +16,9 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = {
+      dim_inactive = {
+        enabled = true,
+      },
       custom_highlights = {
         FzfLuaBorder = { link = "FloatBorder" },
       },
@@ -27,6 +30,12 @@ return {
     "folke/tokyonight.nvim",
     opts = {
       style = "night",
+      dim_inactive = true,
+      -- HACK: Dim `foldcolumn` and `signcolumn`
+      on_highlights = function(hl, _)
+        hl.FoldColumn = { bg = "NONE" }
+        hl.SignColumn = { bg = "NONE" }
+      end,
     },
     lazy = Settings.colorscheme ~= "tokyonight",
     priority = 1000,
