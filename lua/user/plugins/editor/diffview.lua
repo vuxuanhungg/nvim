@@ -16,6 +16,8 @@ return {
       },
       keymaps = {
         view = {
+          { "n", "<C-j>", actions.select_next_entry, { desc = "Open the diff for the next file" } },
+          { "n", "<C-k>", actions.select_prev_entry, { desc = "Open the diff for the previous file" } },
           ["[F"] = false,
           ["]F"] = false,
           ["<C-w><C-f>"] = false,
@@ -26,6 +28,8 @@ return {
           { "n", "<C-g>", actions.cycle_layout, { desc = "Cycle through available layouts" } },
         },
         file_panel = {
+          { "n", "<C-j>", actions.select_next_entry, { desc = "Open the diff for the next file" } },
+          { "n", "<C-k>", actions.select_prev_entry, { desc = "Open the diff for the previous file" } },
           ["[F"] = false,
           ["]F"] = false,
           ["<C-w><C-f>"] = false,
@@ -39,6 +43,8 @@ return {
           { "n", "ca", "<cmd> Git commit --amend <bar> wincmd J <cr>", { desc = "Amend the last commit" } },
         },
         file_history_panel = {
+          { "n", "<C-j>", actions.select_next_entry, { desc = "Open the diff for the next file" } },
+          { "n", "<C-k>", actions.select_prev_entry, { desc = "Open the diff for the previous file" } },
           ["[F"] = false,
           ["]F"] = false,
           ["<C-w><C-f>"] = false,
