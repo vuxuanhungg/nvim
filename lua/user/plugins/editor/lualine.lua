@@ -33,7 +33,6 @@ return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
     "nvim-tree/nvim-web-devicons",
-    "famiu/bufdelete.nvim",
     {
       "SmiteshP/nvim-navic",
       opts = {
@@ -172,9 +171,4 @@ return {
     macro_record.update()
   end,
   event = "VeryLazy",
-  keys = {
-    { "H", "<cmd> bprevious <cr>", desc = "Prev buffer " },
-    { "L", "<cmd> bnext <cr>", desc = "Next buffer" },
-    { "Q", "<cmd> Bdelete <cr>", desc = "Close buffer" },
-  },
 }

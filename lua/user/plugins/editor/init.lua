@@ -12,8 +12,9 @@ return {
   { import = "user.plugins.editor.treesitter" },
 
   -- Buffer & statusline
-  { import = "user.plugins.editor.harpoon" },
   { import = "user.plugins.editor.lualine" },
+  { import = "user.plugins.editor.bufdelete" },
+  { import = "user.plugins.editor.harpoon" },
 
   -- Keymaps helper
   { import = "user.plugins.editor.which-key" },
