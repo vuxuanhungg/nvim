@@ -48,9 +48,6 @@ return {
   config = function()
     local lualine = require("lualine")
 
-    -- Create hl_group so that we can easily update it afterword
-    vim.api.nvim_set_hl(0, "lualine_winbar", { link = "Comment" })
-
     local components = {
       buffer = {
         "buffers",

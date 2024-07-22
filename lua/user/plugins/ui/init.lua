@@ -21,6 +21,7 @@ return {
       },
       custom_highlights = {
         FzfLuaBorder = { link = "FloatBorder" },
+        lualine_winbar = { link = "Comment" },
       },
     },
     lazy = Settings.colorscheme ~= "catppuccin",
@@ -31,8 +32,10 @@ return {
     opts = {
       style = "night",
       dim_inactive = true,
-      -- HACK: Dim `foldcolumn` and `signcolumn`
       on_highlights = function(hl, _)
+        hl.lualine_winbar = { link = "Comment" }
+
+        -- HACK: Dim `foldcolumn` and `signcolumn`
         hl.FoldColumn = { bg = "NONE" }
         hl.SignColumn = { bg = "NONE" }
       end,
