@@ -56,6 +56,7 @@ return {
         section_separators = { left = "", right = "" },
         buffers_color = {
           active = "lualine_a_normal",
+          inactive = "lualine_buffers_inactive",
         },
         filetype_names = {
           ["neo-tree"] = "Neo-tree",
