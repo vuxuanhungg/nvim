@@ -99,9 +99,8 @@ return {
               return " Aerial"
             end,
           },
-          lualine_z = {
-            "location",
-          },
+          lualine_x = { "searchcount" },
+          lualine_z = { "location" },
         },
         filetypes = { "aerial" },
       },
