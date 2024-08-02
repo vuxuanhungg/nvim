@@ -49,6 +49,11 @@ return {
           { "n", "<C-g>", actions.cycle_layout, { desc = "Cycle through available layouts" } },
         },
       },
+      hooks = {
+        diff_buf_read = function()
+          vim.opt_local.foldenable = false
+        end,
+      },
     })
   end,
   cmd = { "DiffviewOpen", "DiffviewFileHistory" },
