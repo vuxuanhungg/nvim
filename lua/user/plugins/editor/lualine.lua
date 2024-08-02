@@ -139,6 +139,8 @@ return {
         section_separators = { left = "", right = "" },
         disabled_filetypes = {
           winbar = {
+            "",
+            "git",
             "help",
             "alpha",
             "neo-tree",
