@@ -29,6 +29,16 @@ local macro_record = {
   end,
 }
 
+local neo_tree_offset = {
+  function()
+    return "󰉓  Neo-tree                          "
+  end,
+  color = "NormalNC",
+  cond = function()
+    return _G.neo_tree_open
+  end,
+}
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -159,7 +169,8 @@ return {
         lualine_c = { "searchcount", macro_record.status },
       },
       tabline = {
-        lualine_a = { components.buffer },
+        lualine_a = { neo_tree_offset },
+        lualine_b = { components.buffer },
       },
       winbar = {
         lualine_a = components.winbar,

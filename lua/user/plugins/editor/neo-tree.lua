@@ -102,6 +102,7 @@ return {
         event = "neo_tree_window_after_open",
         handler = function()
           vim.opt_local.foldenable = false
+          _G.neo_tree_open = true
         end,
       },
       ---------- Equalize Window Sizes on Neo-tree Open and Close ----------
@@ -119,6 +120,10 @@ return {
           if args.position == "left" or args.position == "right" then
             vim.cmd("wincmd =")
           end
+          _G.neo_tree_open = false
+          require("lualine").refresh({
+            place = { "tabline" },
+          })
         end,
       },
 
