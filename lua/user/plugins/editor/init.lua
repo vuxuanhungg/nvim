@@ -69,9 +69,6 @@ return {
 
   ---------- Others ----------
 
-  -- Welcome screen
-  { import = "user.plugins.editor.alpha" },
-
   {
     -- Preview markdown in browser
     "iamcco/markdown-preview.nvim",
