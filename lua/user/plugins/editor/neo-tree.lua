@@ -1,3 +1,9 @@
+local equalize_windows = function(position)
+  if position == "left" or position == "right" then
+    vim.cmd("wincmd =")
+  end
+end
+
 return {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
@@ -97,30 +103,24 @@ return {
       },
     },
     event_handlers = {
-      ---------- Fix nvim-ufo autofold neo-tree folders ----------
-      {
-        event = "neo_tree_window_after_open",
-        handler = function()
-          vim.opt_local.foldenable = false
-          _G.neo_tree_open = true
-        end,
-      },
-      ---------- Equalize Window Sizes on Neo-tree Open and Close ----------
       {
         event = "neo_tree_window_after_open",
         handler = function(args)
-          if args.position == "left" or args.position == "right" then
-            vim.cmd("wincmd =")
-          end
+          equalize_windows(args.position)
+
+          -- Fix nvim-ufo autofold neo-tree folders
+          vim.opt_local.foldenable = false
+
+          _G.neo_tree_open = true
         end,
       },
       {
         event = "neo_tree_window_after_close",
         handler = function(args)
-          if args.position == "left" or args.position == "right" then
-            vim.cmd("wincmd =")
-          end
+          equalize_windows(args.position)
+
           _G.neo_tree_open = false
+
           require("lualine").refresh({
             place = { "tabline" },
           })
