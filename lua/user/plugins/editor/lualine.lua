@@ -152,7 +152,7 @@ return {
       },
       sections = {
         lualine_b = {
-          { "b:gitsigns_head", icon = Settings.icons.git.Branch },
+          { "b:gitsigns_head", icon = Settings.icons.git.Branch:gsub(" ", "") },
           components.diagnostics,
         },
         lualine_c = { "searchcount", macro_record.status },
