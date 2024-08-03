@@ -140,8 +140,9 @@ return {
           winbar = {
             "",
             "git",
+            "gitcommit",
+            "gitrebase",
             "help",
-            "alpha",
             "neo-tree",
             "fugitive",
             "aerial",
