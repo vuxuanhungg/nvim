@@ -50,8 +50,10 @@ return {
         },
       },
       hooks = {
-        view_enter = function()
+        diff_buf_win_enter = function()
           vim.opt_local.foldenable = false
+        end,
+        view_enter = function()
           require("lualine").hide({
             place = { "winbar" },
           })
