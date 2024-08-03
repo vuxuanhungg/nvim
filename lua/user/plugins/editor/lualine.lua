@@ -52,6 +52,7 @@ return {
           preference = { "volar", "vtsls" },
         },
         icons = Settings.icons.kinds,
+        separator = "  ",
       },
     },
   },
@@ -83,7 +84,7 @@ return {
           "filename",
           path = 1,
           fmt = function(str)
-            return str:gsub("/", " > ")
+            return str:gsub("/", "  ")
           end,
           color = "lualine_winbar",
         },
