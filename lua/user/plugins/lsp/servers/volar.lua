@@ -1,13 +1,13 @@
 return {
-  setup = function(capabilities)
+  setup = function(capabilities, common_on_attach)
     require("lspconfig")["volar"].setup({
       capabilities = capabilities,
-      on_attach = function(client)
-        -- let vtsls handle instead
-        client.server_capabilities.definitionProvider = false
-        client.server_capabilities.implementationProvider = false
-        client.server_capabilities.referencesProvider = false
-      end,
+      on_attach = common_on_attach,
+      init_options = {
+        vue = {
+          hybridMode = false,
+        },
+      },
     })
   end,
 }

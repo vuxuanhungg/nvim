@@ -132,7 +132,7 @@ return {
             require("user.plugins.lsp.servers.vtsls").setup(capabilities, common_on_attach)
           end,
           ["volar"] = function()
-            require("user.plugins.lsp.servers.volar").setup(capabilities)
+            require("user.plugins.lsp.servers.volar").setup(capabilities, common_on_attach)
           end,
           ["basedpyright"] = function()
             require("user.plugins.lsp.servers.basedpyright").setup(capabilities, common_on_attach)
