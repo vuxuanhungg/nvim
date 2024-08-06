@@ -153,6 +153,7 @@ return {
             "git",
             "gitcommit",
             "gitrebase",
+            "man",
             "help",
             "neo-tree",
             "fugitive",
