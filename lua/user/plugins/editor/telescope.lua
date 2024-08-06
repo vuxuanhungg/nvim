@@ -66,6 +66,7 @@ return {
     { "<leader>ff", "<cmd> Telescope find_files <cr>", desc = "Find files" },
     { "<leader>fF", "<cmd> Telescope find_files no_ignore=true hidden=true <cr>", desc = "Find files (all)" },
     { "<leader>fo", "<cmd> Telescope oldfiles <cr>", desc = "Recent files" },
+    { "<leader>fg", "<cmd> Telescope git_status <cr>", desc = "Git status" },
     { "<leader>fw", "<cmd> Telescope live_grep <cr>", desc = "Find words" },
     { "<leader>fb", "<cmd> Telescope buffers <cr>", desc = "Find buffers" },
     { "<leader>fc", "<cmd> Telescope commands <cr>", desc = "Find commands" },

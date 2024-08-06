@@ -66,6 +66,7 @@ return {
     { "<C-p>", "<cmd> FzfLua files <cr>", desc = "Find files" },
     { "<leader>ff", "<cmd> FzfLua files <cr>", desc = "Find files" },
     { "<leader>fo", "<cmd> FzfLua oldfiles <cr>", desc = "Recent files" },
+    { "<leader>fg", "<cmd> FzfLua git_status <cr>", desc = "Git status" },
     { "<leader>fw", "<cmd> FzfLua live_grep <cr>", desc = "Find words" },
     { "<leader>fb", "<cmd> FzfLua buffers <cr>", desc = "Find buffers" },
     { "<leader>fc", "<cmd> FzfLua commands <cr>", desc = "Find commands" },
