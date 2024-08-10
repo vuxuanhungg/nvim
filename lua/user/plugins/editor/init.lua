@@ -75,10 +75,4 @@ return {
     build = "cd app && yarn",
     ft = "markdown",
   },
-  {
-    -- Prevent opening files in a mini window (help, aerial, fugitive, etc.)
-    "stevearc/stickybuf.nvim",
-    opts = {},
-    event = { "BufReadPost", "BufNewFile" },
-  },
 }
