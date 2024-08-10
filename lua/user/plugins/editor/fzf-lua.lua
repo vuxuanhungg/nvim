@@ -4,7 +4,7 @@ return {
     {
       "junegunn/fzf",
       build = "./install --bin",
-      enabled = Settings.use_fzf and not vim.fn.executable("fzf"),
+      enabled = Settings.use_fzf and vim.fn.executable("fzf") == 0,
     },
     "nvim-tree/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
