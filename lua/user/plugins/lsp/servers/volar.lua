@@ -3,11 +3,6 @@ return {
     require("lspconfig")["volar"].setup({
       capabilities = capabilities,
       on_attach = common_on_attach,
-      init_options = {
-        vue = {
-          hybridMode = false,
-        },
-      },
     })
   end,
 }
