@@ -88,5 +88,5 @@ Whether to use `none-ls` or `conform` + `nvim-lint`
   -- Whether to show cmdline
   -- Show cmdline would reduce occurences of "Press Enter to continue" popup
   ---@type 0|1
-  cmdheight = 0,
+  cmdheight = 1,
 }
