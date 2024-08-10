@@ -41,21 +41,7 @@ local neo_tree_offset = {
 
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = {
-    "nvim-tree/nvim-web-devicons",
-    {
-      "SmiteshP/nvim-navic",
-      opts = {
-        click = true,
-        lsp = {
-          auto_attach = true,
-          preference = { "volar", "vtsls" },
-        },
-        icons = Settings.icons.kinds,
-        separator = "  ",
-      },
-    },
-  },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local lualine = require("lualine")
 
@@ -88,7 +74,6 @@ return {
           end,
           color = "lualine_winbar",
         },
-        { "navic", color = "lualine_winbar" },
       },
 
       diagnostics = {
