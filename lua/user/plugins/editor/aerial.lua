@@ -11,6 +11,7 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   opts = {
+    backends = { "lsp", "treesitter", "markdown", "asciidoc", "man" },
     layout = {
       width = 30,
       placement = "edge",
@@ -24,6 +25,11 @@ return {
     show_guides = true,
     icons = icons,
     filter_kind = false,
+    lsp = {
+      priority = {
+        volar = 11,
+      },
+    },
   },
   cmd = "AerialToggle",
   keys = {
