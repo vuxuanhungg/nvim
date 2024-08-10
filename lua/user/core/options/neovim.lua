@@ -17,8 +17,7 @@ opt.signcolumn = "yes"
 -- Don't show the mode, since it's already in the status line
 opt.showmode = false
 
--- Hide command line unless needed
-opt.cmdheight = 0
+opt.cmdheight = Settings.cmdheight
 
 -- Only show status line on the focused window
 opt.laststatus = 3
