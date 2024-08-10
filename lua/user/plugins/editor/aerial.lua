@@ -23,6 +23,7 @@ return {
     attach_mode = "global",
     show_guides = true,
     icons = icons,
+    filter_kind = false,
   },
   cmd = "AerialToggle",
   keys = {
