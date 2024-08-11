@@ -73,6 +73,10 @@ return {
     -- Preview markdown in browser
     "iamcco/markdown-preview.nvim",
     build = "cd app && yarn",
+    config = function()
+      vim.g.mkdp_auto_close = 0
+      vim.g.mkdp_combine_preview = 1
+    end,
     ft = "markdown",
   },
 }
