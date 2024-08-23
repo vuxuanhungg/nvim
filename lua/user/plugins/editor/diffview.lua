@@ -54,11 +54,13 @@ return {
           vim.opt_local.foldenable = false
         end,
         view_enter = function()
+          _G.diffview_open = true
           require("lualine").hide({
             place = { "winbar" },
           })
         end,
         view_leave = function()
+          _G.diffview_open = false
           require("lualine").hide({ unhide = true })
         end,
       },

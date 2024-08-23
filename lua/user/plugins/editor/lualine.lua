@@ -35,7 +35,7 @@ local neo_tree_offset = {
   end,
   color = "NormalNC",
   cond = function()
-    return _G.neo_tree_open
+    return _G.neo_tree_open and not _G.diffview_open
   end,
 }
 
