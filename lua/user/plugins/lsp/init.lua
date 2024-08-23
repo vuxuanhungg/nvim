@@ -10,5 +10,17 @@ return {
   { import = "user.plugins.lsp.conform" },
   { import = "user.plugins.lsp.nvim-lint" },
 
-  { "j-hui/fidget.nvim", tag = "v1.4.5", opts = {}, event = "VeryLazy" },
+  -- LSP progress status
+  {
+    "j-hui/fidget.nvim",
+    tag = "v1.4.5",
+    opts = {
+      notification = {
+        window = {
+          winblend = 0,
+        },
+      },
+    },
+    event = "VeryLazy",
+  },
 }
