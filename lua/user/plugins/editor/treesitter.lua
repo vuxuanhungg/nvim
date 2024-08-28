@@ -5,7 +5,7 @@ return {
     { "windwp/nvim-ts-autotag", opts = {} },
     { "JoosepAlviste/nvim-ts-context-commentstring", opts = {} },
     "nvim-treesitter/nvim-treesitter-textobjects",
-    "nvim-treesitter/nvim-treesitter-context",
+    { "nvim-treesitter/nvim-treesitter-context", opts = { max_lines = 3 } },
   },
   config = function()
     require("nvim-treesitter.configs").setup({
