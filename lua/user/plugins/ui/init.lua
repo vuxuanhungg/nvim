@@ -5,7 +5,6 @@ return {
     opts = {
       italic_comments = true,
       group_overrides = {
-        FzfLuaBorder = { link = "LspFloatWinBorder" },
         lualine_winbar = { fg = "#808080", bg = "NONE" },
         lualine_buffers_active = { fg = "#569CD6", bg = "NONE" },
         lualine_buffers_inactive = { fg = "#808080", bg = "#262626" },
