@@ -52,7 +52,7 @@ return {
         symbols = { alternate_file = "" },
         section_separators = { left = "", right = "" },
         buffers_color = {
-          active = "lualine_b_normal",
+          active = "lualine_buffers_active",
           inactive = "lualine_buffers_inactive",
         },
         filetype_names = {

@@ -7,7 +7,8 @@ return {
       group_overrides = {
         FzfLuaBorder = { link = "LspFloatWinBorder" },
         lualine_winbar = { fg = "#808080", bg = "NONE" },
-        lualine_buffers_inactive = { fg = "#808080", bg = "NONE" },
+        lualine_buffers_active = { fg = "#569CD6", bg = "NONE" },
+        lualine_buffers_inactive = { fg = "#808080", bg = "#262626" },
       },
     },
     lazy = Settings.colorscheme ~= "vscode",
@@ -23,6 +24,7 @@ return {
       custom_highlights = {
         FzfLuaBorder = { link = "FloatBorder" },
         lualine_winbar = { link = "Comment" },
+        lualine_buffers_active = { link = "lualine_b_normal" },
         lualine_buffers_inactive = { link = "lualine_a_buffers_inactive" },
       },
     },
@@ -36,6 +38,7 @@ return {
       dim_inactive = true,
       on_highlights = function(hl, _)
         hl.lualine_winbar = { link = "Comment" }
+        hl.lualine_buffers_active = { link = "lualine_b_normal" }
         hl.lualine_buffers_inactive = { link = "lualine_a_buffers_inactive" }
 
         -- HACK: Dim `foldcolumn` and `signcolumn`
