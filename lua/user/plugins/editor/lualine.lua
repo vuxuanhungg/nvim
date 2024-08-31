@@ -31,7 +31,7 @@ local macro_record = {
 
 local neo_tree_offset = {
   function()
-    return "󰉓  Neo-tree                          "
+    return "󰉓  Neo-tree                           "
   end,
   color = "NormalNC",
   cond = function()
