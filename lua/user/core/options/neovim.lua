@@ -39,12 +39,6 @@ opt.wrap = true
 opt.breakindent = true
 opt.linebreak = true
 
--- Disable startup & search messages
-opt.shortmess:append({ I = true, s = true })
-
--- Hide tilde "~" on empty lines
-opt.fillchars = opt.fillchars + "eob: "
-
 ---------- Behaviors ----------
 
 -- Enable mouse mode, can be useful for resizing splits for example!
