@@ -44,12 +44,22 @@ M.toggle_maximize_window = function()
   if not _G.is_split_maximized then
     _G.is_split_maximized = true
     vim.cmd("tabedit %")
+    _G.split_tab = vim.api.nvim_get_current_tabpage()
     vim.notify("Window maximized", vim.log.levels.INFO, { title = "neovim" })
   else
     _G.is_split_maximized = false
-    vim.cmd("tabclose")
-    -- TODO: Close previous notification
-    vim.notify("Window restored", vim.log.levels.INFO, { title = "neovim" })
+    local close_split_tab = function()
+      vim.api.nvim_set_current_tabpage(_G.split_tab)
+      vim.cmd("tabclose")
+    end
+
+    local ok, _ = pcall(close_split_tab)
+    if ok then
+      -- TODO: Close previous notification
+      vim.notify("Window restored", vim.log.levels.INFO, { title = "neovim" })
+    else
+      vim.notify("Window already restored", vim.log.levels.WARN, { title = "neovim" })
+    end
   end
 end
 
