@@ -35,6 +35,24 @@ M.toggle_word_wrap = function()
   vim.notify("Word wrap: " .. (word_wrap and "off" or "on"), vim.log.levels.INFO, { title = "neovim" })
 end
 
+M.toggle_maximize_window = function()
+  -- Ignore if only one split is open
+  if not _G.is_split_maximized and vim.fn.winnr("$") == 1 then
+    return
+  end
+
+  if not _G.is_split_maximized then
+    _G.is_split_maximized = true
+    vim.cmd("tabedit %")
+    vim.notify("Window maximized", vim.log.levels.INFO, { title = "neovim" })
+  else
+    _G.is_split_maximized = false
+    vim.cmd("tabclose")
+    -- TODO: Close previous notification
+    vim.notify("Window restored", vim.log.levels.INFO, { title = "neovim" })
+  end
+end
+
 --- Filter out diagnostic messages we do not want to see
 ---@param messages string[]
 M.filter_diagnostics = function(messages)

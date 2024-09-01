@@ -15,6 +15,7 @@ gmap("n", "<C-\\>", "<C-w>v", "Split window vertically")
 gmap("n", "<leader>sv", "<C-w>v", "Split window vertically")
 gmap("n", "<leader>sh", "<C-w>s", "Split window horizontally")
 gmap("n", "<leader>se", "<C-w>=", "Split window equally")
+gmap("n", "<leader>sm", utils.toggle_maximize_window, "Toggle miximize window")
 
 -- Line editing
 gmap("n", "<A-j>", ":m .+1<cr>==", "Move line down")

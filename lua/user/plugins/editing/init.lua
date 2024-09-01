@@ -18,11 +18,6 @@ return {
     event = "InsertEnter",
   },
   {
-    "szw/vim-maximizer",
-    cmd = "MaximizerToggle",
-    keys = { { "<leader>sm", "<cmd> MaximizerToggle <cr>", desc = "Maximize window" } },
-  },
-  {
     "mg979/vim-visual-multi",
     event = { "BufReadPost", "BufNewFile" },
   },
