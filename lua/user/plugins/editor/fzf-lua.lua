@@ -16,7 +16,7 @@ return {
       height = 0.8,
       row = 0.5,
       col = 0.5,
-      border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+      border = "single",
       on_create = function()
         vim.keymap.set("t", "<C-cr>", "<C-v>")
       end,
