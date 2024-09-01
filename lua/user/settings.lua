@@ -2,7 +2,7 @@ Settings = {
   ---@type "vscode" | "catppuccin" | "tokyonight"
   colorscheme = "tokyonight",
 
-  ---@type 'single' | 'rounded' | 'none'
+  ---@type "single" | "rounded"
   border = "rounded",
 
   icons = {
