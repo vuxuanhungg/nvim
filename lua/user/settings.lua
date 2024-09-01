@@ -2,6 +2,9 @@ Settings = {
   ---@type "vscode" | "catppuccin" | "tokyonight"
   colorscheme = "tokyonight",
 
+  ---@type 'single' | 'rounded' | 'none'
+  border = "single",
+
   icons = {
     diagnostics = {
       Error = "󰅚 ",

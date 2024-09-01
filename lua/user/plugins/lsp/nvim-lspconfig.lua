@@ -55,7 +55,7 @@ return {
         update_in_insert = true,
         severity_sort = true,
         float = {
-          border = "single",
+          border = Settings.border,
           source = true,
         },
         signs = {
@@ -69,15 +69,15 @@ return {
       })
 
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        border = "single",
+        border = Settings.border,
       })
 
       vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        border = "single",
+        border = Settings.border,
       })
 
       -- Set border for :LspInfo
-      require("lspconfig.ui.windows").default_options.border = "single"
+      require("lspconfig.ui.windows").default_options.border = Settings.border
     end
 
     local setup_servers = function()

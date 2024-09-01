@@ -71,7 +71,7 @@ return {
       end,
       fold_virt_text_handler = handler,
       preview = {
-        win_config = { border = "single" },
+        win_config = { border = Settings.border },
       },
     })
   end,

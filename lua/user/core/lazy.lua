@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("user.plugins", {
   defaults = { cond = not vim.g.vscode },
   install = { colorscheme = { Settings.colorscheme } },
-  ui = { border = "single" },
+  ui = { border = Settings.border },
 })
 
 require("user.utils").map()("n", "<leader>L", "<cmd> Lazy <cr>", "Lazy")

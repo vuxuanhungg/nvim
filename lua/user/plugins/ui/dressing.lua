@@ -1,7 +1,7 @@
 return {
   "stevearc/dressing.nvim",
   opts = {
-    input = { border = "single" },
+    input = { border = Settings.border },
     select = {
       backend = { Settings.use_fzf and "fzf_lua" or "telescope", "builtin", "nui" },
       fzf_lua = {

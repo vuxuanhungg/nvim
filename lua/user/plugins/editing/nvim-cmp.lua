@@ -18,7 +18,7 @@ return {
     luasnip.config.setup()
 
     local float_opts = {
-      border = "single",
+      border = Settings.border,
       winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
     }
 
