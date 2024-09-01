@@ -51,6 +51,9 @@ Settings = {
     git = {
       Branch = " ",
     },
+    misc = {
+      Debugger = " ",
+    },
   },
 
   --[[

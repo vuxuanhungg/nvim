@@ -3,6 +3,13 @@ return {
   opts = {
     stages = "static",
     timeout = 3000,
+    icons = {
+      DEBUG = Settings.icons.misc.Debugger,
+      ERROR = Settings.icons.diagnostics.Error,
+      INFO = Settings.icons.diagnostics.Info,
+      TRACE = Settings.icons.diagnostics.Hint,
+      WARN = Settings.icons.diagnostics.Warn,
+    },
   },
 
   init = function()
