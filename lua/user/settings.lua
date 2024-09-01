@@ -3,7 +3,7 @@ Settings = {
   colorscheme = "tokyonight",
 
   ---@type 'single' | 'rounded' | 'none'
-  border = "single",
+  border = "rounded",
 
   icons = {
     diagnostics = {
