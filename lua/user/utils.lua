@@ -82,4 +82,9 @@ M.filter_diagnostics = function(messages)
   end
 end
 
+M.is_table_empty = function(table)
+  local next = next
+  return next(table) == nil
+end
+
 return M
