@@ -3,13 +3,13 @@
 - `kitty` terminal: See [extras](./extras/kitty/) for `kitty` config
 - a [nerd font](https://www.nerdfonts.com/)
 - `node`: I recommend using a node version manager, like [fnm](https://github.com/Schniz/fnm)
-- `python`
+- `python3`: If you're on Linux, chances are it's already installed by default
 - `neovim`: Either _build from source_ or _use appimage_ (`v0.10` or newer)
 - a clipboard manager (e.g. `xclip`) and
 - and some other minor dependencies (see below)
 
 ```bash
-sudo apt install xclip fd-find ripgrep -y
+sudo apt install git build-essential python3-venv xclip fd-find ripgrep -y
 npm install -g yarn
 npm install -g typescript
 npm install -g @vue/typescript-plugin # only needed for vue projects
