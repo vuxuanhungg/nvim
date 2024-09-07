@@ -1,3 +1,7 @@
+# Fly neovim to the moon
+
+You might want to take a quick look at [Showcase](https://github.com/xuanhung1509/nvim/wiki/Showcase).
+
 ## Requirements
 
 - `kitty` terminal: See [extras](./extras/kitty/) for `kitty` config
