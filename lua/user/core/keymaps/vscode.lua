@@ -9,13 +9,13 @@ local workbench = {
     vim.fn.VSCodeNotify("workbench.action.splitEditor")
   end,
   maximize_window = function()
-    vim.fn.VSCodeNotify("workbench.action.maximizeEditor")
+    vim.fn.VSCodeNotify("workbench.action.toggleMaximizeEditorGroup")
   end,
   split_equally = function()
     vim.fn.VSCodeNotify("workbench.action.evenEditorWidths")
   end,
 
-  -- Telescope
+  -- Finder
   find_file = function()
     vim.fn.VSCodeNotify("workbench.action.quickOpen")
   end,
@@ -23,7 +23,7 @@ local workbench = {
     vim.fn.VSCodeNotify("workbench.action.showEditorsInActiveGroup")
   end,
   find_word = function()
-    vim.fn.VSCodeNotify("workbench.action.experimental.quickTextSearch")
+    vim.fn.VSCodeNotify("workbench.action.quickTextSearch")
   end,
   find_command = function()
     vim.fn.VSCodeNotify("workbench.action.showCommands")
