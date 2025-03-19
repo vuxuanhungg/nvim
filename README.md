@@ -59,7 +59,11 @@ curl -fsSL https://raw.githubusercontent.com/xuanhung1509/nvim/main/scripts/back
 - Clone the repo
 
 ```bash
+# https
 git clone https://github.com/xuanhung1509/nvim.git ~/.config/nvim
+
+# ssh
+git clone git@github.com:vuxuanhungg/nvim.git ~/.config/nvim
 ```
 
 - Start neovim
