@@ -68,10 +68,14 @@ git clone https://github.com/xuanhung1509/nvim.git ~/.config/nvim
 nvim
 ```
 
-## Known issues
+## Limitations
 
 - `eslint`:
   For projects with mixed config formats (e.g. monorepo), a file in folders with old config format has to be open first.
   If you open a file in folders with new config format first, opening a file in folders with old config format afterwards would raise an error that `eslint` cannot find the config file.
 
 - Sometimes in `vue` files, code folding takes a long time to detect fold or simply doesn't work.
+
+## Extras
+
+- [Use neovim inside VSCode](https://gist.github.com/vuxuanhungg/804f5412104e195a2ff0af6447efb643):
