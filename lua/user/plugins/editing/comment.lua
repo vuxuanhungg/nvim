@@ -1,3 +1,7 @@
+-- kitty can recognize Ctrl+/
+-- while standard xterms intepret Ctrl+/ as Ctrl+_
+local key = vim.env.TERM == "kitty" and "<C-/>" or "<C-_>"
+
 return {
   "numToStr/Comment.nvim",
   dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
@@ -11,9 +15,9 @@ return {
     }
   end,
   keys = {
-    { "<C-/>", "<cmd> lua require('Comment.api').toggle.linewise.current() <cr>", desc = "Toggle comment" },
+    { key, "<cmd> lua require('Comment.api').toggle.linewise.current() <cr>", desc = "Toggle comment" },
     {
-      "<C-/>",
+      key,
       "<esc><cmd> lua require('Comment.api').toggle.linewise(vim.fn.visualmode()) <cr>",
       mode = "v",
       desc = "Toggle comment",
