@@ -1,4 +1,5 @@
 local slow_format_filetypes = {}
+local web_format_opts = { "prettierd", "prettier", stop_after_first = true }
 
 return {
   "stevearc/conform.nvim",
@@ -11,22 +12,22 @@ return {
       sh = { "shfmt" },
 
       -- web dev
-      html = { { "prettierd", "prettier" } },
-      css = { { "prettierd", "prettier" } },
-      scss = { { "prettierd", "prettier" } },
-      json = { { "prettierd", "prettier" } },
-      javascript = { { "prettierd", "prettier" } },
-      javascriptreact = { { "prettierd", "prettier" } },
-      typescript = { { "prettierd", "prettier" } },
-      typescriptreact = { { "prettierd", "prettier" } },
-      vue = { { "prettierd", "prettier" } },
+      html = web_format_opts,
+      css = web_format_opts,
+      scss = web_format_opts,
+      json = web_format_opts,
+      javascript = web_format_opts,
+      javascriptreact = web_format_opts,
+      typescript = web_format_opts,
+      typescriptreact = web_format_opts,
+      vue = web_format_opts,
 
       -- python
       python = { "ruff_organize_imports", "ruff_format" },
 
       -- others
-      markdown = { { "prettierd", "prettier" } },
-      yaml = { { "prettierd", "prettier" } },
+      markdown = web_format_opts,
+      yaml = web_format_opts,
     },
 
     format_on_save = function(bufnr)
