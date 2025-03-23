@@ -1,4 +1,3 @@
-local slow_format_filetypes = {}
 local web_format_opts = { "prettierd", "prettier", stop_after_first = true }
 
 return {
@@ -30,25 +29,10 @@ return {
       yaml = web_format_opts,
     },
 
-    format_on_save = function(bufnr)
-      if slow_format_filetypes[vim.bo[bufnr].filetype] then
-        return
-      end
-      local on_format = function(err)
-        if err and err:match("timeout$") then
-          slow_format_filetypes[vim.bo[bufnr].filetype] = true
-        end
-      end
-
-      return { timeout_ms = 200, lsp_format = "fallback" }, on_format
-    end,
-
-    format_after_save = function(bufnr)
-      if not slow_format_filetypes[vim.bo[bufnr].filetype] then
-        return
-      end
-      return { lsp_format = "fallback" }
-    end,
+    format_on_save = {
+      lsp_format = "fallback",
+      timeout_ms = 500,
+    },
   },
   cmd = { "ConformInfo" },
   event = { "BufWritePre" },
