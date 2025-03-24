@@ -9,7 +9,7 @@ You might want to take a quick look at [Showcase](https://github.com/xuanhung150
 - `node`: I recommend using a node version manager, like [fnm](https://github.com/Schniz/fnm)
 - `python3`: If you're on Linux, chances are it's already installed by default
 - `neovim`: Either _build from source_ or _use appimage_ (`v0.10` or newer)
-- a clipboard manager (e.g. `xclip`) and
+- a clipboard manager (e.g. `xclip`)
 - and some other minor dependencies (see below)
 
 ```bash
@@ -82,4 +82,4 @@ nvim
 
 ## Extras
 
-- [Use neovim inside VSCode](https://gist.github.com/vuxuanhungg/804f5412104e195a2ff0af6447efb643):
+- [Use neovim inside VSCode](https://gist.github.com/vuxuanhungg/804f5412104e195a2ff0af6447efb643)
