@@ -4,7 +4,7 @@ return {
     {
       "junegunn/fzf",
       build = "./install --bin",
-      enabled = Settings.use_fzf and vim.fn.executable("fzf") == 0,
+      enabled = vim.fn.executable("fzf") == 0,
     },
     "nvim-tree/nvim-web-devicons",
     "nvim-treesitter/nvim-treesitter",
@@ -78,5 +78,4 @@ return {
     { "<leader>fx", "<cmd> FzfLua diagnostics_document <cr>", desc = "Document diagnostics" },
     { "<leader>fX", "<cmd> FzfLua diagnostics_workspace <cr>", desc = "Workspace diagnostics" },
   },
-  enabled = Settings.use_fzf,
 }

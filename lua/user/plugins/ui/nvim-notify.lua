@@ -35,13 +35,7 @@ return {
   end,
 
   keys = {
-    {
-      "<leader>fn",
-      Settings.use_fzf and "<cmd> Notifications <cr>" or function()
-        require("telescope").load_extension("notify").notify()
-      end,
-      desc = "Notifications history",
-    },
+    { "<leader>fn", "<cmd> Notifications <cr>", desc = "Notifications history" },
     {
       "<leader>un",
       function()

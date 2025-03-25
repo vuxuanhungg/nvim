@@ -3,14 +3,11 @@ return {
   opts = {
     input = { border = Settings.border },
     select = {
-      backend = { Settings.use_fzf and "fzf_lua" or "telescope", "builtin", "nui" },
+      backend = { "fzf_lua", "builtin", "nui" },
       fzf_lua = {
         winopts = {
           height = 0.5,
         },
-      },
-      telescope = {
-        layout_config = { width = 75, height = 15 },
       },
     },
   },

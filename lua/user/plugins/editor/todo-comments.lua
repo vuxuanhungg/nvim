@@ -12,14 +12,13 @@ return {
       TEST = { icon = "󰙨" },
     },
   },
-  cmd = "TodoTelescope",
   event = { "BufReadPost", "BufNewFile" },
   keys = {
     {
       "<leader>ft",
-      Settings.use_fzf and function()
+      function()
         require("todo-comments.fzf").todo()
-      end or "<cmd> TodoTelescope <cr>",
+      end,
       desc = "Find todos",
     },
   },

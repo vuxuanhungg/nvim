@@ -78,7 +78,7 @@ gmap("n", "<leader>sh", workbench.split_horizontally, "Split window horizontally
 gmap("n", "<leader>sm", workbench.maximize_window, "Maximize window")
 gmap("n", "<leader>se", workbench.split_equally, "Split window equally")
 
--- Telescope
+-- Finder
 gmap("n", "<leader>ff", workbench.find_file, "Find file")
 gmap("n", "<leader>fw", workbench.find_word, "Find word")
 gmap("n", "<leader>fb", workbench.switch_buffer, "Switch buffer")

@@ -10,26 +10,16 @@ return {
   config = function()
     local assign_keymaps = function(_, bufnr)
       local bmap = require("user.utils").map(bufnr)
-      local finder = nil
-      if Settings.use_fzf then
-        finder = require("fzf-lua")
-      else
-        finder = require("telescope.builtin")
+      local finder = require("fzf-lua")
+
+      local peekOrHover = function()
+        local winid = require("ufo").peekFoldedLinesUnderCursor()
+        if not winid then
+          vim.lsp.buf.hover()
+        end
       end
 
-      local actions = {
-        peekOrHover = function()
-          local winid = require("ufo").peekFoldedLinesUnderCursor()
-          if not winid then
-            vim.lsp.buf.hover()
-          end
-        end,
-        format_buffer = function()
-          vim.lsp.buf.format({ async = true })
-        end,
-      }
-
-      bmap("n", "K", actions.peekOrHover, "Hover symbol")
+      bmap("n", "K", peekOrHover, "Hover symbol")
       bmap("n", "gd", finder.lsp_definitions, "Go to definitions")
       bmap("n", "gr", finder.lsp_references, "Go to references")
       bmap("n", "gl", vim.diagnostic.open_float, "Line diagnostic")
