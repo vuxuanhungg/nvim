@@ -1,0 +1,61 @@
+// Do not replace the original settings with this
+// Instead, extend the `actions` list with this one
+{
+  "actions": [
+    // Do not copy/paste with Ctrl+c/v 
+    {
+      "command": "unbound",
+      "keys": "ctrl+c"
+    },
+    {
+      "command": "unbound",
+      "keys": "ctrl+v"
+    },
+    {
+      // Interpret Ctrl+i correctly (distinguish from Tab)  
+      "command": {
+        "action": "sendInput",
+        "input": "\u001b[105;5u"
+      },
+      "keys": "ctrl+i"
+    },
+    {
+      // Interpret Ctrl+Enter correctly
+      "command": {
+        "action": "sendInput",
+        "input": "\u001b[13;5u"
+      },
+      "keys": "ctrl+enter"
+    },
+    {
+      // Create new split
+      "command": {
+        "action": "splitPane",
+        "split": "right"
+      },
+      "keys": "ctrl+shift+enter"
+    },
+    {
+      // Toggle split zoom
+      "command": "togglePaneZoom",
+      "id": "User.togglePaneZoom",
+      "keys": "ctrl+shift+m"
+    },
+    {
+      // Move focus to previous split
+      "command": {
+        "action": "moveFocus",
+        "direction": "previousInOrder"
+      },
+      "keys": "ctrl+shift+["
+    },
+    {
+      // Move focus to previous split
+      "command": {
+        "action": "moveFocus",
+        "direction": "nextInOrder"
+      },
+      "keys": "ctrl+shift+]"
+    }
+  ]
+}
