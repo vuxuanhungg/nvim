@@ -14,5 +14,5 @@ return {
     })
   end,
   event = { "BufReadPre", "BufNewFile" },
-  enabled = not Settings.use_nls and not require("user.utils").is_table_empty(linters_by_ft),
+  enabled = not require("user.utils").is_table_empty(linters_by_ft),
 }

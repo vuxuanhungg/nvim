@@ -5,8 +5,7 @@ return {
   -- Better fold
   { import = "user.plugins.lsp.nvim-ufo" },
 
-  -- LSP diagnostics, formatting and code actions
-  { import = "user.plugins.lsp.none-ls" },
+  -- LSP formatting & diagnostics
   { import = "user.plugins.lsp.conform" },
   { import = "user.plugins.lsp.nvim-lint" },
 

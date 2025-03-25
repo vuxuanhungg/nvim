@@ -56,19 +56,6 @@ Settings = {
     },
   },
 
-  --[[
-Whether to use `none-ls` or `conform` + `nvim-lint`
-
-`conform` + `nvim-lint` are for formatting and diagnostics, respectively
-`none-ls` provides extra sources for completion, code actions and hover
-
-`conform` + `nvim-lint` are preferred, as they are more lightweight
-`preferred` binary in `conform` also behaves more consistently with the standard prettier
-
-]]
-  ---@type boolean
-  use_nls = false,
-
   -- Whether to show cmdline
   -- Show cmdline would reduce occurences of "Press Enter to continue" popup
   ---@type 0|1

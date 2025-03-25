@@ -36,5 +36,4 @@ return {
   },
   cmd = { "ConformInfo" },
   event = { "BufWritePre" },
-  enabled = not Settings.use_nls,
 }
