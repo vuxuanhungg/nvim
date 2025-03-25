@@ -4,7 +4,7 @@ You might want to take a quick look at [Showcase](https://github.com/xuanhung150
 
 ## Requirements
 
-- `kitty` terminal: See [extras](./extras/kitty/) for `kitty` config
+- `kitty` terminal
 - a [nerd font](https://www.nerdfonts.com/)
 - `node`: I recommend using a node version manager, like [fnm](https://github.com/Schniz/fnm)
 - `python3`: If you're on Linux, chances are it's already installed by default
@@ -80,6 +80,12 @@ nvim
 
 - Sometimes in `vue` files, code folding takes a long time to detect fold or simply doesn't work.
 
-## Extras
+- Sometimes, on entering a buffer, all the code will be folded unexpectedly. I cannot always reproduce it, so I am unable to fix it =))
 
-- [Use neovim inside VSCode](https://gist.github.com/vuxuanhungg/804f5412104e195a2ff0af6447efb643)
+- `vscode-neovim`: When you fold your code and start visual selection, moving up/down will move by line instead of moving by the code block.
+
+## Integrations
+
+- [`kitty`](./extras/kitty/)
+- [`vscode`](./extras/vscode/) settings and keybindings in companion with `vscode-neovim`
+- [`Windows Terminal (wsl)`](./extras/windows-terminal/)
