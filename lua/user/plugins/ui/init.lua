@@ -59,4 +59,7 @@ return {
 
   -- Fancy notification
   { import = "user.plugins.ui.nvim-notify" },
+
+  -- Smooth scrolling
+  { import = "user.plugins.ui.cinnamon" },
 }
