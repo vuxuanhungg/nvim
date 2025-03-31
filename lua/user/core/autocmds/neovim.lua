@@ -74,10 +74,12 @@ autocmd("User", {
   pattern = "visual_multi_exit",
   callback = function()
     local cmdheight = vim.api.nvim_get_option_value("cmdheight", {})
-    -- Temporarily set cmdheight to 1, then set back to previous value
-    vim.opt.cmdheight = 1
-    vim.schedule(function()
-      vim.opt.cmdheight = cmdheight
-    end)
+    if cmdheight < 1 then
+      -- Temporarily set cmdheight to 1, then set back to previous value
+      vim.opt.cmdheight = 1
+      vim.schedule(function()
+        vim.opt.cmdheight = cmdheight
+      end)
+    end
   end,
 })
