@@ -30,6 +30,9 @@ return {
     keys = { { "<leader>S", "<cmd> Spectre <cr>", desc = "Spectre" } },
   },
 
+  -- Session management
+  { import = "user.plugins.editor.persistence" },
+
   ---------- Buffer-scope utilities ----------
 
   -- Highlight word under cursor
@@ -65,9 +68,6 @@ return {
     },
     event = { "BufReadPost", "BufNewFile" },
   },
-
-  ---------- Others ----------
-
   {
     -- Preview markdown in browser
     "iamcco/markdown-preview.nvim",
