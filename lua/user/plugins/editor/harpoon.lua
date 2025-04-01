@@ -11,25 +11,24 @@ return {
     })
 
     local gmap = require("user.utils").map()
-    local toggle_menu = function()
+    local show_buffers = function()
       harpoon.ui:toggle_quick_menu(harpoon:list())
     end
-    local mark_file = function()
+    local add_buffer = function()
       harpoon:list():add()
-      vim.notify("Buffer marked", vim.log.levels.INFO, { title = "harpoon" })
+      vim.notify("Buffer added to Harpoon", vim.log.levels.INFO, { title = "harpoon" })
     end
     local navigate_to_buffer = function(index)
       harpoon:list():select(index)
     end
 
-    gmap("n", "<C-i>", "<C-i>", "Keep Ctrl+i functionality when press Tab")
-    gmap("n", "<tab>", toggle_menu, "Show harpoon list")
-    gmap("n", "<leader>ba", mark_file, "Mark buffer")
+    gmap("n", "<leader>bs", show_buffers, "Show buffers in Harpoon")
+    gmap("n", "<leader>ba", add_buffer, "Add buffer to Harpoon")
 
     for i = 1, 5 do
       gmap("n", "<leader>b" .. i, function()
         navigate_to_buffer(i)
-      end, "Navigate to buffer " .. i)
+      end, "Navigate to Harpoon buffer " .. i)
     end
   end,
   event = "VeryLazy",
