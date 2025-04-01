@@ -18,9 +18,9 @@ return {
   end,
   cmd = { "Bdelete", "BdeleteOthers" },
   keys = {
-    { "[b", "<cmd> bprevious <cr>", desc = "Prev buffer " },
+    { "[b", "<cmd> bprevious <cr>", desc = "Previous buffer " },
     { "]b", "<cmd> bnext <cr>", desc = "Next buffer" },
-    { "H", "<cmd> bprevious <cr>", desc = "Prev buffer " },
+    { "H", "<cmd> bprevious <cr>", desc = "Previous buffer " },
     { "L", "<cmd> bnext <cr>", desc = "Next buffer" },
     { "Q", "<cmd> Bdelete <cr>", desc = "Close buffer" },
     { "<leader>bd", "<cmd> BdeleteOthers <cr>", desc = "Close other buffers" },

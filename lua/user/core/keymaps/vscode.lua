@@ -70,7 +70,7 @@ gmap("n", "<leader>rn", editor.rename, "Rename symbol")
 gmap("n", "zc", editor.fold, "Fold")
 gmap("n", "zo", editor.unfold, "Unfold")
 gmap("n", "]d", editor.next_problem, "Next problem")
-gmap("n", "[d", editor.prev_problem, "Prev problem")
+gmap("n", "[d", editor.prev_problem, "Previous problem")
 
 -- Window
 gmap("n", "<leader>sv", workbench.split_vertically, "Split window vertically")

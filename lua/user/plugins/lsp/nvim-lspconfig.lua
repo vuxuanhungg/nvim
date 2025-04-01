@@ -23,7 +23,7 @@ return {
       bmap("n", "gd", finder.lsp_definitions, "Go to definitions")
       bmap("n", "gr", finder.lsp_references, "Go to references")
       bmap("n", "gl", vim.diagnostic.open_float, "Line diagnostic")
-      bmap("n", "[d", vim.diagnostic.goto_prev, "Prev diagnostic")
+      bmap("n", "[d", vim.diagnostic.goto_prev, "Previous diagnostic")
       bmap("n", "]d", vim.diagnostic.goto_next, "Next diagnostic")
 
       bmap("n", "<leader>rn", vim.lsp.buf.rename, "Rename symbol")
