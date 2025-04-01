@@ -1,17 +1,21 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
-autocmd("VimEnter", {
-  desc = "Set kitty spacing for neovim",
-  group = augroup("nvim_set_kitty_spacing", { clear = true }),
-  command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 margin=0",
-})
+if vim.env.TERM == "kitty" then
+  autocmd("VimEnter", {
+    desc = "Set kitty spacing for neovim",
+    group = augroup("nvim_set_kitty_spacing", { clear = true }),
+    command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 margin=0",
+  })
+end
 
-autocmd("VimLeavePre", {
-  desc = "Reset kitty spacing on quit",
-  group = augroup("reset_kitty_spacing", { clear = true }),
-  command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
-})
+if vim.env.TERM == "kitty" then
+  autocmd("VimLeavePre", {
+    desc = "Reset kitty spacing on quit",
+    group = augroup("reset_kitty_spacing", { clear = true }),
+    command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
+  })
+end
 
 -- Reference: https://www.lazyvim.org/configuration/general#auto-commands
 autocmd("VimResized", {
