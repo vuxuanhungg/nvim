@@ -4,14 +4,14 @@ return {
   event = "BufReadPre",
   keys = {
     {
-      "<leader>qs",
+      "<leader>qr",
       function()
         require("persistence").load()
       end,
       desc = "Restore the session for the current directory",
     },
     {
-      "<leader>qS",
+      "<leader>qs",
       function()
         require("persistence").select()
       end,
