@@ -50,3 +50,6 @@ opt.splitbelow = true
 
 -- Minimal number of screen lines to keep above and below the cursor
 opt.scrolloff = 5
+
+-- Fix restoration of `neo-tree`
+opt.sessionoptions = { "buffers", "curdir", "folds", "help", "tabpages", "winsize", "terminal" }
