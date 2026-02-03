@@ -6,4 +6,12 @@
 return {
   "AstroNvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.eslint" },
+  { import = "astrocommunity.pack.prettier" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.docker" },
 }
