@@ -77,6 +77,11 @@ return {
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
+        ["[c"] = {
+          function() require("treesitter-context").go_to_context(vim.v.count1) end,
+          desc = "Jump to upward context",
+          silent = true,
+        },
       },
     },
   },
