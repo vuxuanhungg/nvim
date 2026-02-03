@@ -15,4 +15,5 @@ return {
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.recipes.vscode-icons" },
 }
