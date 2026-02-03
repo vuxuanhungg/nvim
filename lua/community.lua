@@ -18,4 +18,5 @@ return {
   { import = "astrocommunity.recipes.vscode-icons" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
+  { import = "astrocommunity.colorscheme.catppuccin" },
 }
