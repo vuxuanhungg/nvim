@@ -14,4 +14,5 @@ return {
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.docker" },
+  { import = "astrocommunity.motion.nvim-surround" },
 }
