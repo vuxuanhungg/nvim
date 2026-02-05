@@ -16,7 +16,6 @@ return {
   { import = "astrocommunity.pack.docker" },
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.recipes.vscode-icons" },
-  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.vscode-nvim" },
