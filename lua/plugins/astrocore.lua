@@ -114,6 +114,20 @@ return {
           end,
         },
       },
+      set_kitty_spacing = {
+        {
+          event = "VimEnter",
+          desc = "Set kitty spacing for neovim",
+          command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 margin=0",
+        },
+      },
+      reset_kitty_spacing = {
+        {
+          event = "VimLeavePre",
+          desc = "Reset kitty spacing on quit",
+          command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
+        },
+      },
     },
   },
 }
