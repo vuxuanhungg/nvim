@@ -128,6 +128,18 @@ return {
           command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
         },
       },
+      resize_splits = {
+        -- https://www.lazyvim.org/configuration/general#auto-commands
+        {
+          event = "VimResized",
+          desc = "Resize splits on window resize",
+          callback = function()
+            local current_tab = vim.fn.tabpagenr()
+            vim.cmd "tabdo wincmd ="
+            vim.cmd("tabnext " .. current_tab)
+          end,
+        },
+      },
     },
   },
 }
