@@ -18,7 +18,6 @@ return {
   { import = "astrocommunity.recipes.vscode-icons" },
   { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.colorscheme.catppuccin" },
-  { import = "astrocommunity.colorscheme.vscode-nvim" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.editing-support.undotree" },
