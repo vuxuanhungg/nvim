@@ -140,6 +140,14 @@ return {
           end,
         },
       },
+      mason_hide_cursorline = {
+        {
+          event = "FileType",
+          pattern = "mason",
+          desc = "Hide cursorline in Mason",
+          callback = function() vim.opt_local.cursorline = false end,
+        },
+      },
     },
   },
 }
