@@ -11,6 +11,14 @@ return {
     },
   },
   {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      window = {
+        width = 40,
+      },
+    },
+  },
+  {
     "lewis6991/gitsigns.nvim",
     opts = {
       current_line_blame = true,
