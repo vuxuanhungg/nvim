@@ -15,5 +15,11 @@ return {
       LSPLoading9 = "⠇",
       LSPLoading10 = "⠏",
     },
+    status = {
+      separators = {
+        breadcrumbs = "  ",
+        path = "  ",
+      },
+    },
   },
 }
