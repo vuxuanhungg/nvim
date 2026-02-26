@@ -21,4 +21,5 @@ return {
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
   { import = "astrocommunity.editing-support.undotree" },
+  { import = "astrocommunity.recipes.heirline-vscode-winbar" },
 }
