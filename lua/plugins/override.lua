@@ -1,7 +1,3 @@
-local equalize_windows = function(position)
-  if position == "left" or position == "right" then vim.cmd "wincmd =" end
-end
-
 ---@type LazySpec
 return {
   ----- Override -----
@@ -32,11 +28,11 @@ return {
       event_handlers = {
         {
           event = "neo_tree_window_after_open",
-          handler = function(args) equalize_windows(args.position) end,
+          handler = require("utils").equalize_windows,
         },
         {
           event = "neo_tree_window_after_close",
-          handler = function(args) equalize_windows(args.position) end,
+          handler = require("utils").equalize_windows,
         },
       },
     },

@@ -68,11 +68,7 @@ return {
         {
           event = "VimResized",
           desc = "Resize splits on window resize",
-          callback = function()
-            local current_tab = vim.fn.tabpagenr()
-            vim.cmd "tabdo wincmd ="
-            vim.cmd("tabnext " .. current_tab)
-          end,
+          callback = require("utils").equalize_windows,
         },
       },
       mason_hide_cursorline = {
