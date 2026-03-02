@@ -1,3 +1,7 @@
+local equalize_windows = function(position)
+  if position == "left" or position == "right" then vim.cmd "wincmd =" end
+end
+
 ---@type LazySpec
 return {
   ----- Override -----
@@ -15,6 +19,25 @@ return {
     opts = {
       window = {
         width = 40,
+        mappings = {
+          ["<C-cr>"] = "open_vsplit",
+        },
+      },
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
+          hide_by_name = { ".git" },
+        },
+      },
+      event_handlers = {
+        {
+          event = "neo_tree_window_after_open",
+          handler = function(args) equalize_windows(args.position) end,
+        },
+        {
+          event = "neo_tree_window_after_close",
+          handler = function(args) equalize_windows(args.position) end,
+        },
       },
     },
   },
