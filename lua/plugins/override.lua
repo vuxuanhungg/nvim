@@ -59,6 +59,7 @@ return {
   {
     "Mofiqul/vscode.nvim",
     opts = {
+      style = "dark",
       italic_comments = true,
       group_overrides = {
         AerialLine = {
