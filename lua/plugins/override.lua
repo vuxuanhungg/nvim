@@ -54,6 +54,17 @@ return {
       require "astronvim.plugins.configs.luasnip"(plugin, opts)
     end,
   },
+  {
+    "esmuellert/codediff.nvim",
+    opts = {
+      keymaps = {
+        view = {
+          next_hunk = "]g",
+          prev_hunk = "[g",
+        },
+      },
+    },
+  },
 
   ----- Custom -----
   {
