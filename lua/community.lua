@@ -25,4 +25,5 @@ return {
   { import = "astrocommunity.git.codediff-nvim" },
   { import = "astrocommunity.quickfix.nvim-bqf" },
   { import = "astrocommunity.pack.biome" },
+  { import = "astrocommunity.editing-support.conform-nvim" },
 }
