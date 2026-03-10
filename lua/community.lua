@@ -26,4 +26,5 @@ return {
   { import = "astrocommunity.quickfix.nvim-bqf" },
   { import = "astrocommunity.pack.biome" },
   { import = "astrocommunity.editing-support.conform-nvim" },
+  { import = "astrocommunity.pack.tailwindcss" },
 }
