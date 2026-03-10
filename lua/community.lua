@@ -24,4 +24,5 @@ return {
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   { import = "astrocommunity.git.codediff-nvim" },
   { import = "astrocommunity.quickfix.nvim-bqf" },
+  { import = "astrocommunity.pack.biome" },
 }
