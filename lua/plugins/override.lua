@@ -107,6 +107,12 @@ return {
     "nvimtools/none-ls.nvim",
     enabled = false,
   },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      preset = "modern",
+    },
+  },
 
   ----- Custom -----
   {
