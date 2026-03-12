@@ -11,6 +11,12 @@ return {
         wrap = true,
       },
     },
+    filetypes = {
+      pattern = {
+        ["%.env%.[%w_.-]+"] = "sh",
+        [".*/kitty/.+%.conf"] = "bash",
+      },
+    },
     mappings = {
       n = {
         ["<C-p>"] = { function() require("snacks.picker").smart() end, desc = "Smart find Files" },
