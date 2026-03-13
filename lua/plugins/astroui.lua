@@ -21,5 +21,17 @@ return {
         path = "  ",
       },
     },
+    lazygit = {
+      theme = {
+        activeBorderColor = {
+          fg = "DiagnosticInfo",
+          bold = true,
+          cterm = {
+            bold = true,
+          },
+        },
+        optionsTextColor = { fg = "DiagnosticInfo" },
+      },
+    },
   },
 }
