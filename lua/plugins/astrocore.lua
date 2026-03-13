@@ -19,6 +19,8 @@ return {
     },
     mappings = {
       n = {
+        ["L"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        ["H"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["<C-p>"] = { function() require("snacks.picker").smart() end, desc = "Smart find Files" },
         ["J"] = { "mzJ`z", desc = "Retain cursor position on line join" },
         ["W"] = { ":noautocmd w<CR>", desc = "Save without formatting" },
