@@ -135,6 +135,8 @@ return {
         NormalFloat = { bg = "#181818" },
         NeoTreeNormal = { link = "NormalFloat" },
         NeoTreeNormalNC = { link = "NormalFloat" },
+        FloatBorder = { link = "NeoTreeFloatBorder" },
+        SnacksPickerBorder = { link = "NeoTreeFloatBorder" },
       },
     },
   },
