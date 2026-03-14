@@ -5,6 +5,8 @@ return {
   opts = {
     mappings = {
       n = {
+        gd = { function() require("snacks.picker").lsp_definitions() end, desc = "Go to definitions" },
+        gr = { function() require("snacks.picker").lsp_references() end, nowait = true, desc = "Go to references" },
         ["<A-O>"] = {
           function() require("vtsls").commands.organize_imports() end,
           desc = "Typescript: Organize imports",
