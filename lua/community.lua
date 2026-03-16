@@ -27,4 +27,5 @@ return {
   { import = "astrocommunity.pack.biome" },
   { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.completion.nvim-cmp" },
 }
