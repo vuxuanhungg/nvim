@@ -21,4 +21,25 @@ function M.get_cached_colorscheme()
   return vim.trim(content)
 end
 
+function M.set_windows_terminal_ui(padding, scrollbar)
+  -- Only run on Windows or WSL with Windows Terminal
+  local is_windows = vim.fn.has "win32" == 1
+  local is_wsl = vim.fn.has "wsl" == 1
+
+  if not (is_windows or is_wsl) then return end
+  if not vim.env.WT_SESSION then return end
+
+  -- Get Windows user path
+  local win_home = vim.fn.system("powershell.exe -NoProfile -Command '$env:USERPROFILE'"):gsub("%s+$", "")
+
+  vim.fn.jobstart({
+    "powershell.exe",
+    "-NoProfile",
+    "-File",
+    win_home .. "\\scripts\\windows-terminal-update-ui.ps1",
+    padding,
+    scrollbar,
+  }, { detach = true })
+end
+
 return M

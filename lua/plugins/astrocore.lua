@@ -92,6 +92,20 @@ return {
           callback = function() vim.opt_local.cursorline = false end,
         },
       },
+      set_windows_terminal_ui = {
+        {
+          event = "VimEnter",
+          desc = "Hide Windows Terminal's padding and scroll bar on open neovim",
+          callback = function() require("utils").set_windows_terminal_ui("0", "hidden") end,
+        },
+      },
+      reset_windows_terminal_ui = {
+        {
+          event = "VimLeavePre",
+          desc = "Reset Windows Terminal's padding and scroll bar on exit neovim",
+          callback = function() require("utils").set_windows_terminal_ui("24,24,0,0", "visible") end,
+        },
+      },
     },
   },
 }
