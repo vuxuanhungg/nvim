@@ -127,6 +127,12 @@ return {
       max_lines = 5,
     },
   },
+  {
+    "folke/snacks.nvim",
+    opts = {
+      scroll = {},
+    },
+  },
 
   ----- Custom -----
   {
