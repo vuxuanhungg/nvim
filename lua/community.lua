@@ -28,4 +28,5 @@ return {
   { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.completion.nvim-cmp" },
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
 }
