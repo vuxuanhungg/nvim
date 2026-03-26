@@ -42,4 +42,26 @@ function M.set_windows_terminal_ui(padding, scrollbar)
   }, { detach = true })
 end
 
+--- Update kitty terminal's padding and margin
+--- Make sure to include these settings in your `kitty.conf`
+--- ```bash
+---   allow_remote_control yes
+---   listen_on unix:/tmp/kitty-{kitty_pid}
+--- ```
+---@param padding string | "default"
+---@param margin string | "default"
+function M.set_kitty_terminal_ui(padding, margin)
+  -- Only run inside Kitty
+  if not os.getenv "KITTY_WINDOW_ID" then return end
+
+  local socket = os.getenv "KITTY_LISTEN_ON"
+
+  if socket and socket ~= "" then
+    local path = socket:gsub("^unix:", "")
+    if vim.fn.filereadable(path) ~= 1 then return end
+
+    vim.fn.system("kitty @ --to=" .. socket .. " set-spacing padding=" .. padding .. " margin=" .. margin)
+  end
+end
+
 return M

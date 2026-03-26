@@ -65,15 +65,15 @@ return {
       set_kitty_spacing = {
         {
           event = "VimEnter",
-          desc = "Set kitty spacing for neovim",
-          command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=0 margin=0",
+          desc = "Hide kitty's padding and margin on open neovim",
+          callback = function() require("utils").set_kitty_terminal_ui("0", "0") end,
         },
       },
       reset_kitty_spacing = {
         {
           event = "VimLeavePre",
-          desc = "Reset kitty spacing on quit",
-          command = ":silent !kitty @ --to=$KITTY_LISTEN_ON set-spacing padding=default margin=default",
+          desc = "Reset kitty's padding and margin on exit neovim",
+          callback = function() require("utils").set_kitty_terminal_ui("default", "default") end,
         },
       },
       resize_splits = {
