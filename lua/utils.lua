@@ -1,16 +1,10 @@
 local M = {}
 
-function M.equalize_windows()
-  local current_tab = vim.fn.tabpagenr()
-  vim.cmd "tabdo wincmd ="
-  vim.cmd("tabnext " .. current_tab)
-end
-
------ Get cached colorscheme -----
--- https://github.com/AstroNvim/astrocommunity/blob/main/lua/astrocommunity/recipes/cache-colorscheme/init.lua
 local colorscheme_cache = vim.fs.joinpath and vim.fs.joinpath(vim.fn.stdpath "state", "last_colorscheme")
   or (vim.fn.stdpath "state" .. "/last_colorscheme")
 
+--- Get colorscheme from cache
+-- https://github.com/AstroNvim/astrocommunity/blob/main/lua/astrocommunity/recipes/cache-colorscheme/init.lua
 function M.get_cached_colorscheme()
   local file = io.open(colorscheme_cache, "r")
   if not file then return nil end
@@ -21,6 +15,16 @@ function M.get_cached_colorscheme()
   return vim.trim(content)
 end
 
+function M.equalize_windows()
+  local current_tab = vim.fn.tabpagenr()
+  vim.cmd "tabdo wincmd ="
+  vim.cmd("tabnext " .. current_tab)
+end
+
+--- Update Windows Terminal's padding and scroll bar state
+--- Pair with `windows-terminal-update-ui.ps1`
+---@param padding string
+---@param scrollbar "visible" | "hidden" | "always"
 function M.set_windows_terminal_ui(padding, scrollbar)
   -- Only run on Windows or WSL with Windows Terminal
   local is_windows = vim.fn.has "win32" == 1
