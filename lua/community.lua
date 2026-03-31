@@ -29,4 +29,5 @@ return {
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.completion.nvim-cmp" },
   { import = "astrocommunity.ai.opencode-nvim" },
+  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 }
