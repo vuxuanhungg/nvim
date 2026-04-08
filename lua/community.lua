@@ -30,4 +30,5 @@ return {
   { import = "astrocommunity.completion.nvim-cmp" },
   { import = "astrocommunity.ai.opencode-nvim" },
   { import = "astrocommunity.lsp.ts-error-translator-nvim" },
+  { import = "astrocommunity.motion.flash-nvim" },
 }
