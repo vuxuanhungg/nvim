@@ -68,4 +68,25 @@ function M.set_kitty_terminal_ui(padding, margin)
   end
 end
 
+--- Sync kitty theme to match current neovim colorscheme
+--- Add entries to `theme_map` to support additional colorschemes
+function M.sync_kitty_terminal_theme()
+  local theme_map = {
+    astrodark = "astrodark",
+    vscode = "vscode-dark",
+    ["tokyonight-night"] = "tokyonight-night",
+  }
+
+  local current = vim.g.colors_name
+  local kitty_theme = theme_map[current]
+
+  if kitty_theme then
+    vim.fn.jobstart({
+      "bash",
+      os.getenv "HOME" .. "/.config/kitty/autotheme.sh",
+      kitty_theme,
+    }, { detach = true })
+  end
+end
+
 return M

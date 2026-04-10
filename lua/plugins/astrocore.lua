@@ -106,6 +106,13 @@ return {
           callback = function() require("utils").set_windows_terminal_ui("24,24,0,0", "visible") end,
         },
       },
+      sync_kitty_terminal_theme = {
+        {
+          event = "ColorScheme",
+          desc = "Sync kitty theme with neovim colorscheme",
+          callback = function() require("utils").sync_kitty_terminal_theme() end,
+        },
+      },
     },
   },
 }
