@@ -31,4 +31,5 @@ return {
   { import = "astrocommunity.ai.opencode-nvim" },
   { import = "astrocommunity.lsp.ts-error-translator-nvim" },
   { import = "astrocommunity.motion.flash-nvim" },
+  { import = "astrocommunity.pack.bash" },
 }
