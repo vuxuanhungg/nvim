@@ -102,12 +102,6 @@ return {
     enabled = false,
   },
   {
-    "folke/which-key.nvim",
-    opts = {
-      preset = "modern",
-    },
-  },
-  {
     "hrsh7th/nvim-cmp",
     opts = {
       completion = {
