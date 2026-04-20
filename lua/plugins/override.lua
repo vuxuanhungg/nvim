@@ -55,12 +55,6 @@ return {
     end,
   },
   {
-    "kevinhwang91/nvim-bqf",
-    opts = {
-      preview = { winblend = 0 },
-    },
-  },
-  {
     "esmuellert/codediff.nvim",
     opts = {
       keymaps = {
