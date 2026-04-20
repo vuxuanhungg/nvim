@@ -3,6 +3,9 @@ return {
   "AstroNvim/astrolsp",
   ---@type AstroLSPOpts
   opts = {
+    features = {
+      codelens = false,
+    },
     mappings = {
       n = {
         gd = { function() require("snacks.picker").lsp_definitions() end, desc = "Go to definitions" },
