@@ -15,6 +15,7 @@ return {
       pattern = {
         ["%.env%.[%w_.-]+"] = "sh",
         [".*/kitty/.+%.conf"] = "bash",
+        ["%.gitconfig%.local"] = "gitconfig",
       },
     },
     mappings = {
