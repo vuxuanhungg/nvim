@@ -5,31 +5,48 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.html-css" },
-  { import = "astrocommunity.pack.typescript" },
-  { import = "astrocommunity.pack.eslint" },
-  { import = "astrocommunity.pack.prettier" },
-  { import = "astrocommunity.pack.json" },
-  { import = "astrocommunity.pack.markdown" },
-  { import = "astrocommunity.pack.yaml" },
-  { import = "astrocommunity.pack.docker" },
-  { import = "astrocommunity.motion.nvim-surround" },
-  { import = "astrocommunity.recipes.vscode-icons" },
-  { import = "astrocommunity.editing-support.nvim-treesitter-context" },
+  -- AI
+  { import = "astrocommunity.ai.opencode-nvim" },
+
+  -- Colorschemes & UI
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.recipes.cache-colorscheme" },
-  { import = "astrocommunity.editing-support.undotree" },
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
-  { import = "astrocommunity.git.codediff-nvim" },
-  { import = "astrocommunity.quickfix.nvim-bqf" },
-  { import = "astrocommunity.pack.biome" },
-  { import = "astrocommunity.editing-support.conform-nvim" },
-  { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.recipes.vscode-icons" },
+
+  -- Completion
   { import = "astrocommunity.completion.nvim-cmp" },
-  { import = "astrocommunity.ai.opencode-nvim" },
+
+  -- Editing support
+  { import = "astrocommunity.editing-support.conform-nvim" },
+  { import = "astrocommunity.editing-support.nvim-treesitter-context" },
+  { import = "astrocommunity.editing-support.undotree" },
+
+  -- Git
+  { import = "astrocommunity.git.codediff-nvim" },
+
+  -- LSP
   { import = "astrocommunity.lsp.ts-error-translator-nvim" },
+
+  -- Motion
   { import = "astrocommunity.motion.flash-nvim" },
+  { import = "astrocommunity.motion.nvim-surround" },
+
+  -- Packs
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.biome" },
+  { import = "astrocommunity.pack.docker" },
+  { import = "astrocommunity.pack.eslint" },
+  { import = "astrocommunity.pack.html-css" },
+  { import = "astrocommunity.pack.json" },
+  { import = "astrocommunity.pack.lua" },
+  { import = "astrocommunity.pack.markdown" },
+  { import = "astrocommunity.pack.prettier" },
+  { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.pack.yaml" },
+
+  -- Quickfix
+  { import = "astrocommunity.quickfix.nvim-bqf" },
 }
