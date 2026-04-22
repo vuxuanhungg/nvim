@@ -26,9 +26,6 @@ return {
   -- Git
   { import = "astrocommunity.git.codediff-nvim" },
 
-  -- LSP
-  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
-
   -- Motion
   { import = "astrocommunity.motion.flash-nvim" },
   { import = "astrocommunity.motion.nvim-surround" },
@@ -46,7 +43,4 @@ return {
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
-
-  -- Quickfix
-  { import = "astrocommunity.quickfix.nvim-bqf" },
 }
