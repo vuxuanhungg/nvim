@@ -75,6 +75,8 @@ return {
               ["<C-CR>"] = { "edit_vsplit", mode = { "i", "n" } },
               ["<C-j>"] = { "history_forward", mode = { "i", "n" } },
               ["<C-k>"] = { "history_back", mode = { "i", "n" } },
+              ["<C-u>"] = false,
+              ["<C-d>"] = false,
             },
           },
         },
