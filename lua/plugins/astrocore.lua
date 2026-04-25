@@ -43,11 +43,6 @@ return {
         ["<"] = { "<gv", desc = "Indent left" },
         [">"] = { ">gv", desc = "Indent right" },
       },
-      c = {
-        -- https://github.com/mhinz/vim-galore?tab=readme-ov-file#saner-command-line-history
-        ["<C-n>"] = { 'wildmenumode() ? "\\<C-n>" : "\\<Down>"', expr = true },
-        ["<C-p>"] = { 'wildmenumode() ? "\\<C-p>" : "\\<Up>"', expr = true },
-      },
     },
     autocmds = {
       restore_session = {
