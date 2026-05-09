@@ -109,6 +109,19 @@ return {
           callback = function() require("utils").sync_kitty_terminal_theme() end,
         },
       },
+      lazynvim_disable_backdrop_border = {
+        -- HACK: Workaround until upstream gets fixed
+        -- https://github.com/folke/lazy.nvim/issues/1951#issuecomment-2860253949
+        {
+          event = "FileType",
+          pattern = "lazy_backdrop",
+          desc = "Disable lazy.nvim's backdrop border",
+          callback = function(ctx)
+            local win = vim.fn.win_findbuf(ctx.buf)[1]
+            vim.api.nvim_win_set_config(win, { border = "none" })
+          end,
+        },
+      },
     },
   },
 }
